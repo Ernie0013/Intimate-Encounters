@@ -1,0 +1,18 @@
+{
+    "cSpell.enableFiletypes": [
+        "ck3",
+        "yaml"
+    ],
+    "files.encoding": "utf8bom",
+    "files.autoGuessEncoding": true,
+    "[ck3]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.insertSpaces": false,
+        "editor.acceptSuggestionOnEnter": "on",
+        "editor.hover.enabled": true
+    }
+}
