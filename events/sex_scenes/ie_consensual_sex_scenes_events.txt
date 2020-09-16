@@ -1,0 +1,67 @@
+﻿namespace = ie_consensual_sex_scene
+
+ie_consensual_sex_scene.0001 = {
+	type = character_event
+	title = ie_consensual_sex_scene.0001.t
+	desc = {
+		desc = carn_sex_scene.0001.desc_opening # Default opening to add some flavor text
+		desc = ie_consensual_sex_scene.0001.opening
+	}
+	
+	theme = love
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = scope:carn_sex_player
+		animation = flirtation
+	}
+	right_portrait = {
+		character = scope:carn_sex_target
+		animation = flirtation
+	}
+
+	trigger = {
+		carn_sex_scene_is_consensual = yes
+
+		carn_sex_scene_matches_requested_flags_trigger = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			carn_sex_scene_is_consensual = yes
+
+			scope:carn_sex_player = {
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = scope:carn_sex_player
+					CHARACTER_2 = scope:carn_sex_target
+					PREGNANCY_CHANCE = pregnancy_chance
+					DRAMA = yes
+				}
+				add_character_flag = {
+					flag = is_naked
+					days = 180 # So character won't stay naked forever when something goes wrong
+				}
+			}
+
+			scope:carn_sex_target = {
+				add_character_flag = {
+					flag = is_naked
+					days = 180 # So character won't stay naked forever when something goes wrong
+				}
+			}
+		}
+	}
+
+	option = {
+		hidden_effect = {
+			scope:carn_sex_player = {
+				remove_character_flag = is_naked
+			}
+			scope:carn_sex_target = {
+				remove_character_flag = is_naked
+			}
+		}
+		name = ie_consensual_sex_scene.0001.a
+	}
+}
