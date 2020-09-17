@@ -7,10 +7,7 @@ ie_consensual_sex_scene_missionary.0001 = {
 		desc = ie_consensual_sex_scene_missionary.0001.text
 	}
 	
-	theme = love
-	override_background = {
-		event_background = bedchamber
-	}
+	theme = seduce_scheme
 
 	left_portrait = {
 		character = scope:carn_sex_player
