@@ -20,6 +20,7 @@ ie_consensual_sex_scene_missionary.0001 = {
 
 	trigger = {
 		carn_sex_scene_is_consensual = yes
+		carn_sex_scene_is_vaginal = yes
 
 		carn_sex_scene_matches_requested_flags_trigger = yes
 	}
@@ -27,6 +28,7 @@ ie_consensual_sex_scene_missionary.0001 = {
 	immediate = {
 		hidden_effect = {
 			carn_sex_scene_is_consensual = yes
+			carn_sex_scene_is_vaginal = yes
 
 			scope:carn_sex_player = {
 				carn_had_sex_with_effect = {
