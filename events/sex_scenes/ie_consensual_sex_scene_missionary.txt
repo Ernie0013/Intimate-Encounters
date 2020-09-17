@@ -1,17 +1,14 @@
-﻿namespace = ie_consensual_sex_scene
+﻿namespace = ie_consensual_sex_scene_missionary
 
-ie_consensual_sex_scene.0001 = {
+ie_consensual_sex_scene_missionary.0001 = {
 	type = character_event
-	title = ie_consensual_sex_scene.0001.t
+	title = ie_consensual_sex_scene_missionary.0001.t
 	desc = {
-		desc = carn_sex_scene.0001.desc_opening # Default opening to add some flavor text
-		desc = ie_consensual_sex_scene.0001.opening
+		desc = ie_consensual_sex_scene_missionary.0001.text
 	}
 	
-	theme = love
-	override_background = {
-		event_background = bedchamber
-	}
+	theme = seduce_scheme
+
 	left_portrait = {
 		character = scope:carn_sex_player
 		animation = flirtation
@@ -23,6 +20,7 @@ ie_consensual_sex_scene.0001 = {
 
 	trigger = {
 		carn_sex_scene_is_consensual = yes
+		carn_sex_scene_is_vaginal = yes
 
 		carn_sex_scene_matches_requested_flags_trigger = yes
 	}
@@ -30,27 +28,36 @@ ie_consensual_sex_scene.0001 = {
 	immediate = {
 		hidden_effect = {
 			carn_sex_scene_is_consensual = yes
+			carn_sex_scene_is_vaginal = yes
 
 			scope:carn_sex_player = {
 				carn_had_sex_with_effect = {
 					CHARACTER_1 = scope:carn_sex_player
 					CHARACTER_2 = scope:carn_sex_target
-					PREGNANCY_CHANCE = pregnancy_chance
+					PREGNANCY_CHANCE = seduce_pregnancy_chance
 					DRAMA = yes
 				}
 				add_character_flag = {
 					flag = is_naked
-					days = 180 # So character won't stay naked forever when something goes wrong
+					days = 180 # So character won't stay naked forever if something goes wrong
 				}
 			}
 
 			scope:carn_sex_target = {
 				add_character_flag = {
 					flag = is_naked
-					days = 180 # So character won't stay naked forever when something goes wrong
+					days = 180 # So character won't stay naked forever if something goes wrong
 				}
 			}
 		}
+	}
+
+	option = {
+		trigger = {
+			debug_only = yes
+		}
+		trigger_event = ie_consensual_sex_scene_missionary.0001
+		name = ie_consensual_sex_scene_missionary.0001.debug
 	}
 
 	option = {
@@ -62,6 +69,6 @@ ie_consensual_sex_scene.0001 = {
 				remove_character_flag = is_naked
 			}
 		}
-		name = ie_consensual_sex_scene.0001.a
+		name = ie_consensual_sex_scene_missionary.0001.a
 	}
 }

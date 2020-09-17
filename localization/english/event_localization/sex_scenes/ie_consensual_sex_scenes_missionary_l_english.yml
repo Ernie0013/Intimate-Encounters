@@ -1,0 +1,7 @@
+﻿l_english:
+
+ ie_consensual_sex_scene_missionary.0001.t:0 "Intimate Encounter"
+ ie_consensual_sex_scene_missionary.0001.a:0 "That was wonderful."
+ ie_consensual_sex_scene_missionary.0001.debug:0 "DEBUG – Again!"
+
+ ie_consensual_sex_scene_missionary.0001.text:0 "[ROOT.Char.Custom2('ie_consensual_sex_scene_missionary_part_1', SCOPE.sC('carn_sex_target'))] [ROOT.Char.Custom2('ie_consensual_sex_scene_missionary_part_2', SCOPE.sC('carn_sex_target'))]\n\n[ROOT.Char.Custom2('ie_consensual_sex_scene_missionary_part_3', SCOPE.sC('carn_sex_target'))] [ROOT.Char.Custom2('ie_consensual_sex_scene_missionary_part_4', SCOPE.sC('carn_sex_target'))] [ROOT.Char.Custom2('ie_consensual_sex_scene_orgasm_warning', SCOPE.sC('carn_sex_target'))]\n\n[ROOT.Char.Custom2('ie_consensual_sex_scene_orgasm_inside', SCOPE.sC('carn_sex_target'))] [ROOT.Char.Custom2('ie_consensual_sex_scene_orgasm_inside_aftermath', SCOPE.sC('carn_sex_target'))]"
