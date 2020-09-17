@@ -1,5 +1,5 @@
 ﻿carn_sex_scene = {
 	random_events = {
-		10000 = ie_consensual_sex_scene_missionary.0001 # TODO: Lower this after testing
+		1000 = ie_consensual_sex_scene_missionary.0001 # 10 times more likely than the default Carnalitas scene
 	}
 }
