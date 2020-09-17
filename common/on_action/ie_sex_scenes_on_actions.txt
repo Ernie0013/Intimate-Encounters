@@ -1,5 +1,5 @@
 ﻿carn_sex_scene = {
 	random_events = {
-		100 = ie_consensual_sex_scene.0001
+		10000 = ie_consensual_sex_scene_missionary.0001 # TODO: Lower this after testing
 	}
 }
