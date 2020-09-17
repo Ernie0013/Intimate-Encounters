@@ -1,0 +1,4 @@
+﻿modifier_stimulated = {
+	icon = fertility_positive
+	fertility = 0.1
+}

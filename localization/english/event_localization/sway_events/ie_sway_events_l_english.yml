@@ -1,0 +1,36 @@
+﻿l_english:
+
+ # generics
+ modifier_stimulated: "Stimulated"
+ 
+ # brave sex scene
+ ie_sway_ongoing.0001.t: "A Bold Proposition"
+ ie_sway_ongoing.0001.desc: "[target.GetShortUIName] and I are at dinner one evening with some guests. My eyes drift over to [target.GetHerHim] and I can't help but wonder just how far I could go in the company of others...\n\nIt would be so scandalous if anyone saw us... but by [target.GetFaith.HighGodName], I just can't resist! I’ll just tease [target.GetHerHim] a little bit. While indulging a guest in some idle small talk, I move my chair a little bit closer... and slip my hand under the table and onto my [owner.Custom2('RelationToMeShort', SCOPE.sC('target'))]’s thigh."
+ ie_sway_ongoing.0001.a: "See how far you can go..."
+ ie_sway_ongoing.0001.a.tt: "You’re feeling mischievous today..."
+ ie_sway_ongoing.0001.a2: "It would be a scandal if we were caught..."
+ ie_sway_ongoing.0001.a2.tt: "That’s what makes it so exciting!"
+ ie_sway_ongoing.0001.b: "Leave [target.GetHerHim] be and return to your guests."
+ ie_sway_ongoing.0001.b.tt: "Brave in battle but not in the bedroom?"
+ ie_sway_ongoing.0002.desc: "[target.GetShortUIName] and I are at dinner one evening with some guests. The entire affair has been rather uneventful. That is, until I feel [owner.GetFirstNamePossessive] gaze lingering upon me from the corner of my eye...\n\nSomething brushes across my thigh. Something like a hand! [owner.GetFirstNamePossessive|U] hand! Right here? Right now!? A gasp comes out of my lips and I shoot [owner.GetHerHim] a knowing glance. [owner.GetSheHe|U]'s getting bolder and bolder, my [target.Custom2('RelationToMeShort', SCOPE.sC('owner'))]!"
+ ie_sway_ongoing.0002.a: "Go forth, brave lover..."
+ ie_sway_ongoing.0002.a.tt: "In front of dinner guests? How exciting!"
+ ie_sway_ongoing.0002.b: "We musn’t do that here!"
+ ie_sway_ongoing.0002.b.tt: "There’s a time and a place for everything."
+ ie_sway_ongoing.0002.c: "Push [target.GetHerHim] away and rebuke [target.GetHerHim] in private later!"
+ ie_sway_ongoing.0002.c.tt: "It’s far too scandalous!"
+ ie_sway_ongoing.0002.soft_rebuke: "We musn’t do that here!"
+ ie_sway_ongoing.0002.hard_rebuke: "Rebuked"
+
+ ie_sway_ongoing.0003.desc: "Your fingers crawl across [target.GetFirstNamePossessive] thigh, slowly at first… but you can tell by the furtive smile tugging at [target.GetHerHis] lips that [target.GetSheHe] doesn’t altogether mind. As you continue to make small talk with the guests, you straighten your fingers together and slide them between [target.GetHerHis] thighs. [target.GetSheHe|U] softly gasps. Though a layer of small clothes and courtly attire shields [target.GetHerHis] bare [target.Custom('womanhood_manhood')] from your ministrations, [target.GetFirstName] is most certainly enjoying [target.GetHerHis] dinner..."
+ ie_sway_ongoing.0003.a: "Go on..." 
+ ie_sway_ongoing.0004.desc: "[owner.GetFirstNamePossessive] fingers crawl across your thigh, slowly at first… [owner.GetSheHe|U] has an absolutely [owner.Custom('girlish_boyish')] grin on [owner.GetHerHis] face as [owner.GetSheHe] exchanges pleasantries with the guests. Your heart begins to race as [owner.GetSheHe] slides [owner.GetHerHis] hand flat in between your thighs. A soft gasp escapes your lips, only further encouraging [owner.GetHerHim]! Though a layer of small clothes and courtly attire shields your bare [target.Custom('womanhood_manhood')] from [owner.GetHerHis] ministrations, you certainly feel a warmth mounting in your most intimate places…"
+ ie_sway_ongoing.0004.a: "Go on..." 
+ ie_sway_ongoing.0005.desc: "“Mmmm.” [target.GetFirstName] hums, closing [target.GetHerHis] eyes.\n\n“Are you very hungry, [target.GetShortUIName]?” One of the guests ask.\n\n“Oh, [target.GetSheHe]’s famished.” You answer for [target.GetHerHim], rubbing [target.GetHerHis] sex even harder. [target.GetSheHe|U] fills [target.GetHerHis] mouth with a morsel as cover and moans. [target.GetHerHis|U] fingers drag across the table beside [target.GetHerHis] plate and [target.GetHerHis] chest heaves with a deep inhale. The sheer thrill and audacity of the moment appears to be doing much of your work for you and soon [target.GetFirstName] is shamelessly getting off in front of all the guests!\n\n[target.GetSheHe|U] moans harder and harder, until the guests all fall silent in astonishment. [target.GetFirstName] remembers [target.GetHerselfHimself] and clears [target.GetHerHis] throat, [target.GetHerHis] cheeks flushed…"
+ ie_sway_ongoing.0005.a: "We’re going straight to our chambers after this!"
+ ie_sway_ongoing.0005.a_success: "Nobody seems to notice"
+ ie_sway_ongoing.0005.a_failure: "People will talk..."
+ ie_sway_ongoing.0005.a_is_virtue: "You lose no piety because lustful is a [virtue|E] or chaste is a [sin|E]"
+ ie_sway_ongoing.0005.a_is_sin: "This goes against your faith because lustful is a [sin|E] or chaste is a [virtue|E]"
+ ie_sway_ongoing.0005.lay: "You lay with [owner.GetFirstName]"
+ ie_sway_ongoing.0006.desc: "“Mmmm.” You hum, closing your eyes.\n\n“Are you very hungry, [target.GetShortUIName]?” One of the guests ask.\n\n“Oh, [owner.GetSheHe]’s famished.” [owner.GetFirstName] answers for you, rubbing your sex even harder. You fill your mouth with a morsel as cover and moan. Your fingers drag across the table beside your plate and your chest heaves with a deep inhale. It’s so dangerous but you can’t help but be excited! Soon the heat in your groin radiates in waves throughout your body - from your womb to your fingers and the top of your head.\n\nYou moan deeply, mouth agape before all the guests. Surely your small clothes are absolutely drenched… Reeling, you suddenly remember where you are and you clear your throat. Your cheeks get hot at the sight of everyone staring at you. [owner.GetFirstName] mercifully pulls away..."

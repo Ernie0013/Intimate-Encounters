@@ -1,0 +1,444 @@
+﻿namespace = ie_sway_ongoing
+
+
+# Brave character initiates intimacy during dinner
+	# by Siudhne
+ie_sway_ongoing.0001 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0001.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:target
+
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	
+	trigger = {
+		######################################
+		# TODO - Correct this for production #
+		######################################
+		# has_trait = brave
+		
+		OR = {
+			has_relation_lover = scope:target
+			is_spouse_of = scope:target
+		}
+
+		# The way the event it written assumes that open displays of sexuality are shunned in the society
+		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:owner }
+		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:target }
+	}
+	
+	######################################
+	# TODO - Correct this for production #
+	######################################
+	weight_multiplier = {
+		base = 100
+	}
+
+	immediate = {		
+		# Find the other character for a potential sex scene
+		if = {
+			limit = { scope:owner = root }
+			scope:target = {
+				save_scope_as = non_player
+			}
+		}
+		else = {
+			scope:owner = {
+				save_scope_as = non_player
+			}
+		}
+	}
+
+	# Continue explicitely
+	option = {
+		name = {
+			trigger = { is_spouse_of = scope:target }
+			text = ie_sway_ongoing.0001.a
+		}
+		name = {
+			trigger = { NOT = { is_spouse_of = scope:target } }
+			text = ie_sway_ongoing.0001.a2
+		}
+		
+		if = {
+			limit = {
+				is_spouse_of = scope:target
+			}
+			custom_tooltip = ie_sway_ongoing.0001.a.tt
+		}
+		else
+		{
+			custom_tooltip = ie_sway_ongoing.0001.a2.tt
+		}
+		
+		######################################
+		# TODO - Correct this for production #
+		######################################
+		#scope:owner = { trigger_event = ie_sway_ongoing.0002 }
+		scope:target = { trigger_event = ie_sway_ongoing.0002 }
+	}
+		
+	# Abort
+	option = {
+		name = ie_sway_ongoing.0001.b
+		
+		stress_impact = {
+			base = miniscule_stress_impact_gain
+			deviant = miniscule_stress_impact_gain
+			seducer = miniscule_stress_impact_gain
+			lustful = minor_stress_impact_gain
+			chaste = miniscule_stress_impact_loss
+			celibate = miniscule_stress_impact_loss
+		}
+		
+		# We want players to have some nice dialogue, consequences be damned!
+		ai_chance = { base = 0 }
+	}
+}
+
+# Target receives proposal
+ie_sway_ongoing.0002 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0002.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:owner
+	
+	# Accept
+	option = {
+		name = ie_sway_ongoing.0002.a
+		custom_tooltip = ie_sway_ongoing.0002.a.tt
+		save_scope_value_as = {
+			name = temp_accept
+			value = yes
+		}
+		ai_chance = {
+			base = 100
+			
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_sociability = 1				
+			}
+
+			# If lustful is ok in our society the other guests probably won't mind *that* much if we get caught
+			modifier = {
+				add = {
+					value = ai_zeal
+					multiply = 1
+					min = 0
+				}
+				faith = {
+					OR = {
+						trait_is_virtue = lustful
+						trait_is_sin = chaste
+					}	
+				}
+			}
+			# If lustful is shunned in our society we sure as heck don't want to get caught
+			modifier = {
+				add = {
+					value = ai_zeal
+					multiply = -1
+					max = 0
+				}
+				faith = {
+					OR = {
+						trait_is_virtue = chaste
+						trait_is_sin = lustful
+					}
+				}
+			}
+			
+			modifier = {
+				add = 30
+				has_trait = lustful
+			}
+		}
+
+		scope:owner = { trigger_event = ie_sway_ongoing.0003 }
+	}
+	# Soft-rebuke but still sex
+	option = {
+		name = ie_sway_ongoing.0002.b
+		custom_tooltip = ie_sway_ongoing.0002.b.tt
+
+		ai_chance = { 
+			base = 10
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = chaste
+					has_trait = celibate
+				}
+			}
+		}
+		scope:owner = { 
+			send_interface_toast = {
+				title = ie_sway_ongoing.0002.soft_rebuke
+				stress_impact = {
+					base = miniscule_stress_impact_gain
+					vengeful = miniscule_stress_impact_gain
+				}
+			}
+
+			hidden_effect = {
+				carn_sex_scene_request_consensual = yes
+				carn_sex_scene_effect = {
+					PLAYER = scope:owner
+					TARGET = scope:non_player
+				}
+			}
+		}
+	}
+	# Hard-rebuke
+	option = {
+		name = ie_sway_ongoing.0002.c
+		custom_tooltip = ie_sway_ongoing.0002.c.tt
+
+		ai_chance = { 
+			base = 10
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = chaste
+					has_trait = celibate
+				}
+			}
+		}
+		scope:owner = {
+			send_interface_toast = {
+				title = ie_sway_ongoing.0002.hard_rebuke
+				stress_impact = {
+					base = minor_stress_impact_gain
+					vengeful = minor_stress_impact_gain
+				}
+			}
+		}
+	}
+}
+
+# Narrate response for owner
+ie_sway_ongoing.0003 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0003.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:target
+	
+	option = {
+		name = ie_sway_ongoing.0003.a
+		######################################
+		# TODO - Correct this for production #
+		######################################
+		scope:owner = { trigger_event = ie_sway_ongoing.0004 }
+		#scope:target = { trigger_event = ie_sway_ongoing.0004 }
+	}
+}
+
+# Narrate event for target
+ie_sway_ongoing.0004 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0004.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:owner
+	
+	option = {
+		name = ie_sway_ongoing.0004.a
+		
+		save_scope_value_as = {
+			name = hard_court_reject
+			value = yes
+		}
+		scope:owner = { trigger_event = ie_sway_ongoing.0005 }
+	}
+}
+
+# Narrate end initiator
+ie_sway_ongoing.0005 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0005.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:target
+
+	option = {
+		name = ie_sway_ongoing.0005.a
+		
+		scope:owner = {
+			add_character_modifier = {
+				modifier = modifier_stimulated
+				months = 6
+			}
+		}
+		
+		# copy in event 0006
+		duel = {
+			skill = intrigue
+			value = low_skill_rating
+			60 = {
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				custom_tooltip = ie_sway_ongoing.0005.a_success
+			}
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+								
+				send_interface_toast = {
+					title = ie_sway_ongoing.0005.a_failure
+
+					# Faith is ok with that
+					if = {
+						limit = {
+							faith = {
+								OR = {
+									trait_is_virtue = lustful
+									trait_is_sin = chaste
+								}
+							}							
+						}
+						custom_tooltip = ie_sway_ongoing.0005.a_is_virtue
+					}
+					# Faith hates it!
+					else_if = {
+						limit = {
+							faith = {
+								OR = {
+									trait_is_virtue = chaste
+									trait_is_sin = lustful
+								}
+							}
+						}
+						custom_tooltip = ie_sway_ongoing.0005.a_is_sin
+						add_piety = major_piety_loss
+					}
+					# Faith is undecided (probably against)
+					else = {
+						add_piety = medium_piety_loss
+					}
+				}
+			}
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				give_deviant_secret_or_trait_effect = yes
+			}
+		}
+
+		scope:scheme = {
+			add_scheme_progress = scheme_progress_gain
+		}
+
+		######################################
+		# TODO - Correct this for production #
+		######################################
+		#scope:owner = { trigger_event = ie_sway_ongoing.0006 }
+		scope:target = { trigger_event = ie_sway_ongoing.0006 }
+	}
+}
+
+# Narrate end target. Gameplay effects in initiator event.
+ie_sway_ongoing.0006 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0006.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:owner
+	option = {
+		name = ie_sway_ongoing.0005.a
+		
+		scope:target = {
+			add_character_modifier = {
+				modifier = modifier_stimulated
+				months = 6
+			}
+		}
+		
+		# Since the sex event is triggered in the owner scope we only require a notification
+		custom_tooltip = ie_sway_ongoing.0005.lay
+		
+		# copy in event 0005
+		duel = {
+			skill = intrigue
+			value = low_skill_rating
+			60 = {
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				custom_tooltip = ie_sway_ongoing.0005.a_success
+			}
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+								
+				send_interface_toast = {
+					title = ie_sway_ongoing.0005.a_failure
+
+					# Faith is ok with that
+					if = {
+						limit = {
+							faith = {
+								OR = {
+									trait_is_virtue = lustful
+									trait_is_sin = chaste
+								}
+							}							
+						}
+						custom_tooltip = ie_sway_ongoing.0005.a_is_virtue
+					}
+					# Faith hates it!
+					else_if = {
+						limit = {
+							faith = {
+								OR = {
+									trait_is_virtue = chaste
+									trait_is_sin = lustful
+								}
+							}
+						}
+						custom_tooltip = ie_sway_ongoing.0005.a_is_sin
+						add_piety = major_piety_loss
+					}
+					# Faith is undecided (probably against)
+					else = {
+						add_piety = medium_piety_loss
+					}
+				}
+			}
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				give_deviant_secret_or_trait_effect = yes
+			}
+		}
+
+		# Starts a sex scene for the player even if he is owner
+		hidden_effect = {
+			carn_sex_scene_request_consensual = yes
+			carn_sex_scene_effect = {
+				PLAYER = root
+				TARGET = scope:non_player
+			}
+		}		
+	}
+}
