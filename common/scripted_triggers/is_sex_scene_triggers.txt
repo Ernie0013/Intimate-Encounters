@@ -1,31 +1,35 @@
 ﻿is_giving_partner_trigger = {
 	OR = {
-		is_male = yes
-		sex_same_as = $PARTNER$
 		AND = {
-			carn_is_futa_trigger = yes
+			carn_gender_can_impregnate_trigger = yes
 			$PARTNER$ = { is_female = yes }
+			this = root
 		}
-	}
-
-	trigger_if = {
-		limit = { sex_same_as = $PARTNER$ }
-		this = root
+		AND = {
+			sex_opposite_of = $PARTNER$
+			is_male = yes
+		}
+		AND = {
+			sex_same_as = $PARTNER$
+			this = root
+		}
 	}
 }
 
 is_receiving_partner_trigger = {
 	OR = {
-		is_female = yes
-		sex_same_as = $PARTNER$
 		AND = {
 			carn_is_futa_trigger = yes
 			$PARTNER$ = { carn_gender_can_impregnate_trigger = yes }
+			$PARTNER$ = root
 		}
-	}
-
-	trigger_if = {
-		limit = { sex_same_as = $PARTNER$ }
-		NOT = { this = root }
+		AND = {
+			sex_opposite_of = $PARTNER$
+			is_female = yes
+		}
+		AND = {
+			sex_same_as = $PARTNER$
+			$PARTNER$ = root
+		}
 	}
 }
