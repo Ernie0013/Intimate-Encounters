@@ -1,0 +1,9 @@
+﻿l_english:
+
+ ie_court_ongoing.0001.t:0 "Intimate Encounter"
+ ie_court_ongoing.0001.a:0 "That was something."
+ ie_court_ongoing.0001.debug:0 "DEBUG – Again!"
+
+ ie_court_ongoing.0001.text_giving:0 "[ROOT.Char.Custom2('ie_consensual_kissing_scene_part_1_giving', SCOPE.sC('receiver'))] [ROOT.Char.Custom2('ie_consensual_kissing_scene_part_2_giving', SCOPE.sC('receiver'))]\n\n[ROOT.Char.Custom2('ie_consensual_kissing_scene_part_3_giving', SCOPE.sC('receiver'))] [ROOT.Char.Custom2('ie_consensual_kissing_scene_part_4_giving', SCOPE.sC('receiver'))]"
+
+ ie_court_ongoing.0001.text_receiving:0 "[ROOT.Char.Custom2('ie_consensual_kissing_scene_part_1_receiving', SCOPE.sC('giver'))] [ROOT.Char.Custom2('ie_consensual_kissing_scene_part_2_receiving', SCOPE.sC('giver'))]\n\n[ROOT.Char.Custom2('ie_consensual_kissing_scene_part_3_receiving', SCOPE.sC('giver'))] [ROOT.Char.Custom2('ie_consensual_kissing_scene_part_4_receiving', SCOPE.sC('giver'))]"

@@ -1,0 +1,6 @@
+﻿court_ongoing = {
+	# For reference: most vanilla events have 10, one 15 and one 40. That last one leads to more events which is why it's so high.
+    random_events = {
+        100 = ie_court_ongoing.0001
+    }
+}

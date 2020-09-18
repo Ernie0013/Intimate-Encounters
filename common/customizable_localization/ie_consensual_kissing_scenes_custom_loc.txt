@@ -1,0 +1,271 @@
+﻿ie_consensual_kissing_scene_part_1_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_1_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_2_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_3_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_4_giving
+	}
+
+	text = {
+		trigger = {
+			is_negative_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.first_negative_opinion_1_giving
+	}
+
+	text = {
+		trigger = {
+			is_negative_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.first_negative_opinion_2_giving
+	}
+}
+
+ie_consensual_kissing_scene_part_2_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_1_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_2_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_3_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_4_giving
+	}
+
+	text = {
+		trigger = {
+			is_negative_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.second_negative_opinion_1_giving
+	}
+
+	text = {
+		trigger = { has_trait = chaste }
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.second_chaste_1_giving
+	}
+}
+
+ie_consensual_kissing_scene_part_3_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_1_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_2_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_3_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_4_giving
+	}
+
+	text = {
+		trigger = {
+			is_negative_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.escalation_negative_opinion_1_giving
+	}
+}
+
+ie_consensual_kissing_scene_part_4_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_1_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_2_giving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_3_giving
+	}
+
+	text = {
+		trigger = {
+			is_negative_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.conclusion_negative_opinion_1_giving
+	}
+
+	text = {
+		trigger = { has_trait = lustful }
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.conclusion_lustful_1_giving
+	}
+}
+
+ie_consensual_kissing_scene_part_1_receiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_3_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.first_4_receiving
+	}
+
+	text = {
+		trigger = {
+			is_negative_reverse_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.first_negative_opinion_1_receiving
+	}
+
+	text = {
+		trigger = {
+			is_negative_reverse_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.first_negative_opinion_2_receiving
+	}
+}
+
+ie_consensual_kissing_scene_part_2_receiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_3_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.second_4_receiving
+	}
+
+	text = {
+		trigger = {
+			is_negative_reverse_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.second_negative_opinion_1_receiving
+	}
+
+	text = {
+		trigger = { scope:second = { has_trait = chaste } }
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.second_chaste_1_receiving
+	}
+}
+
+ie_consensual_kissing_scene_part_3_receiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_3_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.escalation_4_receiving
+	}
+
+	text = {
+		trigger = {
+			is_negative_reverse_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.escalation_negative_opinion_1_receiving
+	}
+}
+
+ie_consensual_kissing_scene_part_4_receiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_kissing_scene.conclusion_3_receiving
+	}
+
+	text = {
+		trigger = {
+			is_negative_reverse_opinion = yes
+		}
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.conclusion_negative_opinion_1_receiving
+	}
+
+	text = {
+		trigger = { scope:second = { has_trait = lustful } }
+		weight_multiplier = { base = 10 }
+		localization_key = ie_consensual_kissing_scene.conclusion_lustful_1_receiving
+	}
+}
