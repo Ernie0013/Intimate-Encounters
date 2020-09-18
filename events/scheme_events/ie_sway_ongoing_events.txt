@@ -322,8 +322,11 @@ ie_sway_ongoing.0005 = {
 								}
 							}
 						}
-						custom_tooltip = ie_sway_ongoing.0005.a_is_sin
-						add_piety = major_piety_loss
+						# custom_tooltip = ie_sway_ongoing.0005.a_is_sin
+						# add_piety = major_piety_loss
+						lustful_act_piety_impact_effect = {
+							IMPACT = major_piety_loss
+						}
 					}
 					# Faith is undecided (probably against)
 					else = {
@@ -414,8 +417,11 @@ ie_sway_ongoing.0006 = {
 								}
 							}
 						}
-						custom_tooltip = ie_sway_ongoing.0005.a_is_sin
-						add_piety = major_piety_loss
+						# custom_tooltip = ie_sway_ongoing.0005.a_is_sin
+						# add_piety = major_piety_loss
+						lustful_act_piety_impact_effect = {
+							IMPACT = major_piety_loss
+						}
 					}
 					# Faith is undecided (probably against)
 					else = {

@@ -1,0 +1,14 @@
+﻿lustful_act_piety_impact_effect = {
+	if = {
+		limit = {
+			faith = { trait_is_sin = lustful }
+		}
+		hidden_effect = {
+			add_piety = $IMPACT$
+		}
+		custom_description = {
+			text = lustful_act_piety_impact_effect
+			value = $IMPACT$
+		}
+	}
+}
