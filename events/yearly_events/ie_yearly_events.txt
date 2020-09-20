@@ -1,0 +1,496 @@
+﻿namespace = ie_yearly
+
+# 1000	- Late Night Visitor
+
+# You get visited by a seducer during the night
+scripted_trigger yearly_1000_late_night_visitor_trigger = {
+	NOR = {
+		has_trait = celibate
+		has_trait = chaste
+	}
+	is_available_ai_adult = yes
+	OR = {
+		has_trait = seducer
+		has_trait = lustful
+		has_trait = deviant
+		has_trait = beauty_good
+	}
+	OR = {
+		NOT = { is_close_or_extended_family_of = root }
+		accepts_incest_with_trigger = { CHARACTER = root }
+	}
+	save_temporary_scope_as = late_night_visitor
+	matching_gender_and_sexuality_trigger = { CHARACTER_1 = root CHARACTER_2 = scope:late_night_visitor }
+}
+
+ie_yearly.1000 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1000.desc
+
+	theme = seduction
+	override_background = {
+		event_background = corridor_night
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = flirtation
+	}
+	
+	trigger = {
+		is_adult = yes
+		carn_gender_can_impregnate_trigger = yes
+		NOT = { has_character_flag = had_event_ie_yearly_1000 }
+		OR = {
+			any_relation = {
+				type = lover
+				yearly_1000_late_night_visitor_trigger = yes
+			}
+			any_close_or_extended_family_member = {
+				yearly_1000_late_night_visitor_trigger = yes
+			}
+			any_courtier = {
+				yearly_1000_late_night_visitor_trigger = yes
+			}
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			OR = {
+				has_trait = lustful
+				has_trait = chaste
+			}
+			factor = 2.0
+		}
+		modifier = {
+			has_trait = sadistic
+			factor = 0.5
+		}
+		modifier = {
+			attraction >= low_positive_attraction
+			factor = 1.2
+		}
+		modifier = {
+			attraction >= medium_positive_attraction
+			factor = 1.2
+		}
+		modifier = {
+			attraction >= high_positive_attraction
+			factor = 1.2
+		}
+		modifier = {
+			attraction <= low_negative_attraction
+			factor = 0.8
+		}
+		modifier = {
+			attraction <= medium_negative_attraction
+			factor = 0.7
+		}
+		modifier = {
+			attraction <= high_negative_attraction
+			factor = 0.4
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_ie_yearly_1000
+			days = 3650
+		}
+
+		every_relation = {
+			type = lover
+			limit = { yearly_1000_late_night_visitor_trigger = yes }
+			add_to_temporary_list = possible_late_night_visitors
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				yearly_1000_late_night_visitor_trigger = yes
+			}
+			add_to_temporary_list = possible_late_night_visitors
+		}
+		every_courtier = {
+			limit = { yearly_1000_late_night_visitor_trigger = yes }
+			add_to_temporary_list = possible_late_night_visitors
+		}
+
+		random_in_list = {
+			list = possible_late_night_visitors
+			weight = {
+				base = 100
+				modifier = {
+				 	sexually_liberal_trigger = yes
+				 	factor = 3
+				}
+				modifier = { # This is on top of the above
+				 	has_trait = lustful
+				 	factor = 2
+				}
+				modifier = {
+					any_relation = { type = rival this = root }
+					factor = 2
+				}
+				modifier = { # Leaving this in from the original event I based this one on
+					opinion = {
+						target = root
+						value <= 0
+					}
+					NOT = { any_relation = { type = rival this = root } }
+					factor = 0.1
+				}
+				modifier = {
+					opinion = {
+						target = root
+						value >= 40
+					}
+					factor = 2
+				}
+			}
+			save_scope_as = late_night_visitor
+		}
+		scope:late_night_visitor = { add_character_flag = is_naked }
+	}
+
+	# Invite them in
+	option = {
+		name = ie_yearly.1000.a
+		custom_tooltip = ie_yearly.1000.a.tt
+
+		stress_impact = {
+			chaste = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+			zealous = minor_stress_impact_gain
+		}
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1010
+				days = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 100
+				OR = {
+					has_trait = seducer
+					has_trait = lustful
+				}
+			}
+			ai_greed_target_modifier = { VALUE = 50 }
+			ai_boldness_target_modifier = { VALUE = 50 }
+		}
+	}
+
+	# (Try to) be polite
+	option = {
+		name = ie_yearly.1000.b
+		custom_tooltip = ie_yearly.1000.b.tt
+		
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1020
+				days = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+
+			modifier = {
+				add = 300
+				has_trait_introverted_trigger = yes
+			}
+			ai_boldness_target_modifier = { VALUE = -50 }
+			ai_honor_target_modifier = { VALUE = 50 }
+			ai_compassion_target_modifier = { VALUE = 50 }
+		}
+	}
+
+	# Refuse
+	option = {
+		name = ie_yearly.1000.c
+		custom_tooltip = ie_yearly.1000.c.tt
+
+		add_piety = minor_piety_gain
+
+		reverse_add_opinion = {
+			target = scope:late_night_visitor
+			modifier = disappointed_opinion
+			opinion = -10
+		}
+		
+		stress_impact = {
+			lustful = minor_stress_impact_gain
+			deviant = minor_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 100
+
+			modifier = {
+				add = 300
+				has_trait = celibate
+			}
+			ai_boldness_target_modifier = { VALUE = -200 }
+			ai_zeal_target_modifier = { VALUE = 200 }
+		}
+	}
+
+	# Lustful and/or deviant
+	option = {
+		name = ie_yearly.1000.d
+		custom_tooltip = ie_yearly.1000.d.tt
+
+		trigger = {
+			has_trait = lustful
+		}
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1030
+				days = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 300
+				OR = {
+					has_trait = lustful
+				}
+			}
+			ai_boldness_target_modifier = { VALUE = 200 }
+			ai_zeal_target_modifier = { VALUE = -200 }
+		}
+	}
+
+	after = {
+		scope:late_night_visitor = { remove_character_flag = is_naked }
+	}
+}
+
+ie_yearly.1010 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1010.desc
+
+	theme = seduction
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = flirtation
+	}
+
+	immediate = {
+		scope:late_night_visitor = { add_character_flag = is_naked }
+	}
+
+	option = {
+		name = ie_yearly.1010.a
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1011
+				days = 1
+			}
+		}
+	}
+
+	after = {
+		scope:late_night_visitor = { remove_character_flag = is_naked }
+	}
+}
+
+ie_yearly.1011 = {
+	# This dummy event is necessary to fix characters being dressed during the sex scene
+
+	immediate = {
+		hidden_effect = {
+			carn_sex_scene_request_consensual = yes
+			carn_sex_scene_request_vaginal = yes
+
+			carn_sex_scene_effect = {
+				PLAYER = root
+				TARGET = scope:late_night_visitor
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+		}
+	}
+}
+
+ie_yearly.1020 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1020.desc
+
+	theme = seduction
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = disbelief
+	}
+
+	option = {
+		name = ie_yearly.1020.a
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1011
+				days = 1
+			}
+		}
+	}
+}
+
+ie_yearly.1030 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1030.desc
+
+	theme = seduction
+	override_background = {
+		event_background = corridor_night
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = flirtation
+	}
+
+	immediate = {
+		scope:late_night_visitor = { add_character_flag = is_naked }
+
+		if = {
+			limit = {
+				any_vassal = {
+					is_powerful_vassal = yes
+				}
+			}
+			random_vassal = {
+				limit = {
+					is_powerful_vassal = yes
+				}
+				save_scope_as = neighbor
+			}
+		}
+		else_if = {
+			limit = {
+				any_vassal = {
+					exists = this
+				}
+			}
+			random_vassal = {
+				limit = { carn_gender_can_impregnate_trigger = yes }
+				save_scope_as = neighbor
+			}
+		}
+		else = {
+			random_courtier_or_guest = {
+				save_scope_as = neighbor
+			}
+		}
+	}
+
+	option = {
+		name = ie_yearly.1030.a
+		custom_tooltip = ie_yearly.1030.a.tt
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1031
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = ie_yearly.1030.b
+		custom_tooltip = ie_yearly.1030.b.tt
+	}
+
+	option = {
+		name = ie_yearly.1030.c
+		custom_tooltip = ie_yearly.1030.c.tt
+
+		hidden_effect = {
+			trigger_event = {
+				id = ie_yearly.1032
+				days = 1
+			}
+		}
+	}
+
+	after = {
+		scope:late_night_visitor = { remove_character_flag = is_naked }
+	}
+}
+
+ie_yearly.1031 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1031.desc
+
+	theme = seduction
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = flirtation
+	}
+	right_portrait = {
+		character = scope:neighbor
+		animation = happiness
+	}
+
+	immediate = {
+		scope:late_night_visitor = { add_character_flag = is_naked }
+		scope:neighbor = { add_character_flag = is_naked }
+	}
+
+	option = {
+		name = ie_yearly.1031.a
+	}
+
+	after = {
+		scope:late_night_visitor = { remove_character_flag = is_naked }
+		scope:neighbor = { remove_character_flag = is_naked }
+	}
+}
+
+ie_yearly.1032 = { # by Ernie Collins
+	type = character_event
+	title = ie_yearly.1000.t
+	desc = ie_yearly.1032.desc
+
+	theme = seduction
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = scope:late_night_visitor
+		animation = fear
+	}
+
+	immediate = {
+		scope:late_night_visitor = { add_character_flag = is_naked }
+	}
+
+	option = {
+		name = ie_yearly.1032.a
+	}
+
+	after = {
+		scope:late_night_visitor = { remove_character_flag = is_naked }
+	}
+}

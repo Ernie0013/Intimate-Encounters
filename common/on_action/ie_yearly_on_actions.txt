@@ -1,0 +1,5 @@
+﻿on_yearly_events = {
+	random_events = {
+
+	}
+}
