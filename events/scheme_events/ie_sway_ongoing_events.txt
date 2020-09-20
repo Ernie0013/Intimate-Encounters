@@ -303,27 +303,15 @@ ie_sway_ongoing.0005 = {
 					# Faith is ok with that
 					if = {
 						limit = {
-							faith = {
-								OR = {
-									trait_is_virtue = lustful
-									trait_is_sin = chaste
-								}
-							}							
+							faith = { trait_is_virtue = lustful }							
 						}
-						custom_tooltip = ie_sway_ongoing.0005.a_is_virtue
+						custom_tooltip = ie_sway_ongoing.0005.a_lustful_is_virtue
 					}
 					# Faith hates it!
 					else_if = {
 						limit = {
-							faith = {
-								OR = {
-									trait_is_virtue = chaste
-									trait_is_sin = lustful
-								}
-							}
+							faith = { trait_is_sin = lustful }
 						}
-						# custom_tooltip = ie_sway_ongoing.0005.a_is_sin
-						# add_piety = major_piety_loss
 						lustful_act_piety_impact_effect = {
 							IMPACT = major_piety_loss
 						}

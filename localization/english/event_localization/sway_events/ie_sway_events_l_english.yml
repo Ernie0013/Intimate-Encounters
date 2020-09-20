@@ -30,7 +30,6 @@
  ie_sway_ongoing.0005.a: "We’re going straight to our chambers after this!"
  ie_sway_ongoing.0005.a_success: "Nobody seems to notice"
  ie_sway_ongoing.0005.a_failure: "People will talk..."
- ie_sway_ongoing.0005.a_is_virtue: "You lose no piety because lustful is a [virtue|E] or chaste is a [sin|E]"
- ie_sway_ongoing.0005.a_is_sin: "This goes against your faith because lustful is a [sin|E] or chaste is a [virtue|E]"
+ ie_sway_ongoing.0005.a_lustful_is_virtue: "You lose no [piety_i] because [GetTrait('lustful').GetName( GetPlayer )] is a [virtue|E]"
  ie_sway_ongoing.0005.lay: "You lay with [owner.GetFirstName]"
  ie_sway_ongoing.0006.desc: "“Mmmm.” You hum, closing your eyes.\n\n“Are you very hungry, [target.GetShortUIName]?” One of the guests ask.\n\n“Oh, [owner.GetSheHe]’s famished.” [owner.GetFirstName] answers for you, rubbing your sex even harder. You fill your mouth with a morsel as cover and moan. Your fingers drag across the table beside your plate and your chest heaves with a deep inhale. It’s so dangerous but you can’t help but be excited! Soon the heat in your groin radiates in waves throughout your body - from your womb to your fingers and the top of your head.\n\nYou moan deeply, mouth agape before all the guests. Surely your small clothes are absolutely drenched… Reeling, you suddenly remember where you are and you clear your throat. Your cheeks get hot at the sight of everyone staring at you. [owner.GetFirstName] mercifully pulls away..."

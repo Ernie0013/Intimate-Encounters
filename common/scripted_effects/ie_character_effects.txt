@@ -1,7 +1,18 @@
-﻿lustful_act_piety_impact_effect = {
+﻿# Gives a message "you lost/gained piety because lustful is sin/virtue"
+# MUST be used with positive values for lustful as virtue, and negative for lustful as sin - there is no "you only lost/gained x piety"
+lustful_act_piety_impact_effect = {
 	if = {
 		limit = {
-			faith = { trait_is_sin = lustful }
+			OR = {
+				AND = {
+					faith = { trait_is_sin = lustful }
+					$IMPACT$ < 0
+				}
+				AND = {
+					faith = { trait_is_virtue = lustful }
+					$IMPACT$ > 0
+				}
+			}
 		}
 		hidden_effect = {
 			add_piety = $IMPACT$
