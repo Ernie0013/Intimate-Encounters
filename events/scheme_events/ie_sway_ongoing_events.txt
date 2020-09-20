@@ -248,6 +248,7 @@ ie_sway_ongoing.0003 = {
 	
 	option = {
 		name = ie_sway_ongoing.0003.a
+		custom_tooltip = ie_sway_ongoing.0003.a.tt
 
 		# !!!
 		# Copy any modifications of the dual block to event 0004
@@ -289,8 +290,10 @@ ie_sway_ongoing.0003 = {
 					# Faith is undecided (probably against)
 					else = {
 						add_piety = medium_piety_loss
-					}
-					# Might expose adultery secret
+					}					
+				}
+				# Might expose adultery secret
+				hidden_effect = {
 					random = {
 						chance = 50
 						if = {
@@ -298,16 +301,19 @@ ie_sway_ongoing.0003 = {
 								has_secret_relation_lover = scope:target 
 								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
 							}
-							random_secret = {
-								limit = {
-									secret_type = secret_lover
-									secret_target = scope:target
+							send_interface_toast = {
+								title = ie_sway_ongoing.0003.a_failure
+								random_secret = {
+									limit = {
+										secret_type = secret_lover
+										secret_target = scope:target
+									}
+									reveal_to = scope:guest
 								}
-								reveal_to = scope:guest
-							}							
-						}										
-					}							
-				}						
+							}
+						}
+					}
+				}							
 			}
 		}
 
@@ -331,7 +337,8 @@ ie_sway_ongoing.0004 = {
 	
 	option = {
 		name = ie_sway_ongoing.0004.a
-		
+		custom_tooltip = ie_sway_ongoing.0004.tt		
+
 		save_scope_value_as = {
 			name = hard_court_reject
 			value = yes
@@ -377,8 +384,10 @@ ie_sway_ongoing.0004 = {
 					# Faith is undecided (probably against)
 					else = {
 						add_piety = medium_piety_loss
-					}
-					# Might expose adultery secret
+					}					
+				}
+				# Might expose adultery secret
+				hidden_effect = {
 					random = {
 						chance = 50
 						if = {
@@ -386,16 +395,19 @@ ie_sway_ongoing.0004 = {
 								has_secret_relation_lover = scope:target 
 								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
 							}
-							random_secret = {
-								limit = {
-									secret_type = secret_lover
-									secret_target = scope:target
+							send_interface_toast = {
+								title = ie_sway_ongoing.0003.a_failure
+								random_secret = {
+									limit = {
+										secret_type = secret_lover
+										secret_target = scope:target
+									}
+									reveal_to = scope:guest
 								}
-								reveal_to = scope:guest
-							}							
-						}										
-					}							
-				}						
+							}
+						}
+					}
+				}							
 			}
 		}
 		
