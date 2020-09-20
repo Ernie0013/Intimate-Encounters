@@ -1,0 +1,110 @@
+﻿namespace = ie_consensual_kissing_scene
+
+ie_consensual_kissing_scene.0001 = {
+	type = character_event
+	title = ie_consensual_kissing_scene.0001.t
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:giver = root
+				}
+				desc = ie_consensual_kissing_scene.0001.text_giving
+			}
+			desc = ie_consensual_kissing_scene.0001.text_receiving
+		}
+	}
+	
+	theme = romance_scheme
+	left_portrait = {
+		character = scope:portrait
+		animation = flirtation
+	}
+	
+	trigger = {
+		carn_sex_scene_is_consensual = yes
+		
+		carn_sex_scene_matches_requested_flags_trigger = yes
+	}
+	
+	immediate = {
+		if = {
+			limit = { 
+				scope:carn_sex_player = { 
+					has_trait_introverted_trigger = yes 
+				}
+			}
+			scope:carn_sex_target = { save_scope_as = giver }
+			scope:carn_sex_player = { save_scope_as = receiver }
+		}
+		else = {
+			scope:carn_sex_player = { save_scope_as = giver }
+			scope:carn_sex_target = { save_scope_as = receiver }
+		}
+		
+		if = {
+			limit = { scope:carn_sex_player = root }
+			scope:carn_sex_target = { save_scope_as = portrait }
+		}
+		else = {
+			scope:carn_sex_player = { save_scope_as = portrait }
+		}
+	}
+	
+	# Debug option
+	option = {
+		name = ie_consensual_kissing_scene.0001.debug
+		trigger = {
+			debug_only = yes
+		}
+		trigger_event = ie_consensual_kissing_scene.0001
+	}
+	
+	option = {
+		name = ie_consensual_kissing_scene.0001.a
+
+		trigger = {
+			OR = {
+				scope:carn_sex_player = { sex_opposite_of = scope:carn_sex_target }
+				OR = {
+					scope:carn_sex_player = { carn_gender_can_impregnate_trigger = yes }
+					scope:carn_sex_target = { carn_gender_can_impregnate_trigger = yes }
+				}
+			}
+		}
+		
+		scope:carn_sex_player = {
+			trigger_event = ie_consensual_sex_scene_missionary.0001
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = {
+		name = ie_consensual_kissing_scene.0001.b
+		
+		random_list = {
+			10 = {
+				reverse_add_opinion = {
+					target = scope:carn_sex_target
+					modifier = romance_opinion
+					opinion = 15
+				}
+			}
+			20 = {
+				reverse_add_opinion = {
+					target = scope:carn_sex_target
+					modifier = romance_opinion
+					opinion = 5
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}

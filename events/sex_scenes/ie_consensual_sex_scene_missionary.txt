@@ -21,6 +21,7 @@ ie_consensual_sex_scene_missionary.0001 = {
 	trigger = {
 		carn_sex_scene_is_consensual = yes
 		carn_sex_scene_is_vaginal = yes
+		carn_sex_scene_is_cum_inside = yes
 
 		carn_sex_scene_matches_requested_flags_trigger = yes
 	}
@@ -34,7 +35,9 @@ ie_consensual_sex_scene_missionary.0001 = {
 				carn_had_sex_with_effect = {
 					CHARACTER_1 = scope:carn_sex_player
 					CHARACTER_2 = scope:carn_sex_target
-					PREGNANCY_CHANCE = seduce_pregnancy_chance
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
 					DRAMA = yes
 				}
 				add_character_flag = {

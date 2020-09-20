@@ -1,5 +1,6 @@
 ﻿carn_sex_scene = {
 	random_events = {
 		1000 = ie_consensual_sex_scene_missionary.0001 # 10 times more likely than the default Carnalitas scene
+		1000 = ie_consensual_kissing_scene.0001 # Can lead into the one above (or any other consensual sex scene Carnalitas provides)
 	}
 }
