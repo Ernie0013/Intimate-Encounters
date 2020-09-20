@@ -1,62 +1,48 @@
-﻿ie_consensual_sex_scene_missionary_part_1 = {
+﻿ie_consensual_sex_scene_missionary_part_1_giving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_1_giving
 	}
 	
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_2_giving
 	}
 	
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_3_giving
 	}
 	
 	text = {
 		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
 			has_trait = lustful
 		}
 		weight_multiplier = { base = 10 }
 		localization_key = ie_consensual_sex_scene.missionary.first_lustful_giving
 	}
+}
+
+ie_consensual_sex_scene_missionary_part_1_receiving = {
+	type = character
+
+	random_valid = yes
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_1_receiving
 	}
 	
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_2_receiving
 	}
 	
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.first_3_receiving
 	}
 	
 	text = {
 		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
 			scope:second = { has_trait = lustful }
 		}
 		weight_multiplier = { base = 10 }
@@ -64,174 +50,126 @@
 	}
 }
 
-ie_consensual_sex_scene_missionary_part_2 = {
+ie_consensual_sex_scene_missionary_part_2_giving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_1_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_2_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_3_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_4_giving
 	}
+}
+
+ie_consensual_sex_scene_missionary_part_2_receiving = {
+	type = character
+
+	random_valid = yes
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_1_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_2_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_3_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.second_4_receiving
 	}
 }
 
-ie_consensual_sex_scene_missionary_part_3 = {
+ie_consensual_sex_scene_missionary_part_3_giving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.third_1_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.third_2_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.third_3_giving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.missionary.third_1_receiving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.missionary.third_2_receiving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.missionary.third_3_receiving
 	}
 }
 
-ie_consensual_sex_scene_missionary_part_4 = {
+ie_consensual_sex_scene_missionary_part_3_receiving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
+		localization_key = ie_consensual_sex_scene.missionary.third_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_sex_scene.missionary.third_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_sex_scene.missionary.third_3_receiving
+	}
+}
+
+ie_consensual_sex_scene_missionary_part_4_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
 		localization_key = ie_consensual_sex_scene.missionary.escalation_1_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_2_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_3_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_4_giving
 	}
+}
+
+ie_consensual_sex_scene_missionary_part_4_receiving = {
+	type = character
+
+	random_valid = yes
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_1_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_2_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_3_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.missionary.escalation_4_receiving
 	}
 }

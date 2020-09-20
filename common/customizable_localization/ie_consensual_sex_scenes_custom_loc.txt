@@ -1,143 +1,107 @@
-﻿ie_consensual_sex_scene_orgasm_warning = {
+﻿ie_consensual_sex_scene_orgasm_warning_giving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_1_giving
 	}
 	
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_2_giving
 	}
 	
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_3_giving
 	}
+}
+
+ie_consensual_sex_scene_orgasm_warning_receiving = {
+	type = character
+
+	random_valid = yes
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_1_receiving
 	}
 	
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_2_receiving
 	}
 	
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.warning_3_receiving
 	}
 }
 
-ie_consensual_sex_scene_orgasm_inside = {
+ie_consensual_sex_scene_orgasm_inside_giving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_1_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_2_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_3_giving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.orgasm.inside_1_receiving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.orgasm.inside_2_receiving
-	}
-
-	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
-		localization_key = ie_consensual_sex_scene.orgasm.inside_3_receiving
 	}
 }
 
-ie_consensual_sex_scene_orgasm_inside_aftermath = {
+ie_consensual_sex_scene_orgasm_inside_receiving = {
 	type = character
 
 	random_valid = yes
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
+		localization_key = ie_consensual_sex_scene.orgasm.inside_1_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_sex_scene.orgasm.inside_2_receiving
+	}
+
+	text = {
+		localization_key = ie_consensual_sex_scene.orgasm.inside_3_receiving
+	}
+}
+
+ie_consensual_sex_scene_orgasm_inside_aftermath_giving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_1_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_2_giving
 	}
 
 	text = {
-		trigger = {
-			is_giving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_3_giving
 	}
+}
+
+ie_consensual_sex_scene_orgasm_inside_aftermath_receiving = {
+	type = character
+
+	random_valid = yes
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_1_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_2_receiving
 	}
 
 	text = {
-		trigger = {
-			is_receiving_partner_trigger = { PARTNER = scope:second }
-		}
 		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_3_receiving
 	}
 }
