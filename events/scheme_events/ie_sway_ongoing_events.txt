@@ -44,16 +44,14 @@ ie_sway_ongoing.0001 = {
 		# Find the other character for a potential sex scene
 		if = {
 			limit = { scope:owner = root }
-			scope:target = {
-				save_scope_as = non_player
-			}
+			scope:target = { save_scope_as = non_player }
+			scope:owner = { save_scope_as = possibly_player } # Not actually a player in case of ai-ai interactions
 		}
 		else = {
-			scope:owner = {
-				save_scope_as = non_player
-			}
+			scope:owner = { save_scope_as = non_player }
+			scope:target = { save_scope_as = possibly_player }
 		}
-		# Find a witness
+		# Find a guest/witness
 		random_courtier = {
 			limit = {
 				NOT = { this = scope:owner }
@@ -61,6 +59,16 @@ ie_sway_ongoing.0001 = {
 				is_ai = yes
 				is_adult = yes
 				is_available = yes
+			}
+			weight = {
+				base = 1
+				modifier = { # Prioritize spouses as "guests" if not swaying spouse anyway
+					add = 5
+					OR = {
+						is_spouse_of = scope:target
+						is_spouse_of = scope:owner
+					}
+				}
 			}
 			save_scope_as = guest
 		}
@@ -200,11 +208,10 @@ ie_sway_ongoing.0002 = {
 				}
 			}
 
-			hidden_effect = {
-				carn_sex_scene_request_consensual = yes
-				carn_sex_scene_effect = {
-					PLAYER = scope:owner
-					TARGET = scope:non_player
+			scope:possibly_player = {
+				trigger_event = {
+					id = ie_sway_ongoing.0007
+					days = { 1 1 }
 				}
 			}
 		}
@@ -415,7 +422,7 @@ ie_sway_ongoing.0004 = {
 	}
 }
 
-# Narrate end initiator
+# Narrate end owner
 ie_sway_ongoing.0005 = {
 	type = character_event
 	title = ie_sway_ongoing.0001.t
@@ -439,6 +446,9 @@ ie_sway_ongoing.0005 = {
 			add_scheme_progress = scheme_progress_gain
 		}
 
+		# Since the sex event is triggered in the target scope we only require a notification
+		custom_tooltip = ie_sway_ongoing.0005.lay
+
 		######################################
 		# TODO - Correct this for production #
 		######################################
@@ -455,6 +465,7 @@ ie_sway_ongoing.0006 = {
 	theme = seduce_scheme
 	override_background = { event_background = feast }
 	left_portrait = scope:owner
+	right_portrait = scope:guest
 	option = {
 		name = ie_sway_ongoing.0005.a
 		
@@ -465,16 +476,57 @@ ie_sway_ongoing.0006 = {
 			}
 		}
 		
-		# Since the sex event is triggered in the owner scope we only require a notification
-		custom_tooltip = ie_sway_ongoing.0005.lay
+		# Starts a sex scene for the player even if he is owner and not target
+		carn_sex_scene_request_consensual = yes
+		carn_sex_scene_effect = {
+			PLAYER = scope:possibly_player
+			TARGET = scope:non_player
+		}
+	}
+}
 
-		# Starts a sex scene for the player even if he is owner and not raget
-		hidden_effect = {
-			carn_sex_scene_request_consensual = yes
-			carn_sex_scene_effect = {
-				PLAYER = root
-				TARGET = scope:non_player
+# Soft-rebuke: Sex a few days later
+# This event is the same for owner and target, just different descriptions for both
+ie_sway_ongoing.0007 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:owner = scope:possibly_player
+				}
+				desc = ie_sway_ongoing.0007.desc_owner
+			}
+			triggered_desc = {
+				trigger = {
+					scope:target = scope:possibly_player
+				}
+				desc = ie_sway_ongoing.0007.desc_target
 			}
 		}		
+	}
+	theme = seduce_scheme
+	override_background = { event_background = sitting_room }
+	left_portrait = scope:target
+	right_portrait = scope:owner
+
+	option = {
+		name = {
+			trigger = { scope:owner = scope:possibly_player }
+			text = ie_sway_ongoing.0007.a_owner
+		}
+		name = {
+			trigger = { scope:target = scope:possibly_player }
+			text = ie_sway_ongoing.0007.a_target
+		}
+
+		# Carnalitas framework sex scene
+		carn_sex_scene_request_consensual = yes
+		carn_sex_scene_effect = {
+			PLAYER = scope:possibly_player
+			TARGET = scope:non_player
+		}
 	}
 }
