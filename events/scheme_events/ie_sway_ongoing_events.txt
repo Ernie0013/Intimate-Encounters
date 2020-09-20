@@ -10,6 +10,7 @@ ie_sway_ongoing.0001 = {
 	theme = seduce_scheme
 	override_background = { event_background = feast }
 	left_portrait = scope:target
+	right_portrait = scope:guest
 
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -51,6 +52,17 @@ ie_sway_ongoing.0001 = {
 			scope:owner = {
 				save_scope_as = non_player
 			}
+		}
+		# Find a witness
+		random_courtier = {
+			limit = {
+				NOT = { this = scope:owner }
+				NOT = { this = scope:target }
+				is_ai = yes
+				is_adult = yes
+				is_available = yes
+			}
+			save_scope_as = guest
 		}
 	}
 
@@ -109,6 +121,7 @@ ie_sway_ongoing.0002 = {
 	theme = seduce_scheme
 	override_background = { event_background = feast }
 	left_portrait = scope:owner
+	right_portrait = scope:guest
 	
 	# Accept
 	option = {
@@ -231,9 +244,73 @@ ie_sway_ongoing.0003 = {
 	theme = seduce_scheme
 	override_background = { event_background = feast }
 	left_portrait = scope:target
+	right_portrait = scope:guest
 	
 	option = {
 		name = ie_sway_ongoing.0003.a
+
+		# !!!
+		# Copy any modifications of the dual block to event 0004
+		# !!!
+		duel = {
+			skill = intrigue
+			target = scope:guest
+			60 = {
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				custom_tooltip = ie_sway_ongoing.0003.a_success
+			}
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+								
+				send_interface_toast = {
+					title = ie_sway_ongoing.0003.a_failure
+
+					# Faith is ok with that
+					if = {
+						limit = {
+							faith = { trait_is_virtue = lustful }							
+						}
+						custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
+					}
+					# Faith hates it!
+					else_if = {
+						limit = {
+							faith = { trait_is_sin = lustful }
+						}
+						lustful_act_piety_impact_effect = {
+							IMPACT = major_piety_loss
+						}
+					}
+					# Faith is undecided (probably against)
+					else = {
+						add_piety = medium_piety_loss
+					}
+					# Might expose adultery secret
+					random = {
+						chance = 50
+						if = {
+							limit = { 
+								has_secret_relation_lover = scope:target 
+								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
+							}
+							random_secret = {
+								limit = {
+									secret_type = secret_lover
+									secret_target = scope:target
+								}
+								reveal_to = scope:guest
+							}							
+						}										
+					}							
+				}						
+			}
+		}
+
 		######################################
 		# TODO - Correct this for production #
 		######################################
@@ -250,6 +327,7 @@ ie_sway_ongoing.0004 = {
 	theme = seduce_scheme
 	override_background = { event_background = feast }
 	left_portrait = scope:owner
+	right_portrait = scope:guest
 	
 	option = {
 		name = ie_sway_ongoing.0004.a
@@ -258,38 +336,18 @@ ie_sway_ongoing.0004 = {
 			name = hard_court_reject
 			value = yes
 		}
-		scope:owner = { trigger_event = ie_sway_ongoing.0005 }
-	}
-}
 
-# Narrate end initiator
-ie_sway_ongoing.0005 = {
-	type = character_event
-	title = ie_sway_ongoing.0001.t
-	desc = ie_sway_ongoing.0005.desc
-	theme = seduce_scheme
-	override_background = { event_background = feast }
-	left_portrait = scope:target
-
-	option = {
-		name = ie_sway_ongoing.0005.a
-		
-		scope:owner = {
-			add_character_modifier = {
-				modifier = modifier_stimulated
-				months = 6
-			}
-		}
-		
-		# copy in event 0006
+		# !!!
+		# Copy any modifications of the dual block to event 0003
+		# !!!
 		duel = {
 			skill = intrigue
-			value = low_skill_rating
+			target = scope:guest
 			60 = {
 				compare_modifier = {
 					value = scope:duel_value
 				}
-				custom_tooltip = ie_sway_ongoing.0005.a_success
+				custom_tooltip = ie_sway_ongoing.0003.a_success
 			}
 			40 = {
 				compare_modifier = {
@@ -298,14 +356,14 @@ ie_sway_ongoing.0005 = {
 				}
 								
 				send_interface_toast = {
-					title = ie_sway_ongoing.0005.a_failure
+					title = ie_sway_ongoing.0003.a_failure
 
 					# Faith is ok with that
 					if = {
 						limit = {
 							faith = { trait_is_virtue = lustful }							
 						}
-						custom_tooltip = ie_sway_ongoing.0005.a_lustful_is_virtue
+						custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
 					}
 					# Faith hates it!
 					else_if = {
@@ -320,14 +378,48 @@ ie_sway_ongoing.0005 = {
 					else = {
 						add_piety = medium_piety_loss
 					}
-				}
+					# Might expose adultery secret
+					random = {
+						chance = 50
+						if = {
+							limit = { 
+								has_secret_relation_lover = scope:target 
+								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
+							}
+							random_secret = {
+								limit = {
+									secret_type = secret_lover
+									secret_target = scope:target
+								}
+								reveal_to = scope:guest
+							}							
+						}										
+					}							
+				}						
 			}
-			10 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -1
-				}
-				give_deviant_secret_or_trait_effect = yes
+		}
+		
+		scope:owner = { trigger_event = ie_sway_ongoing.0005 }
+	}
+}
+
+# Narrate end initiator
+ie_sway_ongoing.0005 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0005.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:target
+	right_portrait = scope:guest
+
+	option = {
+		name = ie_sway_ongoing.0005.a
+		
+		scope:owner = {
+			add_character_modifier = {
+				modifier = modifier_stimulated
+				months = 6
 			}
 		}
 
@@ -363,70 +455,8 @@ ie_sway_ongoing.0006 = {
 		
 		# Since the sex event is triggered in the owner scope we only require a notification
 		custom_tooltip = ie_sway_ongoing.0005.lay
-		
-		# copy in event 0005
-		duel = {
-			skill = intrigue
-			value = low_skill_rating
-			60 = {
-				compare_modifier = {
-					value = scope:duel_value
-				}
-				custom_tooltip = ie_sway_ongoing.0005.a_success
-			}
-			40 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -1
-				}
-								
-				send_interface_toast = {
-					title = ie_sway_ongoing.0005.a_failure
 
-					# Faith is ok with that
-					if = {
-						limit = {
-							faith = {
-								OR = {
-									trait_is_virtue = lustful
-									trait_is_sin = chaste
-								}
-							}							
-						}
-						custom_tooltip = ie_sway_ongoing.0005.a_is_virtue
-					}
-					# Faith hates it!
-					else_if = {
-						limit = {
-							faith = {
-								OR = {
-									trait_is_virtue = chaste
-									trait_is_sin = lustful
-								}
-							}
-						}
-						# custom_tooltip = ie_sway_ongoing.0005.a_is_sin
-						# add_piety = major_piety_loss
-						lustful_act_piety_impact_effect = {
-							IMPACT = major_piety_loss
-						}
-					}
-					# Faith is undecided (probably against)
-					else = {
-						add_piety = medium_piety_loss
-					}
-				}
-			}
-			10 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -1
-				}
-				give_deviant_secret_or_trait_effect = yes
-			}
-		}
-
-		# Starts a sex scene for the player even if he is owner
+		# Starts a sex scene for the player even if he is owner and not raget
 		hidden_effect = {
 			carn_sex_scene_request_consensual = yes
 			carn_sex_scene_effect = {
