@@ -1,0 +1,15 @@
+﻿is_negative_opinion = {
+	has_personality_malicious_trigger = yes
+	opinion = {
+		target = scope:second
+		value < -25
+	}
+}
+
+is_negative_reverse_opinion = {
+	scope:second = { has_personality_malicious_trigger = yes }
+	reverse_opinion = {
+		target = scope:second
+		value < -25
+	}
+}

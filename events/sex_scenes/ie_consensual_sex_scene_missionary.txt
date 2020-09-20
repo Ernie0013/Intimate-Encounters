@@ -4,7 +4,19 @@ ie_consensual_sex_scene_missionary.0001 = {
 	type = character_event
 	title = ie_consensual_sex_scene_missionary.0001.t
 	desc = {
-		desc = ie_consensual_sex_scene_missionary.0001.text
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:carn_sex_player = {
+						is_giving_partner_trigger = {
+							PARTNER = scope:carn_sex_target
+						}
+					}
+				}
+				desc = ie_consensual_sex_scene_missionary.0001.text_giving
+			}
+			desc = ie_consensual_sex_scene_missionary.0001.text_receiving
+		}
 	}
 	
 	theme = seduce_scheme
@@ -21,20 +33,30 @@ ie_consensual_sex_scene_missionary.0001 = {
 	trigger = {
 		carn_sex_scene_is_consensual = yes
 		carn_sex_scene_is_vaginal = yes
+		carn_sex_scene_is_cum_inside = yes
 
 		carn_sex_scene_matches_requested_flags_trigger = yes
+
+		OR = {
+			# This scene only works if at least one partner has a penis
+			scope:carn_sex_player = { carn_gender_can_impregnate_trigger = yes }
+			scope:carn_sex_target = { carn_gender_can_impregnate_trigger = yes }
+		}
 	}
 
 	immediate = {
 		hidden_effect = {
 			carn_sex_scene_is_consensual = yes
 			carn_sex_scene_is_vaginal = yes
+			carn_sex_scene_is_cum_inside = yes
 
 			scope:carn_sex_player = {
 				carn_had_sex_with_effect = {
 					CHARACTER_1 = scope:carn_sex_player
 					CHARACTER_2 = scope:carn_sex_target
-					PREGNANCY_CHANCE = seduce_pregnancy_chance
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
 					DRAMA = yes
 				}
 				add_character_flag = {

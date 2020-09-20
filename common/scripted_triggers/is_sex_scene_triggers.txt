@@ -6,11 +6,12 @@
 			this = root
 		}
 		AND = {
-			sex_opposite_of = $PARTNER$
 			is_male = yes
+			sex_opposite_of = $PARTNER$
 		}
 		AND = {
 			sex_same_as = $PARTNER$
+			$PARTNER$ = { carn_gender_can_impregnate_trigger = no }
 			this = root
 		}
 	}
@@ -24,8 +25,8 @@ is_receiving_partner_trigger = {
 			$PARTNER$ = root
 		}
 		AND = {
-			sex_opposite_of = $PARTNER$
 			is_female = yes
+			sex_opposite_of = $PARTNER$
 		}
 		AND = {
 			sex_same_as = $PARTNER$

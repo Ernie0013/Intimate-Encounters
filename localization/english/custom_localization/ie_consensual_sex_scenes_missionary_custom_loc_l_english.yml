@@ -6,7 +6,7 @@
  ie_consensual_sex_scene.missionary.first_lustful_giving:0 "I throw [second.GetHerHim] down onto [second.GetHerHis] back, towering over [second.GetHerHim] with mounting desire."
 
  ie_consensual_sex_scene.missionary.first_1_receiving:0 "My [ROOT.Char.Custom2('RelationToMeShort', second)] sets me down on my back and spreads my legs."
- ie_consensual_sex_scene.missionary.first_2_receiving:0 "I lay down before my man, looking up at [second.GetHerHim] with desire."
+ ie_consensual_sex_scene.missionary.first_2_receiving:0 "I lay down before my [ROOT.Char.Custom2('RelationToMeShort', second)], looking up at [second.GetHerHim] with desire."
  ie_consensual_sex_scene.missionary.first_3_receiving:0 "[second.GetSheHe|U] looks down at me, [second.GetHerHis] eyes wandering over my body..."
  ie_consensual_sex_scene.missionary.first_lustful_receiving:0 "[second.GetSheHe|U] throws me down onto my back, looming over me with mounting desire."
 

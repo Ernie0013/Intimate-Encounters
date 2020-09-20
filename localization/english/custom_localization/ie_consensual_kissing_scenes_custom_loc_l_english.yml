@@ -1,0 +1,53 @@
+﻿l_english:
+
+ ie_consensual_kissing_scene.first_1_giving:0 "My and [second.GetFirstNamePossessiveNoTooltip] lips meet in a tender embrace."
+ ie_consensual_kissing_scene.first_2_giving:0 "I kiss [second.GetFirstNameNoTooltip] sweetly, holding [second.GetHerHis] hand"
+ ie_consensual_kissing_scene.first_3_giving:0 "I close my eyes, put my hand up to [second.GetFirstNamePossessiveNoTooltip] cheek and kiss [second.GetHerHim]."
+ ie_consensual_kissing_scene.first_4_giving:0 "I smile at the [second.GetTitleAsNameNoTooltip], and then lean in to kiss [second.GetHerHim]."
+ ie_consensual_kissing_scene.first_negative_opinion_1_giving:0 "I force my lips against [second.GetHerHis] own."
+ ie_consensual_kissing_scene.first_negative_opinion_2_giving:0 "I mash my lips against [second.GetHerHis] mouth."
+
+ ie_consensual_kissing_scene.first_1_receiving:0 "My and [second.GetFirstNamePossessiveNoTooltip] lips meet in a tender embrace."
+ ie_consensual_kissing_scene.first_2_receiving:0 "[second.GetFirstNameNoTooltip] kisses me sweetly, holding my hand."
+ ie_consensual_kissing_scene.first_3_receiving:0 "[second.GetFirstNameNoTooltip] closes [second.GetHerHis] eyes, puts [second.GetHerHis] hand up to my cheek and kisses me."
+ ie_consensual_kissing_scene.first_4_receiving:0 "The [second.GetTitleAsNameNoTooltip] smiles at me, and then leans in to kiss me."
+ ie_consensual_kissing_scene.first_negative_opinion_1_receiving:0 "[second.GetFirstNameNoTooltip] forces [second.GetHerHis] lips against my own."
+ ie_consensual_kissing_scene.first_negative_opinion_2_receiving:0 "[second.GetFirstNameNoTooltip] mashes [second.GetHerHis] lips against my mouth."
+
+ ie_consensual_kissing_scene.second_1_giving:0 "I kiss [second.GetHerHim] again and again."
+ ie_consensual_kissing_scene.second_2_giving:0 "[second.GetSheHe|U] softly sighs between every kiss."
+ ie_consensual_kissing_scene.second_3_giving:0 "[second.GetFirstNameNoTooltip] kisses me back, meeting my affections with [second.GetHerHis] own."
+ ie_consensual_kissing_scene.second_4_giving:0 "Our lips part only momentarily before they’re soon drawn back to another."
+ ie_consensual_kissing_scene.second_negative_opinion_1_giving:0 "I insist upon this, kissing [second.GetFirstNameNoTooltip] despite [second.GetHerHis] tepid reception."
+ ie_consensual_kissing_scene.second_chaste_1_giving:0 "I peck and peck at [second.GetFirstNameNoTooltip], never letting my kisses linger too long."
+
+ ie_consensual_kissing_scene.second_1_receiving:0 "[second.GetSheHe|U] kisses me again and again,"
+ ie_consensual_kissing_scene.second_2_receiving:0 "I sigh between every kiss."
+ ie_consensual_kissing_scene.second_3_receiving:0 "I kiss [second.GetFirstNameNoTooltip] back, meeting [second.GetHerHis] affections with my own."
+ ie_consensual_kissing_scene.second_4_receiving:0 "Our lips part only momentarily before they’re soon drawn back to another."
+ ie_consensual_kissing_scene.second_negative_opinion_1_receiving:0 "[second.GetSheHe|U] insists upon this, kissing me despite my discomfort."
+ ie_consensual_kissing_scene.second_chaste_1_receiving:0 "[second.GetSheHe|U] pecks and pecks at me, never letting [second.GetHerHis] kisses linger too long."
+
+ ie_consensual_kissing_scene.escalation_1_giving:0 "Soon my tongue finds its way into [second.GetHerHis] mouth, rolling against [second.GetHerHis] own."
+ ie_consensual_kissing_scene.escalation_2_giving:0 "Kissing becomes making out as our tongues dance around one another in passion."
+ ie_consensual_kissing_scene.escalation_3_giving:0 "My lips part as we kiss and I slide my tongue into [second.GetHerHis] own waiting mouth."
+ ie_consensual_kissing_scene.escalation_4_giving:0 "My tongue meets with [second.GetFirstNamePossessiveNoTooltip] between my lips, the wet sounds of kissing interspersed with soft sighs."
+ ie_consensual_kissing_scene.escalation_negative_opinion_1_giving:0 "I shove my tongue down [second.GetHerHis] throat, [second.GetHerHis] own tongue fighting against the intrusion."
+
+ ie_consensual_kissing_scene.escalation_1_receiving:0 "Soon [second.GetHerHis] tongue finds its way into my mouth, rolling against my own."
+ ie_consensual_kissing_scene.escalation_2_receiving:0 "Kissing becomes making out as our tongues dance around one another in passion."
+ ie_consensual_kissing_scene.escalation_3_receiving:0 "I feel [second.GetFirstNameNoTooltip] open [second.GetHerHis] mouth and slide [second.GetHerHis] tongue into my own."
+ ie_consensual_kissing_scene.escalation_4_receiving:0 "My tongue meets with [second.GetFirstNamePossessiveNoTooltip] between my lips, the wet sounds of kissing interspersed with soft sighs."
+ ie_consensual_kissing_scene.escalation_negative_opinion_1_receiving:0 "[second.GetSheHe|U] shoves [second.GetHerHis] tongue down my throat and I can’t help but try to resist with my own."
+
+ ie_consensual_kissing_scene.conclusion_1_giving:0 "I pull away, smiling at [second.GetHerHim]."
+ ie_consensual_kissing_scene.conclusion_2_giving:0 "Our lips part, the both of us sighing happily."
+ ie_consensual_kissing_scene.conclusion_3_giving:0 "I lean back, ending the sweet embrace."
+ ie_consensual_kissing_scene.conclusion_negative_opinion_1_giving:0 "I pull away from [second.GetFirstNameNoTooltip] and [second.GetSheHe] clears [second.GetHerHis] throat and rubs [second.GetHerHis] mouth with the back of [second.GetHerHis] hand."
+ ie_consensual_kissing_scene.conclusion_lustful_1_giving:0 "I cannot bear to tear myself away from [second.GetHerHim], but eventually the kiss ends and I look upon my [ROOT.Char.Custom2('RelationToMeShort', second)] with stifled desire."
+
+ ie_consensual_kissing_scene.conclusion_1_receiving:0 "[second.GetSheHe|U] pulls away, smiling at me."
+ ie_consensual_kissing_scene.conclusion_2_receiving:0 "Our lips part, the both of us sighing happily."
+ ie_consensual_kissing_scene.conclusion_3_receiving:0 "[second.GetSheHe|U] leans back, ending the sweet embrace."
+ ie_consensual_kissing_scene.conclusion_negative_opinion_1_receiving:0 "The [second.GetTitleAsNameNoTooltip] pulls away from me and I clear my throat and rub my mouth with the back of my hand."
+ ie_consensual_kissing_scene.conclusion_lustful_1_receiving:0 "In [second.GetHerHis] lust, my [ROOT.Char.Custom2('RelationToMeShort', second)] cannot bear to tear [second.GetHerselfHimself] away from me, but eventually the kiss ends and [second.GetSheHe] looks upon me with wanton eyes."
