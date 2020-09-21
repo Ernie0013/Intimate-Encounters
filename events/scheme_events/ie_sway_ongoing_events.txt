@@ -91,8 +91,7 @@ ie_sway_ongoing.0001 = {
 			}
 			custom_tooltip = ie_sway_ongoing.0001.a.tt
 		}
-		else
-		{
+		else = {
 			custom_tooltip = ie_sway_ongoing.0001.a2.tt
 		}
 		
@@ -481,6 +480,8 @@ ie_sway_ongoing.0006 = {
 		carn_sex_scene_effect = {
 			PLAYER = scope:possibly_player
 			TARGET = scope:non_player
+			STRESS_EFFECTS = yes
+			DRAMA = no
 		}
 	}
 }
@@ -527,6 +528,8 @@ ie_sway_ongoing.0007 = {
 		carn_sex_scene_effect = {
 			PLAYER = scope:possibly_player
 			TARGET = scope:non_player
+			STRESS_EFFECTS = yes
+			DRAMA = no
 		}
 	}
 }
