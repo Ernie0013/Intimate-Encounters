@@ -8,6 +8,7 @@ ie_yearly.1000.b:0 "Offer [late_night_visitor.GetHerHim] some of my clothing."
 ie_yearly.1000.b.tt:0 "[late_night_visitor.GetSheHe|U] must've lost [late_night_visitor.GetHerHis] own."
 ie_yearly.1000.c:0 "I refuse the temptation."
 ie_yearly.1000.c.tt:0 "You close the door in [late_night_visitor.GetTitledFirstNamePossessive] face."
+ie_yearly.1000.c.message:0 "Temptation Refused"
 ie_yearly.1000.d:0 "Take off my own clothes as well."
 ie_yearly.1000.d.tt:0 "One dost experience only one lifetime."
 

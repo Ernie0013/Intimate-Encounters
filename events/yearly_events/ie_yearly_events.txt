@@ -159,7 +159,7 @@ ie_yearly.1000 = { # by Ernie Collins
 		custom_tooltip = ie_yearly.1000.a.tt
 
 		stress_impact = {
-			chaste = minor_stress_impact_gain
+			chaste = medium_stress_impact_gain
 			craven = minor_stress_impact_gain
 			zealous = minor_stress_impact_gain
 		}
@@ -214,19 +214,24 @@ ie_yearly.1000 = { # by Ernie Collins
 	option = {
 		name = ie_yearly.1000.c
 		custom_tooltip = ie_yearly.1000.c.tt
-
-		add_piety = minor_piety_gain
-
-		reverse_add_opinion = {
-			target = scope:late_night_visitor
-			modifier = disappointed_opinion
-			opinion = -10
-		}
 		
-		stress_impact = {
-			lustful = minor_stress_impact_gain
-			deviant = minor_stress_impact_gain
-			compassionate = minor_stress_impact_gain
+		send_interface_toast = {
+			title = ie_yearly.1000.c.message
+			left_icon = scope:late_night_visitor
+			
+			add_piety = minor_piety_gain
+
+			reverse_add_opinion = {
+				target = scope:late_night_visitor
+				modifier = disappointed_opinion
+				opinion = -10
+			}
+			
+			stress_impact = {
+				lustful = minor_stress_impact_gain
+				deviant = minor_stress_impact_gain
+				compassionate = minor_stress_impact_gain
+			}
 		}
 
 		ai_chance = {
@@ -310,7 +315,8 @@ ie_yearly.1010 = { # by Ernie Collins
 }
 
 ie_yearly.1011 = {
-	# This dummy event is necessary to fix characters being dressed during the sex scene
+	# This is a maintenance necessary to fix characters being dressed during the sex scene
+	hidden = yes
 
 	immediate = {
 		hidden_effect = {
