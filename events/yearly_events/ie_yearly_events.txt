@@ -91,7 +91,7 @@ ie_yearly.1000 = { # by Ernie Collins
 			any_close_or_extended_family_member = {
 				yearly_1000_late_night_visitor_trigger = yes
 			}
-			any_courtier = {
+			any_courtier_or_guest = {
 				yearly_1000_late_night_visitor_trigger = yes
 			}
 		}
