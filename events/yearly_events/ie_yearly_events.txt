@@ -233,7 +233,7 @@ ie_yearly.1000 = { # by Ernie Collins
 						secret_type = secret_deviant
 						NOT = { is_known_by = root }
 					}
-					reveal_to = root
+					reveal_to_without_events_effect = { CHARACTER = root }
 				}
 			}
 		}
@@ -381,7 +381,7 @@ scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
 				secret_type = secret_incest
 				NOT = { is_known_by = scope:neighbor }
 			}
-			reveal_to = scope:neighbor
+			reveal_to_without_events_effect = { CHARACTER = scope:neighbor }
 		}
 
 		scope:late_night_visitor = {
@@ -392,7 +392,7 @@ scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
 					secret_type = secret_incest
 					NOT = { is_known_by = scope:neighbor }
 				}
-				reveal_to = scope:neighbor
+				reveal_to_without_events_effect = { CHARACTER = scope:neighbor }
 			}
 		}
 	}
@@ -404,7 +404,7 @@ scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
 				secret_type = secret_deviant
 				NOT = { is_known_by = scope:neighbor }
 			}
-			reveal_to = scope:neighbor
+			reveal_to_without_events_effect = { CHARACTER = scope:neighbor }
 		}
 
 		scope:late_night_visitor = {
@@ -415,7 +415,7 @@ scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
 					secret_type = secret_deviant
 					NOT = { is_known_by = scope:neighbor }
 				}
-				reveal_to = scope:neighbor
+				reveal_to_without_events_effect = { CHARACTER = scope:neighbor }
 			}
 		}
 	}
@@ -478,8 +478,12 @@ scripted_effect ie_yearly_1030_duel_fail_effect = {
 	add_secret = {
 		type = secret_murder_attempt
 		target = scope:neighbor
-		reveal_to = neighbor
-		reveal_to = late_night_visitor
+		save_scope_as = murder_attempt_secret
+	}
+
+	scope:murder_attempt_secret = {
+		reveal_to_without_events_effect = { CHARACTER = scope:neighbor }
+		reveal_to_without_events_effect = { CHARACTER = scope:late_night_visitor }
 	}
 }
 
@@ -692,7 +696,7 @@ ie_yearly.1032 = { # by Ernie Collins
 				secret_target = scope:neighbor
 				NOT = { is_known_by = scope:late_night_visitor }
 			}
-			reveal_to = scope:late_night_visitor
+			reveal_to_without_events_effect = { CHARACTER = scope:late_night_visitor }
 		}
 
 		reverse_add_opinion = {
