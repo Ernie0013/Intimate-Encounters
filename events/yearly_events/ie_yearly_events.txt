@@ -4,23 +4,65 @@
 
 # You get visited by a seducer during the night
 scripted_trigger yearly_1000_late_night_visitor_trigger = {
-	NOR = {
-		has_trait = celibate
-		has_trait = chaste
-	}
 	is_available_ai_adult = yes
 	OR = {
-		has_trait = seducer
-		has_trait = lustful
-		has_trait = deviant
+		sexually_liberal_trigger = yes
 		has_trait = beauty_good
 	}
 	OR = {
 		NOT = { is_close_or_extended_family_of = root }
 		accepts_incest_with_trigger = { CHARACTER = root }
 	}
-	save_temporary_scope_as = late_night_visitor
-	matching_gender_and_sexuality_trigger = { CHARACTER_1 = root CHARACTER_2 = scope:late_night_visitor }
+	save_temporary_scope_as = late_night_visitor_candidate
+	matching_gender_and_sexuality_trigger = { CHARACTER_1 = root CHARACTER_2 = scope:late_night_visitor_candidate }
+}
+
+scripted_effect ie_yearly_1000_determine_late_night_visitor_effect = {
+	every_relation = {
+		type = lover
+		limit = { yearly_1000_late_night_visitor_trigger = yes }
+		add_to_temporary_list = possible_late_night_visitors
+	}
+	every_close_or_extended_family_member = {
+		limit = {
+			yearly_1000_late_night_visitor_trigger = yes
+		}
+		add_to_temporary_list = possible_late_night_visitors
+	}
+	every_courtier_or_guest = {
+		limit = { yearly_1000_late_night_visitor_trigger = yes }
+		add_to_temporary_list = possible_late_night_visitors
+	}
+
+	random_in_list = {
+		list = possible_late_night_visitors
+		weight = {
+			base = 100
+			modifier = {
+				 sexually_liberal_trigger = yes
+				 factor = 3
+			}
+			modifier = { # This is on top of the above
+				 has_trait = lustful
+				 factor = 2
+			}
+			modifier = { # Leaving this in from the original event I based this one on
+				opinion = {
+					target = root
+					value <= 0
+				}
+				factor = 0.1
+			}
+			modifier = {
+				opinion = {
+					target = root
+					value >= 50
+				}
+				factor = 1.5
+			}
+		}
+		save_scope_as = late_night_visitor
+	}
 }
 
 ie_yearly.1000 = { # by Ernie Collins
@@ -100,56 +142,8 @@ ie_yearly.1000 = { # by Ernie Collins
 			days = 3650
 		}
 
-		every_relation = {
-			type = lover
-			limit = { yearly_1000_late_night_visitor_trigger = yes }
-			add_to_temporary_list = possible_late_night_visitors
-		}
-		every_close_or_extended_family_member = {
-			limit = {
-				yearly_1000_late_night_visitor_trigger = yes
-			}
-			add_to_temporary_list = possible_late_night_visitors
-		}
-		every_courtier = {
-			limit = { yearly_1000_late_night_visitor_trigger = yes }
-			add_to_temporary_list = possible_late_night_visitors
-		}
+		ie_yearly_1000_determine_late_night_visitor_effect = yes
 
-		random_in_list = {
-			list = possible_late_night_visitors
-			weight = {
-				base = 100
-				modifier = {
-				 	sexually_liberal_trigger = yes
-				 	factor = 3
-				}
-				modifier = { # This is on top of the above
-				 	has_trait = lustful
-				 	factor = 2
-				}
-				modifier = {
-					any_relation = { type = rival this = root }
-					factor = 2
-				}
-				modifier = { # Leaving this in from the original event I based this one on
-					opinion = {
-						target = root
-						value <= 0
-					}
-					NOT = { any_relation = { type = rival this = root } }
-					factor = 0.1
-				}
-				modifier = {
-					opinion = {
-						target = root
-						value >= 40
-					}
-					factor = 2
-				}
-			}
-			save_scope_as = late_night_visitor
-		}
 		scope:late_night_visitor = { add_character_flag = is_naked }
 	}
 
@@ -167,7 +161,7 @@ ie_yearly.1000 = { # by Ernie Collins
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1010
-				days = 1
+				days = { 1 3 }
 			}
 		}
 
@@ -175,10 +169,7 @@ ie_yearly.1000 = { # by Ernie Collins
 			base = 100
 			modifier = {
 				add = 100
-				OR = {
-					has_trait = seducer
-					has_trait = lustful
-				}
+				sexually_liberal_trigger = yes
 			}
 			ai_greed_target_modifier = { VALUE = 50 }
 			ai_boldness_target_modifier = { VALUE = 50 }
@@ -193,7 +184,7 @@ ie_yearly.1000 = { # by Ernie Collins
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1020
-				days = 1
+				days = { 1 3 }
 			}
 		}
 
@@ -201,7 +192,7 @@ ie_yearly.1000 = { # by Ernie Collins
 			base = 100
 
 			modifier = {
-				add = 300
+				add = 100
 				has_trait_introverted_trigger = yes
 			}
 			ai_boldness_target_modifier = { VALUE = -50 }
@@ -219,18 +210,31 @@ ie_yearly.1000 = { # by Ernie Collins
 			title = ie_yearly.1000.c.message
 			left_icon = scope:late_night_visitor
 			
-			add_piety = minor_piety_gain
+			add_piety = medium_piety_gain
 
 			reverse_add_opinion = {
 				target = scope:late_night_visitor
-				modifier = disappointed_opinion
-				opinion = -10
+				modifier = rejected_opinion
 			}
 			
-			stress_impact = {
-				lustful = minor_stress_impact_gain
-				deviant = minor_stress_impact_gain
-				compassionate = minor_stress_impact_gain
+			if = {
+				limit = { sexually_liberal_trigger = yes }
+				stress_impact = {
+					base = medium_stress_impact_gain
+					lustful = minor_stress_impact_gain
+				}
+			}
+
+			scope:late_night_visitor = {
+				give_deviant_secret_or_trait_effect = yes
+	
+				random_secret = { #Find the secret
+					limit = {
+						secret_type = secret_deviant
+						NOT = { is_known_by = root }
+					}
+					reveal_to = root
+				}
 			}
 		}
 
@@ -238,11 +242,15 @@ ie_yearly.1000 = { # by Ernie Collins
 			base = 100
 
 			modifier = {
-				add = 300
-				has_trait = celibate
+				add = 100
+				OR = {
+					has_trait = celibate
+					has_trait = zealous
+					has_trait = chaste
+				}
 			}
-			ai_boldness_target_modifier = { VALUE = -200 }
-			ai_zeal_target_modifier = { VALUE = 200 }
+			ai_boldness_target_modifier = { VALUE = -50 }
+			ai_zeal_target_modifier = { VALUE = 50 }
 		}
 	}
 
@@ -252,26 +260,27 @@ ie_yearly.1000 = { # by Ernie Collins
 		custom_tooltip = ie_yearly.1000.d.tt
 
 		trigger = {
-			has_trait = lustful
+			OR = {
+				is_deviant_trigger = yes
+				has_trait = lustful
+			}
 		}
 
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1030
-				days = 1
+				days = { 1 3 }
 			}
 		}
 
 		ai_chance = {
 			base = 100
 			modifier = {
-				add = 300
-				OR = {
-					has_trait = lustful
-				}
+				add = 200
+				sexually_liberal_trigger = yes
 			}
-			ai_boldness_target_modifier = { VALUE = 200 }
-			ai_zeal_target_modifier = { VALUE = -200 }
+			ai_boldness_target_modifier = { VALUE = 50 }
+			ai_zeal_target_modifier = { VALUE = -50 }
 		}
 	}
 
@@ -291,7 +300,7 @@ ie_yearly.1010 = { # by Ernie Collins
 	}
 	left_portrait = {
 		character = scope:late_night_visitor
-		animation = flirtation
+		animation = personality_bold
 	}
 
 	immediate = {
@@ -304,7 +313,7 @@ ie_yearly.1010 = { # by Ernie Collins
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1011
-				days = 1
+				days = { 1 3 }
 			}
 		}
 	}
@@ -353,9 +362,124 @@ ie_yearly.1020 = { # by Ernie Collins
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1011
-				days = 1
+				days = { 1 3 }
 			}
 		}
+	}
+}
+
+scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
+	if = {
+		limit = {
+			is_close_or_extended_family_of = scope:late_night_visitor
+		}
+
+		give_incest_secret_or_nothing_with_target_effect = { CHARACTER = scope:late_night_visitor }
+
+		random_secret = { #Find the secret
+			limit = {
+				secret_type = secret_incest
+				NOT = { is_known_by = scope:neighbor }
+			}
+			reveal_to = scope:neighbor
+		}
+
+		scope:late_night_visitor = {
+			give_incest_secret_or_nothing_with_target_effect = { CHARACTER = root }
+
+			random_secret = { #Find the secret
+				limit = {
+					secret_type = secret_incest
+					NOT = { is_known_by = scope:neighbor }
+				}
+				reveal_to = scope:neighbor
+			}
+		}
+	}
+	else = {
+		give_deviant_secret_or_trait_effect = yes
+
+		random_secret = { #Find the secret
+			limit = {
+				secret_type = secret_deviant
+				NOT = { is_known_by = scope:neighbor }
+			}
+			reveal_to = scope:neighbor
+		}
+
+		scope:late_night_visitor = {
+			give_deviant_secret_or_trait_effect = yes
+
+			random_secret = { #Find the secret
+				limit = {
+					secret_type = secret_deviant
+					NOT = { is_known_by = scope:neighbor }
+				}
+				reveal_to = scope:neighbor
+			}
+		}
+	}
+}
+
+scripted_effect ie_yearly_1030_determine_neighbor_effect = {
+	every_courtier_or_guest = {
+		add_to_temporary_list = possible_neighbors
+	}
+
+	random_in_list = {
+		list = possible_neighbors
+		limit = {
+			carn_gender_can_impregnate_trigger = yes
+			NOR = { 
+				scope:late_night_visitor = this
+				root = this # Just in case
+			 }
+		}
+
+		weight = {
+			base = 100
+			modifier = {
+				is_powerful_vassal_of = root
+				factor = 3
+			}
+			modifier = {
+				is_vassal_of = root
+				factor = 1.5
+			}
+			modifier = {
+				 sexually_liberal_trigger = yes
+				 factor = 1.5
+			}
+			modifier = { # To spice things up
+				is_close_or_extended_family_of = root
+				factor = 1.25
+			}
+		}
+		save_scope_as = neighbor
+	}
+}
+
+scripted_effect ie_yearly_1030_duel_fail_effect = {
+	add_prestige = medium_prestige_loss
+	
+	increase_wounds_no_death_effect = { REASON = fight }
+
+	reverse_add_opinion = {
+		target = scope:late_night_visitor
+		modifier = scared_opinion
+		opinion = -20
+	}
+	
+	reverse_add_opinion = {
+		target = scope:neighbor
+		modifier = attempted_murder_me_crime
+	}
+
+	add_secret = {
+		type = secret_murder_attempt
+		target = scope:neighbor
+		reveal_to = neighbor
+		reveal_to = late_night_visitor
 	}
 }
 
@@ -376,35 +500,7 @@ ie_yearly.1030 = { # by Ernie Collins
 	immediate = {
 		scope:late_night_visitor = { add_character_flag = is_naked }
 
-		if = {
-			limit = {
-				any_vassal = {
-					is_powerful_vassal = yes
-				}
-			}
-			random_vassal = {
-				limit = {
-					is_powerful_vassal = yes
-				}
-				save_scope_as = neighbor
-			}
-		}
-		else_if = {
-			limit = {
-				any_vassal = {
-					exists = this
-				}
-			}
-			random_vassal = {
-				limit = { carn_gender_can_impregnate_trigger = yes }
-				save_scope_as = neighbor
-			}
-		}
-		else = {
-			random_courtier_or_guest = {
-				save_scope_as = neighbor
-			}
-		}
+		ie_yearly_1030_determine_neighbor_effect = yes
 	}
 
 	option = {
@@ -414,25 +510,118 @@ ie_yearly.1030 = { # by Ernie Collins
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1031
-				days = 1
+				days = { 1 3 }
 			}
+		}
+
+		ai_chance = {
+			base = 100
+
+			modifier = {
+				add = 200
+				sexually_liberal_trigger = yes
+			}
+
+			ai_boldness_target_modifier = { VALUE = 50 }
+			ai_zeal_target_modifier = { VALUE = -50 }
 		}
 	}
 
 	option = {
 		name = ie_yearly.1030.b
 		custom_tooltip = ie_yearly.1030.b.tt
+
+		send_interface_toast = {
+			title = ie_yearly.1030.b.message
+			left_icon = scope:late_night_visitor
+			right_icon = scope:neighbor
+			
+			reverse_add_opinion = {
+				target = scope:late_night_visitor
+				modifier = abandoned_me_opinion
+			}
+			
+			stress_impact = {
+				base = medium_stress_impact_gain
+				shy = minor_stress_impact_gain
+				chaste = minor_stress_impact_gain
+				celibate = minor_stress_impact_gain
+				craven = minor_stress_impact_gain
+			}
+
+			ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = yes
+		}
+
+		ai_chance = {
+			base = 100
+
+			modifier = {
+				add = 200
+				has_trait_introverted_trigger = yes
+			}
+			
+			ai_boldness_target_modifier = { VALUE = -100 }
+			ai_honor_target_modifier = { VALUE = -100 }
+			ai_zeal_target_modifier = { VALUE = 50 }
+		}
 	}
 
 	option = {
 		name = ie_yearly.1030.c
-		custom_tooltip = ie_yearly.1030.c.tt
 
-		hidden_effect = {
-			trigger_event = {
-				id = ie_yearly.1032
-				days = 1
+		duel = {
+			skill = prowess
+			target = scope:neighbor
+			30 = {
+				desc = "murder"
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+
+				show_as_tooltip = {
+					unknown_murder_effect = {
+						VICTIM = scope:neighbor
+						MURDERER = root
+						REASON = death_mysterious
+					}
+				}
+
+				trigger_event = {
+					days = { 2 7 } # Keep player in suspense for a bit
+					id = ie_yearly.1032
+				}
 			}
+			20 = {
+				desc = "no murder"
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+
+				show_as_tooltip = {
+					ie_yearly_1030_duel_fail_effect = yes
+				}
+
+				trigger_event = {
+					days = { 2 7 } # Keep player in suspense for a bit
+					id = ie_yearly.1033
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 50
+
+			modifier = {
+				add = 100
+				has_trait_malicious_trigger = yes
+			}
+			
+			ai_boldness_target_modifier = { VALUE = 50 }
+			ai_honor_target_modifier = { VALUE = -200 }
+			ai_rationality_target_modifier = { VALUE = -200 }
+			ai_zeal_target_modifier = { VALUE = -200 }
 		}
 	}
 
@@ -490,6 +679,27 @@ ie_yearly.1032 = { # by Ernie Collins
 
 	immediate = {
 		scope:late_night_visitor = { add_character_flag = is_naked }
+
+		unknown_murder_effect = {
+			VICTIM = scope:neighbor
+			MURDERER = root
+			REASON = death_mysterious
+		}
+
+		random_secret = { #Find the secret
+			limit = {
+				secret_type = secret_murder
+				secret_target = scope:neighbor
+				NOT = { is_known_by = scope:late_night_visitor }
+			}
+			reveal_to = scope:late_night_visitor
+		}
+
+		reverse_add_opinion = {
+			target = scope:late_night_visitor
+			modifier = scared_opinion
+			opinion = -50
+		}
 	}
 
 	option = {
@@ -498,5 +708,20 @@ ie_yearly.1032 = { # by Ernie Collins
 
 	after = {
 		scope:late_night_visitor = { remove_character_flag = is_naked }
+	}
+}
+
+ie_yearly.1033 = { # by Ernie Collins
+	# This is a maintenance necessary to fix characters being dressed during the sex scene
+	hidden = yes
+
+	immediate = {
+		send_interface_toast = {
+			title = ie_yearly.1030.c.message
+			left_icon = scope:late_night_visitor
+			right_icon = scope:neighbor
+
+			ie_yearly_1030_duel_fail_effect = yes
+		}
 	}
 }
