@@ -1,0 +1,49 @@
+﻿# Brave event chain starting at 0001
+sway_ongoing_0001_failure_effect = {
+	send_interface_toast = {
+		title = ie_sway_ongoing.0003.a_failure
+
+		# Faith is ok with that
+		if = {
+			limit = {
+				faith = { trait_is_virtue = lustful }							
+			}
+			custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
+		}
+		# Faith hates it!
+		else_if = {
+			limit = {
+				faith = { trait_is_sin = lustful }
+			}
+			lustful_act_piety_impact_effect = {
+				IMPACT = major_piety_loss
+			}
+		}
+		# Faith is undecided (probably against)
+		else = {
+			add_piety = medium_piety_loss
+		}					
+	}
+	# Might expose adultery secret
+	hidden_effect = {
+		random = {
+			chance = 50
+			if = {
+				limit = { 
+					has_secret_relation_lover = scope:target 
+					scope:owner = scope:possibly_player # We don't need two chances to expose the same secret, so only the player should have to worry about it
+				}
+				send_interface_toast = {
+					title = ie_sway_ongoing.0003.a_failure
+					random_secret = {
+						limit = {
+							secret_type = secret_lover
+							secret_target = scope:target
+						}
+						reveal_to = scope:guest
+					}
+				}
+			}
+		}
+	}	
+}

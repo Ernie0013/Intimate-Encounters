@@ -100,8 +100,8 @@ ie_sway_ongoing.0001 = {
 		######################################
 		# TODO - Correct this for production #
 		######################################
-		#scope:owner = { trigger_event = ie_sway_ongoing.0002 }
-		scope:target = { trigger_event = ie_sway_ongoing.0002 }
+		scope:owner = { trigger_event = ie_sway_ongoing.0002 }
+		#scope:target = { trigger_event = ie_sway_ongoing.0002 }
 	}
 		
 	# Abort
@@ -134,7 +134,7 @@ ie_sway_ongoing.0002 = {
 	
 	# Accept
 	option = {
-		trigger = { is_attracted_to_gender_of = scope:owner }
+		trigger = { scope:target = { is_attracted_to_gender_of = scope:owner } }
 
 		name = ie_sway_ongoing.0002.a
 		custom_tooltip = ie_sway_ongoing.0002.a.tt
@@ -189,15 +189,15 @@ ie_sway_ongoing.0002 = {
 	}
 	# Soft-rebuke but still sex
 	option = {
-		trigger = { is_attracted_to_gender_of = scope:owner }
+		trigger = { scope:target = {is_attracted_to_gender_of = scope:owner } }
 		
 		name = ie_sway_ongoing.0002.b
 		custom_tooltip = ie_sway_ongoing.0002.b.tt
 
-		ai_chance = { 
-			base = 10
+		ai_chance = {
+			base = 25
 			modifier = {
-				add = 50
+				add = 25
 				OR = {
 					has_trait = chaste
 					has_trait = celibate
@@ -227,9 +227,9 @@ ie_sway_ongoing.0002 = {
 		custom_tooltip = ie_sway_ongoing.0002.c.tt
 
 		ai_chance = { 
-			base = 10
+			base = 0
 			modifier = {
-				add = 50
+				add = 75
 				OR = {
 					has_trait = chaste
 					has_trait = celibate
@@ -262,9 +262,14 @@ ie_sway_ongoing.0003 = {
 		name = ie_sway_ongoing.0003.a
 		custom_tooltip = ie_sway_ongoing.0003.a.tt
 
-		# !!!
-		# Copy any modifications of the dual block to event 0004
-		# !!!
+		trigger = {
+			NOR = { 
+				scope:target = { has_trait = lustful } 
+				scope:target = { has_trait = brave }
+			}
+		}
+
+		# Same duel for target
 		duel = {
 			skill = intrigue
 			target = scope:guest
@@ -280,55 +285,27 @@ ie_sway_ongoing.0003 = {
 					multiplier = -1
 				}
 								
-				send_interface_toast = {
-					title = ie_sway_ongoing.0003.a_failure
-
-					# Faith is ok with that
-					if = {
-						limit = {
-							faith = { trait_is_virtue = lustful }							
-						}
-						custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
-					}
-					# Faith hates it!
-					else_if = {
-						limit = {
-							faith = { trait_is_sin = lustful }
-						}
-						lustful_act_piety_impact_effect = {
-							IMPACT = major_piety_loss
-						}
-					}
-					# Faith is undecided (probably against)
-					else = {
-						add_piety = medium_piety_loss
-					}					
-				}
-				# Might expose adultery secret
-				hidden_effect = {
-					random = {
-						chance = 50
-						if = {
-							limit = { 
-								has_secret_relation_lover = scope:target 
-								scope:owner = scope:possibly_player # We don't need two chances to expose the same secret, so only the player should have to worry about it
-							}
-							send_interface_toast = {
-								title = ie_sway_ongoing.0003.a_failure
-								random_secret = {
-									limit = {
-										secret_type = secret_lover
-										secret_target = scope:target
-									}
-									reveal_to = scope:guest
-								}
-							}
-						}
-					}
-				}							
+				sway_ongoing_0001_failure_effect = yes						
 			}
 		}
+	}
 
+	option = {
+		name = ie_sway_ongoing.0003.b
+		custom_tooltip = ie_sway_ongoing.0003.a.tt
+		custom_tooltip = ie_sway_ongoing.0003.b.tt
+
+		trigger = {
+			OR = {
+				scope:target = { has_trait = lustful }
+				scope:target = { has_trait = brave }	
+			}
+		}
+		
+		sway_ongoing_0001_failure_effect = yes
+	}
+
+	after = {
 		######################################
 		# TODO - Correct this for production #
 		######################################
@@ -349,16 +326,16 @@ ie_sway_ongoing.0004 = {
 	
 	option = {
 		name = ie_sway_ongoing.0004.a
-		custom_tooltip = ie_sway_ongoing.0004.tt		
-
-		save_scope_value_as = {
-			name = hard_court_reject
-			value = yes
+		custom_tooltip = ie_sway_ongoing.0004.a.tt
+		
+		trigger = {
+			NOR = { 
+				scope:target = { has_trait = lustful } 
+				scope:target = { has_trait = brave }
+			}
 		}
 
-		# !!!
-		# Copy any modifications of the dual block to event 0003
-		# !!!
+		# Same duel for owner
 		duel = {
 			skill = intrigue
 			target = scope:guest
@@ -373,57 +350,32 @@ ie_sway_ongoing.0004 = {
 					value = scope:duel_value
 					multiplier = -1
 				}
-								
-				send_interface_toast = {
-					title = ie_sway_ongoing.0003.a_failure
 
-					# Faith is ok with that
-					if = {
-						limit = {
-							faith = { trait_is_virtue = lustful }							
-						}
-						custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
-					}
-					# Faith hates it!
-					else_if = {
-						limit = {
-							faith = { trait_is_sin = lustful }
-						}
-						lustful_act_piety_impact_effect = {
-							IMPACT = major_piety_loss
-						}
-					}
-					# Faith is undecided (probably against)
-					else = {
-						add_piety = medium_piety_loss
-					}					
-				}
-				# Might expose adultery secret
-				hidden_effect = {
-					random = {
-						chance = 50
-						if = {
-							limit = { 
-								has_secret_relation_lover = scope:target 
-								scope:owner = scope:possibly_player # We don't need two chances to expose the same secret, so only the player should have to worry about it
-							}
-							send_interface_toast = {
-								title = ie_sway_ongoing.0003.a_failure
-								random_secret = {
-									limit = {
-										secret_type = secret_lover
-										secret_target = scope:target
-									}
-									reveal_to = scope:guest
-								}
-							}
-						}
-					}
-				}							
+				sway_ongoing_0001_failure_effect = yes
 			}
 		}
-		
+
 		scope:owner = { trigger_event = ie_sway_ongoing.0005 }
+	}
+
+	option = {
+		name = ie_sway_ongoing.0004.b
+		custom_tooltip = ie_sway_ongoing.0004.b.tt
+
+		if = {
+			limit = {
+				OR = {
+					scope:target = { has_trait = lustful }
+					scope:target = { has_trait = brave }	
+				}
+			}
+			custom_tooltip = ie_sway_ongoing.0004.b.tt2
+		}	
+		
+		sway_ongoing_0001_failure_effect = yes
+		add_stress = minor_stress_impact_loss
+
+		scope:owner = { trigger_event = ie_sway_ongoing.0008 }
 	}
 }
 
@@ -440,25 +392,20 @@ ie_sway_ongoing.0005 = {
 	option = {
 		name = ie_sway_ongoing.0005.a
 		
-		scope:owner = {
-			add_character_modifier = {
-				modifier = modifier_stimulated
-				months = 6
-			}
+		add_character_modifier = {
+			modifier = modifier_stimulated
+			months = 6
 		}
 
 		scope:scheme = {
 			add_scheme_progress = scheme_progress_gain
 		}
 
-		# Since the sex event is triggered in the target scope we only require a notification
-		custom_tooltip = ie_sway_ongoing.0005.lay
-
 		######################################
 		# TODO - Correct this for production #
 		######################################
-		#scope:owner = { trigger_event = ie_sway_ongoing.0006 }
-		scope:target = { trigger_event = ie_sway_ongoing.0006 }
+		scope:owner = { trigger_event = ie_sway_ongoing.0006 }
+		#scope:target = { trigger_event = ie_sway_ongoing.0006 }
 	}
 }
 
@@ -474,11 +421,9 @@ ie_sway_ongoing.0006 = {
 	option = {
 		name = ie_sway_ongoing.0005.a
 		
-		scope:target = {
-			add_character_modifier = {
-				modifier = modifier_stimulated
-				months = 6
-			}
+		add_character_modifier = {
+			modifier = modifier_stimulated
+			months = 6
 		}
 		
 		# Starts a sex scene for the player even if he is owner and not target
@@ -528,8 +473,68 @@ ie_sway_ongoing.0007 = {
 			trigger = { scope:target = scope:possibly_player }
 			text = ie_sway_ongoing.0007.a_target
 		}
-
+		
 		# Carnalitas framework sex scene
+		carn_sex_scene_request_consensual = yes
+		carn_sex_scene_effect = {
+			PLAYER = scope:possibly_player
+			TARGET = scope:non_player
+			STRESS_EFFECTS = yes
+			DRAMA = no
+		}
+	}
+}
+
+# Special end owner
+ie_sway_ongoing.0008 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0008.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:target
+	right_portrait = scope:guest
+
+	option = {
+		name = ie_sway_ongoing.0008.a
+		custom_tooltip = ie_sway_ongoing.0008.a.tt
+		
+		add_character_modifier = {
+			modifier = modifier_stimulated
+			years = 1
+		}
+
+		scope:scheme = {
+			add_scheme_progress = scheme_progress_gain
+		}
+
+		######################################
+		# TODO - Correct this for production #
+		######################################
+		scope:owner = { trigger_event = ie_sway_ongoing.0009 }
+		#scope:target = { trigger_event = ie_sway_ongoing.0009 }
+	}
+}
+
+# Narrate end target. Gameplay effects in initiator event.
+ie_sway_ongoing.0009 = {
+	type = character_event
+	title = ie_sway_ongoing.0001.t
+	desc = ie_sway_ongoing.0009.desc
+	theme = seduce_scheme
+	override_background = { event_background = feast }
+	left_portrait = scope:owner
+	right_portrait = scope:guest
+	option = {
+		name = ie_sway_ongoing.0008.a
+		custom_tooltip = ie_sway_ongoing.0008.a.tt
+		
+		add_character_modifier = {
+			modifier = modifier_stimulated
+			years = 1
+		}
+		
+		# Starts a sex scene for the player even if he is owner and not target
 		carn_sex_scene_request_consensual = yes
 		carn_sex_scene_effect = {
 			PLAYER = scope:possibly_player
