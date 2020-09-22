@@ -28,6 +28,8 @@ ie_sway_ongoing.0001 = {
 			is_spouse_of = scope:target
 		}
 
+		is_attracted_to_gender_of = scope:target
+
 		# The way the event it written assumes that open displays of sexuality are shunned in the society
 		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:owner }
 		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:target }
@@ -132,6 +134,8 @@ ie_sway_ongoing.0002 = {
 	
 	# Accept
 	option = {
+		trigger = { is_attracted_to_gender_of = scope:owner }
+
 		name = ie_sway_ongoing.0002.a
 		custom_tooltip = ie_sway_ongoing.0002.a.tt
 		save_scope_value_as = {
@@ -185,6 +189,8 @@ ie_sway_ongoing.0002 = {
 	}
 	# Soft-rebuke but still sex
 	option = {
+		trigger = { is_attracted_to_gender_of = scope:owner }
+		
 		name = ie_sway_ongoing.0002.b
 		custom_tooltip = ie_sway_ongoing.0002.b.tt
 
@@ -305,7 +311,7 @@ ie_sway_ongoing.0003 = {
 						if = {
 							limit = { 
 								has_secret_relation_lover = scope:target 
-								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
+								scope:owner = scope:possibly_player # We don't need two chances to expose the same secret, so only the player should have to worry about it
 							}
 							send_interface_toast = {
 								title = ie_sway_ongoing.0003.a_failure
@@ -399,7 +405,7 @@ ie_sway_ongoing.0004 = {
 						if = {
 							limit = { 
 								has_secret_relation_lover = scope:target 
-								is_ai = no # We don't need two chances to expose the same secret, so only the player should have to worry about it
+								scope:owner = scope:possibly_player # We don't need two chances to expose the same secret, so only the player should have to worry about it
 							}
 							send_interface_toast = {
 								title = ie_sway_ongoing.0003.a_failure
