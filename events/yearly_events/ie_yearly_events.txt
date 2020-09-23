@@ -266,6 +266,9 @@ ie_yearly.1000 = { # by Ernie Collins
 			}
 		}
 
+		trait = deviant
+		trait = lustful
+
 		hidden_effect = {
 			trigger_event = {
 				id = ie_yearly.1030
