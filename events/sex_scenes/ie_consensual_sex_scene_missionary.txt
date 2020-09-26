@@ -27,6 +27,13 @@ ie_consensual_sex_scene_missionary.0001 = {
 	}
 	right_portrait = {
 		character = scope:carn_sex_target
+		triggered_animation = {
+			trigger = {
+				scope:carn_sex_player = { is_male = no }
+				scope:carn_sex_target = { is_male = yes }
+			}
+			animation = flirtation_left # Yes, I'm using _left for the right portrait
+		}
 		animation = flirtation
 	}
 
