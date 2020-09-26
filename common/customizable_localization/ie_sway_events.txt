@@ -1,0 +1,28 @@
+﻿
+womanhood_manhood = {
+	type = character
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = womanhood
+	}
+
+	text = {
+		trigger = { is_female = no }
+		localization_key = manhood
+	}	
+}
+
+breasts_cheast = {
+	type = character
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = breasts
+	}
+
+	text = {
+		trigger = { is_female = no }
+		localization_key = chest
+	}	
+}

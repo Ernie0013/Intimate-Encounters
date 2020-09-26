@@ -1,0 +1,46 @@
+﻿# Brave event chain starting at 0001
+sway_ongoing_0001_failure_effect = {
+	$OTHER$ = { save_scope_as = sex_partner }	
+
+	send_interface_toast = {
+		title = ie_sway_ongoing.0003.a_failure
+
+		# Faith is ok with that
+		if = {
+			limit = {
+				faith = { trait_is_virtue = lustful }							
+			}
+			custom_tooltip = ie_sway_ongoing.0003.a_lustful_is_virtue
+		}
+		# Faith hates it!
+		else_if = {
+			limit = {
+				faith = { trait_is_sin = lustful }
+			}
+			lustful_act_piety_impact_effect = {
+				IMPACT = major_piety_loss
+			}
+		}
+		# Faith is undecided (probably against)
+		else = {
+			add_piety = medium_piety_loss
+		}
+	}
+	# Might expose adultery secret
+	
+	if = {
+		# Only show chance if something can be exposed
+		limit = {
+			OR = {
+				relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = scope:sex_partner }
+				relation_with_character_is_sodomy_in_my_or_lieges_faith_trigger = { CHARACTER = scope:sex_partner}
+				has_relation_lover = scope:sex_target
+			}
+		}
+		random = {
+			chance = 50
+			extramarital_sex_exposure_consequences_with_target_effect = { TARGET = scope:sex_partner SPOUSE_EVENT = no }
+		}
+	}
+	
+}

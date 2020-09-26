@@ -1,0 +1,15 @@
+﻿l_english:
+
+ I_LUSTFUL_PIETY_IMPACT_GAIN:1 "You gain [piety_i]$VALUE|+0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ I_LUSTFUL_PIETY_IMPACT_LOSS:1 "You lose [piety_i]$VALUE|-0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
+ THEY_LUSTFUL_PIETY_IMPACT_GAIN:0 "[CHARACTER.GetShortUIName|U] gains [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ THEY_LUSTFUL_PIETY_IMPACT_LOSS:0 "[CHARACTER.GetShortUIName|U] loses [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
+ I_PAST_LUSTFUL_PIETY_IMPACT_GAIN:1 "You gained [piety_i]$VALUE|+0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ I_PAST_LUSTFUL_PIETY_IMPACT_LOSS:1 "You lost  [piety_i]$VALUE|-0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
+ THEY_PAST_LUSTFUL_PIETY_IMPACT_GAIN:0 "[CHARACTER.GetShortUIName|U] gained [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ THEY_PAST_LUSTFUL_PIETY_IMPACT_LOSS:0 "[CHARACTER.GetShortUIName|U] lost [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
+ 
+ PIETY_GAIN:0 "Gains [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ PIETY_LOSS:0 "Loses [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
+ PAST_LUSTFUL_PIETY_IMPACT_GAIN:0 "Gained [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [virtue|E]"
+ PAST_LUSTFUL_PIETY_IMPACT_LOSS:0 "Lost [piety_i]$VALUE|V0$ [piety|E] because [GetTrait('lustful').GetName( CHARACTER.Self )] is a [sin|E]"
