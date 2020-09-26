@@ -25,7 +25,7 @@ ie_sway_ongoing.0001 = {
 		
 		OR = {
 			has_relation_lover = scope:target
-			is_spouse_of = scope:target
+			is_consort_of = scope:target
 		}
 
 		is_attracted_to_gender_of = scope:target
@@ -285,7 +285,7 @@ ie_sway_ongoing.0003 = {
 					multiplier = -1
 				}
 								
-				sway_ongoing_0001_failure_effect = yes						
+				sway_ongoing_0001_failure_effect = { OTHER = scope:target }				
 			}
 		}
 	}
@@ -302,7 +302,7 @@ ie_sway_ongoing.0003 = {
 			}
 		}
 		
-		sway_ongoing_0001_failure_effect = yes
+		sway_ongoing_0001_failure_effect = { OTHER = scope:target }	
 	}
 
 	after = {
@@ -351,7 +351,7 @@ ie_sway_ongoing.0004 = {
 					multiplier = -1
 				}
 
-				sway_ongoing_0001_failure_effect = yes
+				sway_ongoing_0001_failure_effect = { OTHER = scope:owner }	
 			}
 		}
 
@@ -372,7 +372,7 @@ ie_sway_ongoing.0004 = {
 			custom_tooltip = ie_sway_ongoing.0004.b.tt2
 		}	
 		
-		sway_ongoing_0001_failure_effect = yes
+		sway_ongoing_0001_failure_effect = { OTHER = scope:owner }
 		add_stress = minor_stress_impact_loss
 
 		scope:owner = { trigger_event = ie_sway_ongoing.0008 }
