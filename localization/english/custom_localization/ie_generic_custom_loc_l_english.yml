@@ -1,0 +1,85 @@
+﻿l_english:
+
+ genitals_vagina_name:0 "[ROOT.Char.Custom('GetVaginaName')]"
+ genitals_penis_name:0 "[ROOT.Char.Custom('GetPenisName')]"
+
+ genitals_vagina_name_vagina:0 "vagina"
+ genitals_vagina_name_pussy:0 "pussy"
+ genitals_vagina_name_cunt:0 "cunt"
+ genitals_vagina_name_slit:0 "slit"
+ genitals_vagina_name_sex:0 "sex"
+ genitals_vagina_name_depths:0 "depths"
+ genitals_vagina_name_sheathe:0 "sheathe"
+ genitals_vagina_name_womanhood:0 "womanhood"
+
+ penetrated_orifice_anus:0 "anus"
+ penetrated_orifice_ass:0 "ass"
+ penetrated_orifice_ass_hole:0 "asshole"
+ penetrated_orifice_mouth:0 "mouth"
+
+ vagina_adjective_wet:0 "wet"
+ vagina_adjective_dripping:0 "dripping"
+ vagina_adjective_dripping_wet:0 "dripping wet"
+ vagina_adjective_drenched:0 "drenched"
+ vagina_adjective_soaking:0 "soaking"
+ vagina_adjective_soaking_wet:0 "soaking wet"
+ vagina_adjective_sopping_wet:0 "sopping wet"
+ vagina_adjective_moist:0 "moist"
+ vagina_adjective_soaked:0 "soaked"
+
+ penis_adjective_erect:0 "erect"
+ penis_adjective_hard:0 "hard"
+ penis_adjective_stiff:0 "stiff"
+ penis_adjective_rock_hard:0 "rock hard"
+ penis_adjective_rigid:0 "rigid"
+ penis_adjective_throbbing:0 "throbbing"
+ penis_adjective_turgid:0 "turgid"
+ penis_adjective_firm:0 "firm"
+
+ genitals_penis_name_penis:0 "penis"
+ genitals_penis_name_cock:0 "cock"
+ genitals_penis_name_dick:0 "dick"
+ genitals_penis_name_member:0 "member"
+ genitals_penis_name_length:0 "length"
+ genitals_penis_name_shaft:0 "shaft"
+ genitals_penis_name_manhood:0 "manhood"
+
+ penetrating_appendage_fingers:0 "fingers"
+
+ genitals_vulgar_vagina:0 "[ROOT.Char.Custom('GetVaginaAdjective')] [ROOT.Char.Custom('GetVaginaName')]"
+ genitals_vulgar_penis:0 "[ROOT.Char.Custom('GetPenisAdjective')] [ROOT.Char.Custom('GetPenisName')]"
+ genitals_vulgar_random:0 "[ROOT.Char.Custom('GetGenitalsVulgarRandom')]"
+
+ genitals_action_rub:0 "rub"
+ genitals_action_rubs:0 "rubs"
+ genitals_action_rubbing:0 "rubbing"
+ genitals_action_stroke:0 "stroke"
+ genitals_action_strokes:0 "strokes"
+ genitals_action_stroking:0 "stroking"
+
+ semen_name:0 "[ROOT.Char.Custom('GetSemenName')]"
+
+ semen_name_semen:0 "semen"
+ semen_name_sperm:0 "sperm"
+ semen_name_cum:0 "cum"
+ semen_name_seed:0 "seed"
+ semen_name_manly_essence:0 "manly essence"
+ semen_name_seed:0 "seed"
+ semen_name_milk:0 "milk"
+ semen_name_ejaculate:0 "ejaculate"
+ semen_name_spunk:0 "spunk"
+
+ orgasm_verb:0 "[ROOT.Char.Custom('GetOrgasmVerb')]"
+
+ orgasm_verb_orgasm:0 "orgasm"
+ orgasm_verb_cum:0 "cum"
+ orgasm_verb_climax:0 "climax"
+ orgasm_verb_come:0 "come"
+
+ orgasm_verb_third_person:0 "[ROOT.Char.Custom('GetOrgasmVerbThirdPerson')]"
+
+ orgasm_verb_orgasms:0 "orgasms"
+ orgasm_verb_cums:0 "cums"
+ orgasm_verb_climaxes:0 "climaxes"
+ orgasm_verb_comes:0 "comes"
+ 

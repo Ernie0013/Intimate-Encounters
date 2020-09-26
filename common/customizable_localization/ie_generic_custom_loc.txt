@@ -1,0 +1,408 @@
+﻿GetGenitals = {
+	type = character
+
+	text = {
+		trigger = { carn_gender_can_impregnate_trigger = yes }
+		localization_key = genitals_penis_name
+	}
+	
+	text = {
+		trigger = { is_female = yes }
+		fallback = yes
+		localization_key = genitals_vagina_name
+	}
+}
+
+GetGenitalsVulgar = {
+	type = character
+
+	text = {
+		trigger = { carn_gender_can_impregnate_trigger = yes }
+		localization_key = genitals_vulgar_penis
+	}
+	
+	text = {
+		trigger = { is_female = yes }
+		fallback = yes
+		localization_key = genitals_vulgar_vagina
+	}
+}
+
+GetPenetratingAppendage = {
+	type = character
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = yes
+		}
+		localization_key = genitals_vulgar_penis
+	}
+
+	text = {
+		localization_key = penetrating_appendage_fingers
+	}
+}
+
+GetPenetratedOrifice = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		trigger = {
+			is_female = yes
+		}
+		localization_key = genitals_vulgar_vagina
+	}
+	text = {
+		weight_multiplier = { 
+			base = 0.1
+			modifier = {
+				has_trait = lustful
+				factor = 10
+			}
+		}
+		localization_key = penetrated_orifice_anus
+	}
+	text = {
+		weight_multiplier = { 
+			base = 0.1
+			modifier = {
+				has_trait = lustful
+				factor = 10
+			}
+		}
+		localization_key = penetrated_orifice_ass
+	}
+	text = {
+		weight_multiplier = { 
+			base = 0.1
+			modifier = {
+				has_trait = lustful
+				factor = 10
+			}
+		}
+		localization_key = penetrated_orifice_ass_hole
+	}
+	text = {
+		trigger = {
+			scope:second = { carn_gender_can_impregnate_trigger = yes }
+		}
+		weight_multiplier = { 
+			base = 0.25
+			modifier = {
+				has_trait = lustful
+				factor = 4
+			}
+		}
+		localization_key = penetrated_orifice_mouth
+	}
+}
+
+GetPenisAdjective = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = penis_adjective_erect
+	}
+
+	text = {
+		localization_key = penis_adjective_hard
+	}
+
+	text = {
+		localization_key = penis_adjective_stiff
+	}
+
+	text = {
+		localization_key = penis_adjective_rock_hard
+	}
+
+	text = {
+		localization_key = penis_adjective_rigid
+	}
+
+	text = {
+		localization_key = penis_adjective_throbbing
+	}
+
+	text = {
+		localization_key = penis_adjective_turgid
+	}
+
+	text = {
+		localization_key = penis_adjective_firm
+	}
+}
+
+GetPenisName = {
+	type = character
+
+	random_valid = yes
+
+	# text = { # Too tame
+	# 	localization_key = genitals_penis_name_penis
+	# }
+
+	text = {
+		localization_key = genitals_penis_name_cock
+	}
+
+	text = {
+		localization_key = genitals_penis_name_dick
+	}
+
+	text = {
+		localization_key = genitals_penis_name_member
+	}
+
+	# text = { # Doesn't always work in context
+	# 	localization_key = genitals_penis_name_length
+	# }
+
+	text = {
+		localization_key = genitals_penis_name_shaft
+	}
+
+	text = {
+		localization_key = genitals_penis_name_manhood
+	}
+
+	# text = { # Too crass
+	# 	localization_key = genitals_penis_name_prick
+	# }
+
+	# text = { # Too crass
+	# 	localization_key = genitals_penis_name_pecker
+	# }
+}
+
+GetVaginaAdjective = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = vagina_adjective_wet
+	}
+
+	text = {
+		localization_key = vagina_adjective_dripping
+	}
+
+	text = {
+		localization_key = vagina_adjective_dripping_wet
+	}
+
+	text = {
+		localization_key = vagina_adjective_drenched
+	}
+
+	text = {
+		localization_key = vagina_adjective_soaking
+	}
+
+	text = {
+		localization_key = vagina_adjective_soaking_wet
+	}
+
+	text = {
+		localization_key = vagina_adjective_sopping_wet
+	}
+
+	text = {
+		localization_key = vagina_adjective_moist
+	}
+
+	text = {
+		localization_key = vagina_adjective_soaked
+	}
+}
+
+GetVaginaName = {
+	type = character
+
+	random_valid = yes
+
+	# text = { # Too tame
+	# 	localization_key = genitals_vagina_name_vagina
+	# }
+
+	text = {
+		localization_key = genitals_vagina_name_pussy
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_cunt
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_slit
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_sex
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_depths
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_sheathe
+	}
+
+	text = {
+		localization_key = genitals_vagina_name_womanhood
+	}
+}
+
+GetGenitalsVulgarRandom = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = genitals_vulgar_vagina
+	}
+
+	text = {
+		localization_key = genitals_vulgar_penis
+	}
+}
+
+GenitalsAction = {
+	type = character
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = yes
+		}
+		localization_key = genitals_action_stroke
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = genitals_action_rub
+	}
+}
+
+GenitalsActionThirdPerson = {
+	type = character
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = genitals_action_rubs
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = yes
+		}
+		localization_key = genitals_action_strokes
+	}
+}
+
+GenitalsActionPresentParticiple = {
+	type = character
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = genitals_action_rubbing
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = yes
+		}
+		localization_key = genitals_action_stroking
+	}
+}
+
+GetSemenName = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = semen_name_semen
+	}
+
+	text = {
+		localization_key = semen_name_sperm
+	}
+
+	text = {
+		localization_key = semen_name_cum
+	}
+
+	text = {
+		localization_key = semen_name_seed
+	}
+
+	text = {
+		localization_key = semen_name_manly_essence
+	}
+
+	text = {
+		localization_key = semen_name_seed
+	}
+
+	# text = { # This just sounds weird
+	# 	localization_key = semen_name_milk
+	# }
+
+	text = {
+		localization_key = semen_name_ejaculate
+	}
+
+	text = {
+		localization_key = semen_name_spunk
+	}
+}
+
+GetOrgasmVerb = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = orgasm_verb_orgasm
+	}
+
+	text = {
+		localization_key = orgasm_verb_cum
+	}
+
+	text = {
+		localization_key = orgasm_verb_climax
+	}
+
+	text = {
+		localization_key = orgasm_verb_come
+	}
+}
+
+GetOrgasmVerbThirdPerson = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = orgasm_verb_orgasms
+	}
+
+	text = {
+		localization_key = orgasm_verb_cums
+	}
+
+	text = {
+		localization_key = orgasm_verb_climaxes
+	}
+
+	text = {
+		localization_key = orgasm_verb_comes
+	}
+}

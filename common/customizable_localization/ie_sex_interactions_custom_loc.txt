@@ -1,0 +1,79 @@
+﻿# Example:
+# "I [ROOT.Char.Custom2('GenitalsInteractionGiving', SCOPE.sC('second'))]."
+GenitalsInteractionGiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = genitals_interaction_penetrate_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_enter_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_push_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_shove_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_thrust_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_plunge_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_take_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_fuck_giving
+	}
+}
+
+# Example:
+# "[second.GetSheHe|U] [ROOT.Char.Custom2('GenitalsInteractionReceiving', SCOPE.sC('second'))]."
+GenitalsInteractionReceiving = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = genitals_interaction_penetrate_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_enter_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_push_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_shove_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_thrust_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_plunge_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_take_receiving
+	}
+
+	text = {
+		localization_key = genitals_interaction_fuck_receiving
+	}
+}

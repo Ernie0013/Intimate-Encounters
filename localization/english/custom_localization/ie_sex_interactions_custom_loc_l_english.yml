@@ -1,0 +1,25 @@
+﻿l_english:
+
+ genitals_interaction_penetrate_giving:0 "penetrate [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
+ genitals_interaction_penetrate_receiving:0 "penetrates my [ROOT.Char.Custom2('GetPenetratedOrifice', second)] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')"
+
+ genitals_interaction_enter_giving:0 "enter [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
+ genitals_interaction_enter_receiving:0 "enters my [ROOT.Char.Custom2('GetPenetratedOrifice', ROOT.Char)] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')]"
+
+ genitals_interaction_push_giving:0 "push my [ROOT.Char.Custom('GetPenetratingAppendage')] into [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)]"
+ genitals_interaction_push_receiving:0 "pushes [second.GetHerHis] [second.Custom('GetPenetratingAppendage')] into my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))]"
+
+ genitals_interaction_shove_giving:0 "shove my [ROOT.Char.Custom('GetPenetratingAppendage')] into [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)]"
+ genitals_interaction_shove_receiving:0 "shoves [second.GetHerHis] [second.Custom('GetPenetratingAppendage')] into my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))]"
+
+ genitals_interaction_thrust_giving:0 "thrust my [ROOT.Char.Custom('GetPenetratingAppendage')] into [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)]"
+ genitals_interaction_thrust_receiving:0 "thrusts [second.GetHerHis] [second.Custom('GetPenetratingAppendage')] into my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))]"
+
+ genitals_interaction_plunge_giving:0 "plunge my [ROOT.Char.Custom('GetPenetratingAppendage')] into [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)]"
+ genitals_interaction_plunge_receiving:0 "plunges [second.GetHerHis] [second.Custom('GetPenetratingAppendage')] into my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))]"
+
+ genitals_interaction_take_giving:0 "take [second.GetHerHim] in [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
+ genitals_interaction_take_receiving:0 "takes me in my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')]"
+
+ genitals_interaction_fuck_giving:0 "fuck [second.GetHerHim] in [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
+ genitals_interaction_fuck_receiving:0 "fucks me in my [ROOT.Char.Custom2('GetPenetratedOrifice', SCOPE.sC('second'))] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')]"
