@@ -719,7 +719,6 @@ ie_yearly.1032 = { # by Ernie Collins
 }
 
 ie_yearly.1033 = { # by Ernie Collins
-	# This is a maintenance necessary to fix characters being dressed during the sex scene
 	hidden = yes
 
 	immediate = {
