@@ -285,6 +285,7 @@ GenitalsAction = {
 
 	text = {
 		trigger = { is_female = yes }
+		fallback = yes
 		localization_key = genitals_action_rub
 	}
 }
@@ -293,15 +294,16 @@ GenitalsActionThirdPerson = {
 	type = character
 
 	text = {
-		trigger = { is_female = yes }
-		localization_key = genitals_action_rubs
-	}
-
-	text = {
 		trigger = {
 			carn_gender_can_impregnate_trigger = yes
 		}
 		localization_key = genitals_action_strokes
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		fallback = yes
+		localization_key = genitals_action_rubs
 	}
 }
 
@@ -309,15 +311,16 @@ GenitalsActionPresentParticiple = {
 	type = character
 
 	text = {
-		trigger = { is_female = yes }
-		localization_key = genitals_action_rubbing
-	}
-
-	text = {
 		trigger = {
 			carn_gender_can_impregnate_trigger = yes
 		}
 		localization_key = genitals_action_stroking
+	}
+
+	text = {
+		trigger = { is_female = yes }
+		fallback = yes
+		localization_key = genitals_action_rubbing
 	}
 }
 
