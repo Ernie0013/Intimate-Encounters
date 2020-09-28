@@ -1,7 +1,7 @@
 ﻿l_english:
 
  ie_consensual_kissing_scene.first_1_giving:0 "My and [second.GetFirstNamePossessiveNoTooltip] lips meet in a tender embrace."
- ie_consensual_kissing_scene.first_2_giving:0 "I kiss [second.GetFirstNameNoTooltip] sweetly, holding [second.GetHerHis] hand"
+ ie_consensual_kissing_scene.first_2_giving:0 "I kiss [second.GetFirstNameNoTooltip] sweetly, holding [second.GetHerHis] hand."
  ie_consensual_kissing_scene.first_3_giving:0 "I close my eyes, put my hand up to [second.GetFirstNamePossessiveNoTooltip] cheek and kiss [second.GetHerHim]."
  ie_consensual_kissing_scene.first_4_giving:0 "I smile at the [second.GetTitleAsNameNoTooltip], and then lean in to kiss [second.GetHerHim]."
  ie_consensual_kissing_scene.first_negative_opinion_1_giving:0 "I force my lips against [second.GetHerHis] own."
@@ -21,7 +21,7 @@
  ie_consensual_kissing_scene.second_negative_opinion_1_giving:0 "I insist upon this, kissing [second.GetFirstNameNoTooltip] despite [second.GetHerHis] tepid reception."
  ie_consensual_kissing_scene.second_chaste_1_giving:0 "I peck and peck at [second.GetFirstNameNoTooltip], never letting my kisses linger too long."
 
- ie_consensual_kissing_scene.second_1_receiving:0 "[second.GetSheHe|U] kisses me again and again,"
+ ie_consensual_kissing_scene.second_1_receiving:0 "[second.GetSheHe|U] kisses me again and again."
  ie_consensual_kissing_scene.second_2_receiving:0 "I sigh between every kiss."
  ie_consensual_kissing_scene.second_3_receiving:0 "I kiss [second.GetFirstNameNoTooltip] back, meeting [second.GetHerHis] affections with my own."
  ie_consensual_kissing_scene.second_4_receiving:0 "Our lips part only momentarily before they’re soon drawn back to another."
