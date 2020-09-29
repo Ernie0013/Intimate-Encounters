@@ -20,7 +20,6 @@ scripted_trigger yearly_1000_late_night_visitor_trigger = {
 scripted_effect ie_yearly_1000_determine_late_night_visitor_effect = {
 	every_relation = {
 		type = lover
-		limit = { yearly_1000_late_night_visitor_trigger = yes }
 		add_to_temporary_list = possible_late_night_visitors
 	}
 	every_close_or_extended_family_member = {
