@@ -45,13 +45,13 @@ ie_sway_ongoing.0001 = {
 	immediate = {		
 		# Find the other character for a potential sex scene
 		if = {
-			limit = { scope:owner = root }
-			scope:target = { save_scope_as = non_player }
+			limit = { is_ai = no }
 			scope:owner = { save_scope_as = possibly_player } # Not actually a player in case of ai-ai interactions
+			scope:target = { save_scope_as = non_player }			
 		}
 		else = {
 			scope:owner = { save_scope_as = non_player }
-			scope:target = { save_scope_as = possibly_player }
+			scope:target = { save_scope_as = possibly_player } # Not actually a player in case of ai-ai interactions
 		}
 		# Find a guest/witness
 		random_courtier = {
