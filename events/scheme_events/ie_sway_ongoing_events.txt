@@ -18,31 +18,28 @@ ie_sway_ongoing.0001 = {
 	}
 	
 	trigger = {
-		######################################
-		# TODO - Correct this for production #
-		######################################
-		# has_trait = brave
-		
+		has_trait = brave
+		is_adult = yes
+		is_attracted_to_gender_of = scope:target
+		NOR = {
+			has_character_flag = had_event_ie_sway_ongoing_0001
+			scope:target = { has_character_flag = had_event_ie_sway_ongoing_0001 }
+		}
 		OR = {
 			has_relation_lover = scope:target
 			is_consort_of = scope:target
 		}
-
-		is_attracted_to_gender_of = scope:target
-
+		
 		# The way the event it written assumes that open displays of sexuality are shunned in the society
 		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:owner }
 		trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = scope:target }
 	}
 	
-	######################################
-	# TODO - Correct this for production #
-	######################################
-	weight_multiplier = {
-		base = 100
-	}
-
-	immediate = {		
+	immediate = {	
+		add_character_flag = {
+			flag = had_event_ie_sway_ongoing_0001
+			days = 3650
+		}
 		# Find the other character for a potential sex scene
 		if = {
 			limit = { is_ai = no }
@@ -97,11 +94,7 @@ ie_sway_ongoing.0001 = {
 			custom_tooltip = ie_sway_ongoing.0001.a2.tt
 		}
 		
-		######################################
-		# TODO - Correct this for production #
-		######################################
-		scope:owner = { trigger_event = ie_sway_ongoing.0002 }
-		#scope:target = { trigger_event = ie_sway_ongoing.0002 }
+		scope:target = { trigger_event = ie_sway_ongoing.0002 }
 	}
 		
 	# Abort
@@ -132,6 +125,13 @@ ie_sway_ongoing.0002 = {
 	left_portrait = scope:owner
 	right_portrait = scope:guest
 	
+	immediate = {
+		add_character_flag = {
+			flag = had_event_ie_sway_ongoing_0001
+			days = 3650
+		}
+	}
+
 	# Accept
 	option = {
 		trigger = { scope:target = { is_attracted_to_gender_of = scope:owner } }
@@ -306,11 +306,7 @@ ie_sway_ongoing.0003 = {
 	}
 
 	after = {
-		######################################
-		# TODO - Correct this for production #
-		######################################
-		scope:owner = { trigger_event = ie_sway_ongoing.0004 }
-		#scope:target = { trigger_event = ie_sway_ongoing.0004 }
+		scope:target = { trigger_event = ie_sway_ongoing.0004 }
 	}
 }
 
@@ -401,11 +397,7 @@ ie_sway_ongoing.0005 = {
 			add_scheme_progress = scheme_progress_gain
 		}
 
-		######################################
-		# TODO - Correct this for production #
-		######################################
-		scope:owner = { trigger_event = ie_sway_ongoing.0006 }
-		#scope:target = { trigger_event = ie_sway_ongoing.0006 }
+		scope:target = { trigger_event = ie_sway_ongoing.0006 }
 	}
 }
 
@@ -508,11 +500,7 @@ ie_sway_ongoing.0008 = {
 			add_scheme_progress = scheme_progress_gain
 		}
 
-		######################################
-		# TODO - Correct this for production #
-		######################################
-		scope:owner = { trigger_event = ie_sway_ongoing.0009 }
-		#scope:target = { trigger_event = ie_sway_ongoing.0009 }
+		scope:target = { trigger_event = ie_sway_ongoing.0009 }
 	}
 }
 
