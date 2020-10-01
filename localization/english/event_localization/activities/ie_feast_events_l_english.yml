@@ -1,0 +1,12 @@
+﻿l_english:
+
+ ie_feast.1000.t:0 "The Morning After"
+ ie_feast.1000.desc:0 "I wake up after a long night of feasting. My memories are a bit hazy — maybe I feasted a bit too much — but from what I can remember I had a great time. There is nothing better in the world than to eat, to drink, and to be merry.\n\nYawning, I rub the sleep from my eyes. Only then do I realize I am not alone in bed. Heat radiates from a body next to mine."
+ ie_feast.1000.a:0 "Who?"
+ 
+ ie_feast.1001.desc:0 "I turn around and stare right into the eyes of a beautiful — yet unknown [stranger.GetWomanMan]. A broad smile appears on [stranger.GetHerHis] face. My eyes trail down, but I quickly avert them when I notice [stranger.GetHerHis] naked form.\n\n"What's wrong, my Liege?" [stranger.GetSheHe] asks. "Last night you couldn't get enough of my body."\n\nThe [stranger.GetWomanMan] folds the covers away, revealing [stranger.GetHerHis] gorgeous naked body fully to me."
+ ie_feast.1001.a.spouse:0 "I'm spoken for."
+ ie_feast.1001.a:0 "This was a mistake."
+ ie_feast.1001.a.tt:0 "You say goodbye to [stranger.GetShortUIName]."
+ ie_feast.1001.b:0 "Just this once."
+ ie_feast.1001.c:0 "In for a penny, in for a pound."

@@ -1,0 +1,11 @@
+﻿feast_default_event_selection = { #Picks out the event for a participant in a default feast
+	random_events = {
+		25 = ie_feast.1000
+	}
+}
+
+feast_default_host_event_selection = { #Picks out the event for the host of a default feast
+	random_events = {
+		25 = ie_feast.1000
+	}
+}

@@ -1,0 +1,237 @@
+﻿ie_seductive_character_template = {
+	age = { 18 35 }
+	faith = root.faith
+	culture = root.culture
+	gender_female_chance = root_attraction_based_female_chance
+	dynasty = none
+	random_traits = no
+	random_traits_list = {
+		count = 1
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		tits_big_1 = {}
+		tits_big_2 = {}
+		tits_big_3 = {}
+	}
+	trait = lustful
+	random_traits_list = {
+		count = { 0 1 }
+		deviant = {}
+		seducer = {}
+	}
+	random_traits_list = {
+		count = 2
+		temperate = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = temperate
+						NOT = { trait_is_virtue = temperate }
+					}
+				}
+			}
+		}
+		greedy = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = greedy
+						NOT = { trait_is_virtue = greedy }
+					}
+				}
+			}
+		}
+		generous = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = generous
+						NOT = { trait_is_virtue = generous }
+					}
+				}
+			}
+		}
+		wrathful = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = wrathful
+						NOT = { trait_is_virtue = wrathful }
+					}
+				}
+			}
+		}
+		calm = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = calm
+						NOT = { trait_is_virtue = calm }
+					}
+				}
+			}
+		}
+		patient = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = patient
+						NOT = { trait_is_virtue = patient }
+					}
+				}
+			}
+		}
+		impatient = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = impatient
+						NOT = { trait_is_virtue = impatient }
+					}
+				}
+			}
+		}
+		arrogant = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = arrogant
+						NOT = { trait_is_virtue = arrogant }
+					}
+				}
+			}
+		}
+		deceitful = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = deceitful
+						NOT = { trait_is_virtue = deceitful }
+					}
+				}
+			}
+		}
+		brave = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = brave
+						NOT = { trait_is_virtue = brave }
+					}
+				}
+			}
+		}
+		ambitious = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = ambitious
+						NOT = { trait_is_virtue = ambitious }
+					}
+				}
+			}
+		}
+		arbitrary = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = arbitrary
+						NOT = { trait_is_virtue = arbitrary }
+					}
+				}
+			}
+		}
+		just = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = just
+						NOT = { trait_is_virtue = just }
+					}
+				}
+			}
+		}
+		paranoid = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = paranoid
+						NOT = { trait_is_virtue = paranoid }
+					}
+				}
+			}
+		}
+		callous = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = callous
+						NOT = { trait_is_virtue = callous }
+					}
+				}
+			}
+		}
+		sadistic = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = sadistic
+						NOT = { trait_is_virtue = sadistic }
+					}
+				}
+			}
+		}
+		stubborn = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = stubborn
+						NOT = { trait_is_virtue = stubborn }
+					}
+				}
+			}
+		}
+		fickle = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = fickle
+						NOT = { trait_is_virtue = fickle }
+					}
+				}
+			}
+		}
+		vengeful = {
+			trigger = {
+				root.faith = {
+					OR = {
+						trait_is_sin = vengeful
+						NOT = { trait_is_virtue = vengeful }
+					}
+				}
+			}
+		}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_1  = {}
+		education_intrigue_2  = {}
+		education_intrigue_3  = {}
+		education_intrigue_4  = {}
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	after_creation = {
+		# Make sure they don't have any of these traits
+		remove_trait = shy
+		remove_trait = chaste
+		remove_trait = tits_small_1
+		remove_trait = tits_small_2
+		remove_trait = tits_small_3
+	}
+}
