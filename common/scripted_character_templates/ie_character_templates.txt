@@ -15,12 +15,16 @@
 		tits_big_1 = {}
 		tits_big_2 = {}
 		tits_big_3 = {}
+		fecund = {}
 	}
 	trait = lustful
 	random_traits_list = {
-		count = { 0 1 }
-		deviant = {}
-		seducer = {}
+		count = { 0 2 }
+		deviant = { weight = { base = 2 } }
+		seducer = { weight = { base = 2 } }
+		witch = { weight = { base = 1 } }
+		lunatic_1 = { weight = { base = 1 } }
+		possessed_1 = { weight = { base = 1 } }
 	}
 	random_traits_list = {
 		count = 2
