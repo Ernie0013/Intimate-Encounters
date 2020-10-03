@@ -63,16 +63,6 @@ ie_consensual_kissing_scene.0001 = {
 	
 	option = {
 		name = ie_consensual_kissing_scene.0001.a
-
-		trigger = {
-			OR = {
-				scope:carn_sex_player = { sex_opposite_of = scope:carn_sex_target }
-				OR = {
-					scope:carn_sex_player = { carn_gender_can_impregnate_trigger = yes }
-					scope:carn_sex_target = { carn_gender_can_impregnate_trigger = yes }
-				}
-			}
-		}
 		
 		scope:carn_sex_player = {
 			trigger_event = ie_consensual_sex_scene_missionary.0001

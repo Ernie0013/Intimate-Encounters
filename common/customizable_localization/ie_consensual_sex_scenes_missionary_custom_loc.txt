@@ -64,7 +64,21 @@ ie_consensual_sex_scene_missionary_part_2_giving = {
 	}
 
 	text = {
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
 		localization_key = ie_consensual_sex_scene.missionary.second_3_giving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.missionary.second_3_giving_fem
 	}
 
 	text = {
@@ -86,7 +100,21 @@ ie_consensual_sex_scene_missionary_part_2_receiving = {
 	}
 
 	text = {
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
 		localization_key = ie_consensual_sex_scene.missionary.second_3_receiving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.missionary.second_3_receiving_fem
 	}
 
 	text = {

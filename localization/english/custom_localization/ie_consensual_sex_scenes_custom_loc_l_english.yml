@@ -1,25 +1,49 @@
 ﻿l_english:
 
- ie_consensual_sex_scene.orgasm.warning_1_giving:0 "I feel a sublime pressure mounting at the base of my $genitals_penis_name$, warning of an imminent release."
- ie_consensual_sex_scene.orgasm.warning_2_giving:0 "The pleasure builds and builds, pushing me towards the edge..."
- ie_consensual_sex_scene.orgasm.warning_3_giving:0 "My $genitals_penis_name$ throbs inside of [second.GetHerHim], moments away from climax."
+ ie_consensual_sex_scene.orgasm_male.warning_1_giving:0 "I feel a sublime pressure mounting at the base of my $genitals_penis_name$, warning of an imminent release."
+ ie_consensual_sex_scene.orgasm_male.warning_2_giving:0 "The pleasure builds and builds, pushing me towards the edge..."
+ ie_consensual_sex_scene.orgasm_male.warning_3_giving:0 "My $genitals_penis_name$ throbs inside of [second.GetHerHim], moments away from climax."
 
- ie_consensual_sex_scene.orgasm.warning_1_receiving:0 "[second.GetFirstNameNoTooltip] looks to be near [second.GetHerHis] limit, [second.GetHerHis] expression betraying an imminent release..."
- ie_consensual_sex_scene.orgasm.warning_2_receiving:0 "[second.GetFirstNameNoTooltip] appears to be drawing towards a climax, [second.GetHerHis] eyes desperate and wanton."
- ie_consensual_sex_scene.orgasm.warning_3_receiving:0 "I can feel [second.GetHerHim] getting more desperate, closer and closer..."
+ ie_consensual_sex_scene.orgasm_male.warning_1_receiving:0 "[second.GetFirstNameNoTooltip] looks to be near [second.GetHerHis] limit, [second.GetHerHis] expression betraying an imminent release..."
+ ie_consensual_sex_scene.orgasm_male.warning_2_receiving:0 "[second.GetFirstNameNoTooltip] appears to be drawing towards a climax, [second.GetHerHis] eyes desperate and wanton."
+ ie_consensual_sex_scene.orgasm_male.warning_3_receiving:0 "I can feel [second.GetHerHim] getting more desperate, closer and closer..."
 
- ie_consensual_sex_scene.orgasm.inside_1_giving:0 "Suddenly an explosion of pleasure erupts out the tip of my $genitals_penis_name$, and hot wet $semen_name$ bursts out into [second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')]."
- ie_consensual_sex_scene.orgasm.inside_2_giving:0 "I let out a moan of ecstasy, waves of pleasure washing across my body as I $orgasm_verb$."
- ie_consensual_sex_scene.orgasm.inside_3_giving:0 "I $orgasm_verb$, flooding streams of hot $semen_name$ into [second.GetFirstNamePossessiveNoTooltip] [Select_CString( second.IsFemale, 'womb', second.Custom('GetAnusName') )]. I can feel it wash out, sliding down my $genitals_penis_name$."
+ ie_consensual_sex_scene.orgasm_male.inside_1_giving:0 "Suddenly an explosion of pleasure erupts out the tip of my $genitals_penis_name$, and hot wet $semen_name$ bursts out into [second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')]."
+ ie_consensual_sex_scene.orgasm_male.inside_2_giving:0 "I let out a moan of ecstasy, waves of pleasure washing across my body as I $orgasm_verb$."
+ ie_consensual_sex_scene.orgasm_male.inside_3_giving:0 "I $orgasm_verb$, flooding streams of hot $semen_name$ into [second.GetFirstNamePossessiveNoTooltip] [Select_CString( second.IsFemale, 'womb', second.Custom('GetAnusName') )]. I can feel it wash out, sliding down my $genitals_penis_name$."
 
- ie_consensual_sex_scene.orgasm.inside_1_receiving:0 "Suddenly [second.GetFirstNameNoTooltip] groans in exertion, furrowing [second.GetHerHis] brow as I feel a warmth flooding my [ROOT.Char.Custom('GetVaginaAnus')]."
- ie_consensual_sex_scene.orgasm.inside_2_receiving:0 "[second.GetFirstNameNoTooltip] lets out a moan of ecstasy, [second.GetHerHis] whole body shaking as [second.GetSheHe] $orgasm_verb_third_person$."
- ie_consensual_sex_scene.orgasm.inside_3_receiving:0 "[second.GetFirstNameNoTooltip] $orgasm_verb_third_person$, filling my [Select_CString( ROOT.Char.IsFemale, 'womb', ROOT.Char.Custom('GetAnusName') )] with [second.GetHerHis] warm $semen_name$. Everything gets hot and slippery in my [ROOT.Char.Custom('GetVaginaAnus')]..."
+ ie_consensual_sex_scene.orgasm_male.inside_1_receiving:0 "Suddenly [second.GetFirstNameNoTooltip] groans in exertion, furrowing [second.GetHerHis] brow as I feel a warmth flooding my [ROOT.Char.Custom('GetVaginaAnus')]."
+ ie_consensual_sex_scene.orgasm_male.inside_2_receiving:0 "[second.GetFirstNameNoTooltip] lets out a moan of ecstasy, [second.GetHerHis] whole body shaking as [second.GetSheHe] $orgasm_verb_third_person$."
+ ie_consensual_sex_scene.orgasm_male.inside_3_receiving:0 "[second.GetFirstNameNoTooltip] $orgasm_verb_third_person$, filling my [Select_CString( ROOT.Char.IsFemale, 'womb', ROOT.Char.Custom('GetAnusName') )] with [second.GetHerHis] warm $semen_name$. Everything gets hot and slippery in my [ROOT.Char.Custom('GetVaginaAnus')]..."
 
- ie_consensual_sex_scene.orgasm.inside_aftermath_1_giving:0 "I pull out, my $genitals_penis_name$ soaking wet. A dribble of $semen_name$ oozes out of [second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')]."
- ie_consensual_sex_scene.orgasm.inside_aftermath_2_giving:0 "[second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')] feels so very slippery and I look down to see my $genitals_penis_name$ coated in thick white $semen_name$."
- ie_consensual_sex_scene.orgasm.inside_aftermath_3_giving:0 "I let out a deep sigh of satisfaction, every muscle in my body relaxing as I slip free from [second.GetFirstNamePossessiveNoTooltip] embrace."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_1_giving:0 "I pull out, my $genitals_penis_name$ soaking wet. A dribble of $semen_name$ oozes out of [second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')]."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_2_giving:0 "[second.GetFirstNamePossessiveNoTooltip] [second.Custom('GetVaginaAnus')] feels so very slippery and I look down to see my $genitals_penis_name$ coated in thick white $semen_name$."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_3_giving:0 "I let out a deep sigh of satisfaction, every muscle in my body relaxing as I slip free from [second.GetFirstNamePossessiveNoTooltip] embrace."
 
- ie_consensual_sex_scene.orgasm.inside_aftermath_1_receiving:0 "[second.GetFirstNameNoTooltip] pulls out, [second.GetHerHis] $genitals_penis_name$ soaked. I look down to see it slathered in white $semen_name$."
- ie_consensual_sex_scene.orgasm.inside_aftermath_2_receiving:0 "My [ROOT.Char.Custom('GetVaginaAnus')] feels so very warm and wet, hotter and wetter still since [second.GetFirstNamePossessiveNoTooltip] orgasm inside of it."
- ie_consensual_sex_scene.orgasm.inside_aftermath_3_receiving:0 "[second.GetFirstNameNoTooltip] lets out a deep sigh of satisfaction, slipping free and leaving me with a sense of voidness in my [ROOT.Char.Custom('GetVaginaAnus')]."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_1_receiving:0 "[second.GetFirstNameNoTooltip] pulls out, [second.GetHerHis] $genitals_penis_name$ soaked. I look down to see it slathered in white $semen_name$."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_2_receiving:0 "My [ROOT.Char.Custom('GetVaginaAnus')] feels so very warm and wet, hotter and wetter still since [second.GetFirstNamePossessiveNoTooltip] orgasm inside of it."
+ ie_consensual_sex_scene.orgasm_male.inside_aftermath_3_receiving:0 "[second.GetFirstNameNoTooltip] lets out a deep sigh of satisfaction, slipping free and leaving me with a sense of voidness in my [ROOT.Char.Custom('GetVaginaAnus')]."
+
+ ie_consensual_sex_scene.orgasm_female.warning_1_giving:0 "[second.GetFirstNameNoTooltip] seems to be near [second.GetHerHis] limit, [second.GetHerHis] ecstatic screams betraying [second.GetHerHis] imminent climax..."
+ ie_consensual_sex_scene.orgasm_female.warning_2_giving:0 "[second.GetFirstNameNoTooltip] appears to be drawing towards a climax, [second.GetHerHis] eyes desperate and wanton."
+ ie_consensual_sex_scene.orgasm_female.warning_3_giving:0 "I can feel [second.GetHerHim] getting more desperate, closer and closer…"
+
+ ie_consensual_sex_scene.orgasm_female.warning_1_receiving:0 "I can't keep myself from screaming out as my climax draws near."
+ ie_consensual_sex_scene.orgasm_female.warning_2_receiving:0 "The pleasure builds and builds, pushing me towards the edge..."
+ ie_consensual_sex_scene.orgasm_female.warning_3_receiving:0 "My pussy keeps on gushing, moments away from climax."
+
+ ie_consensual_sex_scene.orgasm_female.1_giving:0 "Suddenly [second.GetFirstNameNoTooltip] screams at the top of her lungs as a powerful squirt of fluids erupts from [second.GetHerHis] $genitals_vagina_name$."
+ ie_consensual_sex_scene.orgasm_female.2_giving:0 "[second.GetFirstNameNoTooltip] lets out a final scream of ecstasy, [second.GetHerHis] whole body shaking violently as [second.GetSheHe] $orgasm_verb_third_person$."
+ ie_consensual_sex_scene.orgasm_female.3_giving:0 "[second.GetHerHis|U] eyes roll back in their sockets and [second.GetHerHis] entire body convulses as [second.GetSheHe] $orgasm_verb_third_person$."
+
+ ie_consensual_sex_scene.orgasm_female.1_receiving:0 "Suddenly an explosion of pleasure erupts from between my legs, and fluids squirt out of my sex."
+ ie_consensual_sex_scene.orgasm_female.2_receiving:0 "I let out a final scream of ecstasy, waves of pleasure rocking my body as I $orgasm_verb$."
+ ie_consensual_sex_scene.orgasm_female.3_receiving:0 "I $orgasm_verb$, losing consciousness for a moment as I get overwhelmed by pleasure."
+
+ ie_consensual_sex_scene.orgasm_female.aftermath_1_giving:0 "I pull out, my fingers soaking wet. Fluids keep oozing out of [second.GetFirstNamePossessiveNoTooltip] $genitals_vagina_name$."
+ ie_consensual_sex_scene.orgasm_female.aftermath_2_giving:0 "[second.GetFirstNamePossessiveNoTooltip] $genitals_vagina_name$ feels so very slippery and I look down to see my fingers coated in [second.GetHerHis] juices."
+ ie_consensual_sex_scene.orgasm_female.aftermath_3_giving:0 "[second.GetFirstNameNoTooltip] lets out a deep sigh of satisfaction, every muscle in [second.GetHerHis] body relaxing as I pull my fingers out of [second.GetHerHim]."
+
+ ie_consensual_sex_scene.orgasm_female.aftermath_1_receiving:0 "[second.GetFirstNameNoTooltip] pulls out, [second.GetHerHis] fingers soaked. I look down to see them dripping with my fluids."
+ ie_consensual_sex_scene.orgasm_female.aftermath_2_receiving:0 "My $genitals_vagina_name$ feels so very warm and wet, hotter and wetter still since the orgasm [second.GetFirstNameNoTooltip] provided me."
+ ie_consensual_sex_scene.orgasm_female.aftermath_3_receiving:0 "I let out a deep sigh of satisfaction, every muscle in my body relaxing as [second.GetFirstNameNoTooltip] pulls [second.GetHerHis] fingers out of me."
