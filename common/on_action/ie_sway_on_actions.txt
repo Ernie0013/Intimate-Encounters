@@ -3,5 +3,6 @@
 	# For reference: vanilla events have weights 1-2, and 10 in total
     random_events = {
         10 = ie_sway_ongoing.0001 #Brave event. Chance needs to make up for our harsh restrictions, and it's usually <0.5 vanilla sway event per sway attempt anyway.
+         5 = ie_sway_ongoing.0010 #Shy event. Not as restrictive as it can trigger both if you are shy and if the target is shy.
     }
 }

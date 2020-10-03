@@ -531,4 +531,198 @@ ie_sway_ongoing.0009 = {
 			DRAMA = no
 		}
 	}
+
+# Shy event - dummy event to determine who should receive which event
+# Code by Siudhne, writing by Inerrant Erotica
+# 0010 - 0012
+ie_sway_ongoing.0010 = {
+	type = character_event
+	hidden = yes
+
+	######################################
+	# TODO - Correct this for production #
+	######################################
+	weight_multiplier = {
+		base = 100
+	}
+
+	trigger = {
+		OR = {
+			has_trait = shy
+			scope:target = { has_trait = shy }
+		}
+		is_adult = yes # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
+		scope:target = { is_adult = yes }  # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
+		NOR = {
+			has_character_flag = had_event_ie_sway_ongoing_0010
+			scope:target = { has_character_flag = had_event_ie_sway_ongoing_0010 }
+		}
+		OR = {
+			has_relation_lover = scope:target
+			is_consort_of = scope:target
+		}
+	}
+
+	# Shy person gets first event, other person the second.
+	immediate = {
+		if = {
+			limit = {
+				scope:target = { has_trait = shy }
+			}
+			save_scope_as = other_character
+			scope:target = {
+				save_scope_as = shy_character
+				trigger_event = ie_sway_ongoing.0011
+			}
+		}
+		else = {
+			save_scope_as = shy_character
+
+			######################################
+			# TODO - Correct this for production #
+			######################################
+			#scope:owner = { save_scope_as = other_character }
+			scope:target = { save_scope_as = other_character }
+			
+			trigger_event = ie_sway_ongoing.0011
+		}
+		# Find the player character for a potential sex scene
+		if = {
+			limit = { is_ai = no }
+			scope:other_character = { save_scope_as = possibly_player } # Not actually a player in case of ai-ai interactions
+			scope:shy_character   = { save_scope_as = non_player }			
+		}
+		else = {
+			scope:shy_character   = { save_scope_as = non_player }
+			scope:other_character = { save_scope_as = possibly_player } # Not actually a player in case of ai-ai interactions
+		}
+	}
+}
+
+# Shy event - for the shy person
+# Starting point at ie_sway_ongoing.0010
+ie_sway_ongoing.0011 = {
+	type = character_event
+	title = ie_sway_ongoing.0010.t
+	desc = ie_sway_ongoing.0011.desc
+	theme = seduce_scheme
+	override_background = { event_background = bedchamber }
+	left_portrait = {
+		character = scope:shy_character
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:other_character
+		animation = flirtation
+	}
+
+	immediate = {	
+		add_character_flag = {
+			flag = had_event_ie_sway_ongoing_0010
+			days = 3650
+		}
+	}
+
+	option = {
+		name = ie_sway_ongoing.0011.a		
+		custom_tooltip = ie_sway_ongoing.0011.a.tt
+
+		add_character_modifier = {
+			modifier = shy_in_bed_modifier
+			years = 1
+		}
+
+		scope:other_character = { trigger_event = ie_sway_ongoing.0012 }
+	}
+}
+
+# Shy event - for the other person
+ie_sway_ongoing.0012 = {
+	type = character_event
+	title = ie_sway_ongoing.0010.t
+	desc = ie_sway_ongoing.0012.desc
+	theme = seduce_scheme
+	override_background = { event_background = bedchamber }
+	left_portrait = {
+		character = scope:shy_character
+		animation = shame
+	}
+	
+	option = {
+		name = ie_sway_ongoing.0012.a
+		custom_tooltip = ie_sway_ongoing.0012.a.tt
+
+		scope:shy_character = { 
+			send_interface_toast = {
+				title = ie_sway_ongoing.0012.a2
+
+				# Move closer to forming a friendship.
+				progress_towards_friend_effect = {
+					CHARACTER = scope:other_character
+					OPINION = no
+				}
+				
+				carn_sex_scene_request_consensual = yes
+				carn_sex_scene_effect = {
+					PLAYER = scope:possibly_player
+					TARGET = scope:non_player
+					STRESS_EFFECTS = yes
+					DRAMA = no
+				}
+			}
+		}	
+	}
+	option = {
+		name = ie_sway_ongoing.0012.b
+		custom_tooltip = ie_sway_ongoing.0012.b.tt
+
+		scope:shy_character = { 
+			send_interface_toast = {
+				title = ie_sway_ongoing.0012.b2
+				
+				stress_impact = {
+					base = minor_stress_impact_gain
+				}
+
+				scope:other_character = { 
+					stress_impact = {
+						callous = medium_stress_impact_loss
+						sadistic = medium_stress_impact_loss
+						compassionate = minor_stress_impact_gain
+					}
+				}
+
+				carn_sex_scene_request_consensual = yes
+				carn_sex_scene_effect = {
+					PLAYER = scope:possibly_player
+					TARGET = scope:non_player
+					STRESS_EFFECTS = yes
+					DRAMA = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = ie_sway_ongoing.0012.c
+		custom_tooltip = ie_sway_ongoing.0012.c.tt
+
+		scope:shy_character = { 
+			send_interface_toast = {
+				title = ie_sway_ongoing.0012.c2
+				
+				add_opinion = {
+					target = scope:other_character
+					modifier = disappointed_opinion
+					opinion = -10
+				}
+				reverse_add_opinion = {
+					target = scope:shy_character
+					modifier = disappointed_opinion
+					opinion = -10
+				}
+			}
+		}
+	}
+
+	
 }
