@@ -62,27 +62,7 @@ GetPenetratedOrifice = {
 				factor = 10
 			}
 		}
-		localization_key = penetrated_orifice_anus
-	}
-	text = {
-		weight_multiplier = { 
-			base = 0.1
-			modifier = {
-				has_trait = lustful
-				factor = 10
-			}
-		}
-		localization_key = penetrated_orifice_ass
-	}
-	text = {
-		weight_multiplier = { 
-			base = 0.1
-			modifier = {
-				has_trait = lustful
-				factor = 10
-			}
-		}
-		localization_key = penetrated_orifice_ass_hole
+		localization_key = penetrated_orifice_anus_name
 	}
 	text = {
 		trigger = {
@@ -257,6 +237,10 @@ GetVaginaName = {
 	text = {
 		localization_key = genitals_vagina_name_womanhood
 	}
+
+	text = {
+		localization_key = genitals_vagina_name_nethers
+	}
 }
 
 GetGenitalsVulgarRandom = {
@@ -346,6 +330,9 @@ GetSemenName = {
 	}
 
 	text = {
+		trigger = {
+			is_male = yes # To make sure Futa don't get this description
+		}
 		localization_key = semen_name_manly_essence
 	}
 
@@ -407,5 +394,50 @@ GetOrgasmVerbThirdPerson = {
 
 	text = {
 		localization_key = orgasm_verb_comes
+	}
+}
+
+GetAnusName = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_anus
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_ass
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_asshole
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_rectum
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_rear
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name_rear_entrance
+	}
+}
+
+GetVaginaAnus = {
+	type = character
+
+	text = {
+		trigger = {
+			is_female = yes
+		}
+		localization_key = genitals_vagina_name
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name
 	}
 }
