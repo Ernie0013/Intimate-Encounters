@@ -1,36 +1,35 @@
 ﻿is_giving_partner_trigger = {
 	OR = {
-		AND = {
+		AND = { # Futa sex, player is always giver
 			carn_gender_can_impregnate_trigger = yes
 			$PARTNER$ = { is_female = yes }
-			this = root
+			is_ai = no
 		}
-		AND = {
+		AND = { # Straight sex
 			is_male = yes
 			sex_opposite_of = $PARTNER$
 		}
-		AND = {
+		AND = { # Gay sex
 			sex_same_as = $PARTNER$
-			$PARTNER$ = { carn_gender_can_impregnate_trigger = no }
-			this = root
+			is_ai = no
 		}
 	}
 }
 
 is_receiving_partner_trigger = {
 	OR = {
-		AND = {
+		AND = { # Futa sex, AI is always receiver
 			carn_is_futa_trigger = yes
 			$PARTNER$ = { carn_gender_can_impregnate_trigger = yes }
-			$PARTNER$ = root
+			$PARTNER$ = { is_ai = no }
 		}
-		AND = {
+		AND = { # Straight sex
 			is_female = yes
 			sex_opposite_of = $PARTNER$
 		}
-		AND = {
+		AND = { # Gay sex
 			sex_same_as = $PARTNER$
-			$PARTNER$ = root
+			$PARTNER$ = { is_ai = no }
 		}
 	}
 }

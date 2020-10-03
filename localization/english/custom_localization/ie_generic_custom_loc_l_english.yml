@@ -11,10 +11,17 @@
  genitals_vagina_name_depths:0 "depths"
  genitals_vagina_name_sheathe:0 "sheathe"
  genitals_vagina_name_womanhood:0 "womanhood"
+ genitals_vagina_name_nethers:0 "nethers"
 
- penetrated_orifice_anus:0 "anus"
- penetrated_orifice_ass:0 "ass"
- penetrated_orifice_ass_hole:0 "asshole"
+ penetrated_orifice_anus_name:0 "[ROOT.Char.Custom('GetAnusName')]"
+
+ penetrated_orifice_anus_name_anus:0 "anus"
+ penetrated_orifice_anus_name_ass:0 "ass"
+ penetrated_orifice_anus_name_asshole:0 "asshole"
+ penetrated_orifice_anus_name_rectum:0 "rectum"
+ penetrated_orifice_anus_name_rear:0 "rear"
+ penetrated_orifice_anus_name_rear_entrance:0 "rear entrance"
+
  penetrated_orifice_mouth:0 "mouth"
 
  vagina_adjective_wet:0 "wet"
