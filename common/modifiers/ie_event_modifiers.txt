@@ -1,4 +1,9 @@
-﻿modifier_stimulated = {
+﻿stimulated_modifier = {
 	icon = fertility_positive
 	fertility = 0.1
+}
+
+shy_in_bed_modifier = {
+	icon = fertility_negative
+	fertility = -0.1
 }

@@ -1,11 +1,12 @@
 ﻿l_english:
 
  # generics
- modifier_stimulated: "Stimulated"
+ stimulated_modifier: "Stimulated"
+ shy_in_bed_modifier: "Shy in bed"
  breasts: "breasts"
  chest: "chest"
 
- # brave sex scene
+ # brave event
  ie_sway_ongoing.0001.t: "A Bold Proposition"
  ie_sway_ongoing.0001.desc: "[target.GetTitledFirstName] and I are at dinner one evening with [guest.Custom2('MyCharacterIntroduction', owner )]. My eyes drift over to [target.GetHerHim] and I can't help but wonder just how far I could go in the company of others...\n\nIt would be so scandalous if anyone saw us... but by [target.GetFaith.HighGodName], I just can't resist! I’ll just tease [target.GetHerHim] a little bit. While indulging [guest.GetFirstNameNoTooltip] in some idle small talk, I move my chair a little bit closer to [target.GetFirstNameNoTooltip]... and slip my hand under the table and onto my [owner.Custom2('RelationToMeShort', SCOPE.sC('target'))]’s thigh."
  ie_sway_ongoing.0001.a: "See how far I can go..."
@@ -47,3 +48,21 @@
  ie_sway_ongoing.0008.a: "We couldn’t have made it more obvious if we tried..."
  ie_sway_ongoing.0008.a.tt: "You hope [guest.GetFirstName]'s not a gossip."
  ie_sway_ongoing.0009.desc: "“Oh. Ooh.” I set down my utensils and close my eyes, “Oohhhh. Oh, [target.GetFaith.HighGodName]. Ohh, [target.GetFaith.HighGodName]! YES!”\n\nI start breathing really hard, my hands wandering all over my body. I run my fingers through my hair, “Oh, yeah, right there. Ooh... Oh!”\n\n[owner.GetFirstName] doesn’t seem to be dissuaded. Instead [owner.GetSheHe] goes harder, [target.Custom('GenitalsActionPresentParticiple')] my [target.Custom('GetGenitals')] outside of my clothes as I moan and thrash above. “YES!” I moan, “YES! YES!”\n\nI slam the table, making the silverware clang and rattle, “OH, YES! OHH OH! Oh... oh... oh [target.GetFaith.HighGodName]...”\n\nOrgasm wracks my [target.Custom('GetGenitals')], pleasure washing over my whole body. I moan and convulse, rocking in place until the ecstasy subsides... then I remember just where we are.\n\n“I’ll have what [target.GetSheHe]’s having.” [guest.GetTitleAsName] says to break the silence."
+
+ # Shy event
+ ie_sway_ongoing.0010.t: "Night and Day"
+ ie_sway_ongoing.0011.desc: "I am alone with [other_character.Custom2('MyCharacterIntroduction', shy_character )] as the sun goes down and I see [other_character.GetHerHim] produce a beeswax candle.\n\n“[other_character.GetFirstNameNoTooltip]...” I murmur, “Must you light that?”\n\n“What’s wrong?” [other_character.GetSheHe] asks, hesitating.\n\nIt’s not exactly an easy subject to broach... but I just don’t feel comfortable being so... exposed in front of [other_character.GetHerHim]. It’s just far too embarrassing!"
+ ie_sway_ongoing.0011.a: "I would just prefer we wait until it was dark..."
+ ie_sway_ongoing.0011.a.tt: "Shy in court, shy in the bedroom."
+ ie_sway_ongoing.0011.b: "I... I can do this."
+ ie_sway_ongoing.0011.b.tt: "You endure the light for your lover."
+ ie_sway_ongoing.0012.desc: "I am alone with [shy_character.Custom2('MyCharacterIntroduction', other_character )] as the sun goes down and I produce a beeswax candle.\n\n“[other_character.GetFirstNameNoTooltip]...” [shy_character.GetSheHe|U] murmurs, “Must you light that?”\n\n“What’s wrong?” I ask.\n\nNow that you think about it, you’ve never been together in intimacy unless the room was completely dark. Mayhaps [shy_character.GetSheHe] is too shy to expose [shy_character.GetHerselfHimself] in front of you?"
+ ie_sway_ongoing.0012.a: "I understand"
+ ie_sway_ongoing.0012.a2: "[other_character.GetFirstNameNoTooltip] is understanding."
+ ie_sway_ongoing.0012.a.tt: "You set the candle aside."
+ ie_sway_ongoing.0012.b: "But I wish to look upon your face..."
+ ie_sway_ongoing.0012.b2: "[other_character.GetFirstNameNoTooltip] is unrelenting."
+ ie_sway_ongoing.0012.b.tt: "You press the issue."
+ ie_sway_ongoing.0012.c: "Well, this is disappointing."
+ ie_sway_ongoing.0012.c2: "[other_character.GetFirstNameNoTooltip] is disappointed."
+ ie_sway_ongoing.0012.c.tt: "How are we supposed to enjoy it in the dark?"
