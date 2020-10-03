@@ -35,7 +35,7 @@ GetPenetratingAppendage = {
 		trigger = {
 			carn_gender_can_impregnate_trigger = yes
 		}
-		localization_key = genitals_vulgar_penis
+		localization_key = genitals_penis_name
 	}
 
 	text = {
@@ -439,5 +439,20 @@ GetVaginaAnus = {
 
 	text = {
 		localization_key = penetrated_orifice_anus_name
+	}
+}
+
+GetArmHips = {
+	type = character
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = yes
+		}
+		localization_key = ie_hips
+	}
+
+	text = {
+		localization_key = ie_arm
 	}
 }

@@ -3,16 +3,62 @@
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_1_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_1_giving
 	}
 	
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_2_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_2_giving
 	}
 	
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_3_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_3_giving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_1_giving
+	}
+	
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_2_giving
+	}
+	
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_3_giving
 	}
 }
 
@@ -21,16 +67,62 @@ ie_consensual_sex_scene_orgasm_warning_receiving = {
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_1_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_1_receiving
 	}
 	
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_2_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_2_receiving
 	}
 	
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.warning_3_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.warning_3_receiving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_1_receiving
+	}
+	
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_2_receiving
+	}
+	
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.warning_3_receiving
 	}
 }
 
@@ -39,16 +131,62 @@ ie_consensual_sex_scene_orgasm_inside_giving = {
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_1_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_1_giving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_2_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_2_giving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_3_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_3_giving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.1_giving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.2_giving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.3_giving
 	}
 }
 
@@ -57,16 +195,62 @@ ie_consensual_sex_scene_orgasm_inside_receiving = {
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_1_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_1_receiving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_2_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_2_receiving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_3_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_3_receiving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.1_receiving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.2_receiving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.3_receiving
 	}
 }
 
@@ -75,16 +259,62 @@ ie_consensual_sex_scene_orgasm_inside_aftermath_giving = {
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_1_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_1_giving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_2_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_2_giving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_3_giving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_3_giving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_1_giving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_2_giving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_3_giving
 	}
 }
 
@@ -93,15 +323,61 @@ ie_consensual_sex_scene_orgasm_inside_aftermath_receiving = {
 
 	random_valid = yes
 
+	# Straight / Gay / Futa
+
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_1_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_1_receiving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_2_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_2_receiving
 	}
 
 	text = {
-		localization_key = ie_consensual_sex_scene.orgasm.inside_aftermath_3_receiving
+		trigger = {
+			OR = {
+				carn_gender_can_impregnate_trigger = yes
+				scope:second = { carn_gender_can_impregnate_trigger = yes }
+			}
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_male.inside_aftermath_3_receiving
+	}
+
+	# Lesbian
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_1_receiving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_2_receiving
+	}
+
+	text = {
+		trigger = {
+			carn_gender_can_impregnate_trigger = no
+			scope:second = { carn_gender_can_impregnate_trigger = no }
+		}
+		localization_key = ie_consensual_sex_scene.orgasm_female.aftermath_3_receiving
 	}
 }
