@@ -596,10 +596,6 @@ ie_sway_ongoing.0010 = {
 		else = {
 			save_scope_as = shy_character
 
-			######################################
-			# TODO - Correct this for production #
-			######################################
-			#scope:owner = { save_scope_as = other_character }
 			scope:target = { save_scope_as = other_character }
 			
 			trigger_event = ie_sway_ongoing.0011
