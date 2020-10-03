@@ -1,0 +1,252 @@
+﻿namespace = ie_feast
+
+scripted_effect ie_feast_1000_outcome_effect = {
+	stress_impact = {
+		deviant = minor_stress_loss
+		lustful = minor_stress_loss
+		seducer = minor_stress_loss
+	}
+
+	send_interface_toast = {
+		title = ie_feast.1000.t
+		left_icon = scope:stranger
+
+		add_courtier = scope:stranger
+		set_relation_lover = scope:stranger
+	}
+}
+
+scripted_effect ie_feast_1000_outcome_random_effect = {
+	stress_impact = {
+		deviant = minor_stress_loss
+		lustful = minor_stress_loss
+		seducer = minor_stress_loss
+	}
+
+	random_list = {
+		90 = {
+			
+		}
+		10 = {
+			send_interface_toast = {
+				title = ie_feast.1000.t
+				left_icon = scope:stranger
+
+				add_courtier = scope:stranger
+			}
+		}
+	}
+}
+
+ie_feast.1000 = {
+	type = character_event
+	title = ie_feast.1000.t
+	desc = ie_feast.1000.desc
+
+	theme = feast_activity
+	override_background = {
+		event_background = bedchamber
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+
+	trigger = {
+		is_ai = no
+		NOT = { 
+			exists = local_var:ie_had_1000
+			has_trait = shy
+			has_trait = chaste
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 2
+			has_trait = drunkard
+		}
+	}
+
+	immediate = {
+		set_local_variable = {
+			name = ie_had_1000
+			value = yes
+		}
+	}
+
+	option = {
+		name = ie_feast.1000.a
+		trigger_event = ie_feast.1001
+	}
+}
+
+ie_feast.1001 = {
+	type = character_event
+	title = ie_feast.1000.t
+	desc = ie_feast.1001.desc
+
+	theme = feast_activity
+	override_background = {
+		event_background = bedchamber
+	}
+
+	left_portrait = {
+		character = scope:stranger
+		animation = flirtation_left
+	}
+
+	immediate = {		
+		hidden_effect = {
+			# Generate character
+			create_character = {
+				location = scope:activity.activity_province
+				faith = scope:activity.activity_province.county.faith
+				culture = scope:activity.activity_province.county.culture
+				template = ie_seductive_character_template
+				dynasty = none
+				save_scope_as = stranger
+			}
+
+			scope:stranger = {
+				add_character_flag = {
+					flag = is_naked
+					days = 180 # So character won't stay naked forever if something goes wrong
+				}
+			}
+		}
+	}
+
+	option = {
+		name = {
+			text = {
+				desc = ie_feast.1001.a
+				triggered_desc = {
+					trigger = {
+						OR = {
+							any_consort = {
+								count >= 1
+							}
+							any_relation = {
+								type = lover
+								count >= 1
+							}
+						}
+					}
+					desc = ie_feast.1001.a.spouse
+				}
+			}
+		}
+
+		custom_tooltip = ie_feast.1001.a.tt
+
+		add_piety = medium_piety_gain
+
+		stress_impact = {
+			deviant = medium_stress_gain
+			lustful = medium_stress_gain
+			seducer = medium_stress_gain
+		}
+
+		stress_impact = {
+			chaste = minor_stress_loss
+			content = minor_stress_loss
+			lazy = minor_stress_loss
+			humble = minor_stress_loss
+			temperate = minor_stress_loss
+			zealous = minor_stress_loss
+		}
+	}
+
+	option = {
+		name = ie_feast.1001.b
+
+		show_as_tooltip = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:stranger
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+
+			ie_feast_1000_outcome_random_effect = yes
+		}
+
+		hidden_effect = {
+			set_local_variable = {
+				name = ie_feast_1001_randomize_outcome
+				value = yes
+			}
+
+			trigger_event = {
+				id = ie_feast.1010
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = ie_feast.1001.c
+
+		show_as_tooltip = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:stranger
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+
+			ie_feast_1000_outcome_effect = yes
+		}
+
+		hidden_effect = {
+			set_local_variable = {
+				name = ie_feast_1001_randomize_outcome
+				value = no
+			}
+
+			trigger_event = {
+				id = ie_feast.1010
+				days = 1
+			}
+		}
+	}
+
+	after = {
+		scope:stranger = {
+			remove_character_flag = is_naked
+		}
+	}
+}
+
+ie_feast.1010 = {
+	# This is a maintenance necessary to fix characters being dressed during the sex scene
+	hidden = yes
+
+	immediate = {
+		hidden_effect = {
+			carn_sex_scene_request_consensual = yes
+
+			carn_sex_scene_effect = {
+				PLAYER = root
+				TARGET = scope:stranger
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+
+			if = {
+				limit = { local_var:ie_feast_1001_randomize_outcome = yes }
+				ie_feast_1000_outcome_random_effect = yes
+			}
+			else = {
+				ie_feast_1000_outcome_effect = yes
+			}
+		}
+	}
+}
