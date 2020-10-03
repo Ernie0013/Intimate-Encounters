@@ -2,7 +2,8 @@
 
 
 # Brave character initiates intimacy during dinner
-	# by Siudhne
+# Code by Siudhne, writing by Inerrant Erotica
+# 0001-0009
 ie_sway_ongoing.0001 = {
 	type = character_event
 	title = ie_sway_ongoing.0001.t
@@ -19,7 +20,8 @@ ie_sway_ongoing.0001 = {
 	
 	trigger = {
 		has_trait = brave
-		is_adult = yes
+		is_adult = yes # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
+		scope:target = { is_adult = yes } # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
 		is_attracted_to_gender_of = scope:target
 		NOR = {
 			has_character_flag = had_event_ie_sway_ongoing_0001
@@ -134,7 +136,15 @@ ie_sway_ongoing.0002 = {
 
 	# Accept
 	option = {
-		trigger = { scope:target = { is_attracted_to_gender_of = scope:owner } }
+		trigger = { 
+			scope:target = { 
+				is_attracted_to_gender_of = scope:owner
+				NOR = { 
+					has_trait = chaste
+					has_trait = celibate
+				}
+			}
+		}
 
 		name = ie_sway_ongoing.0002.a
 		custom_tooltip = ie_sway_ongoing.0002.a.tt
@@ -189,7 +199,14 @@ ie_sway_ongoing.0002 = {
 	}
 	# Soft-rebuke but still sex
 	option = {
-		trigger = { scope:target = {is_attracted_to_gender_of = scope:owner } }
+		trigger = { 
+			scope:target = { 
+				is_attracted_to_gender_of = scope:owner
+				NOR = {
+					has_trait = celibate
+				}
+			}
+		}
 		
 		name = ie_sway_ongoing.0002.b
 		custom_tooltip = ie_sway_ongoing.0002.b.tt
@@ -291,7 +308,7 @@ ie_sway_ongoing.0003 = {
 	}
 
 	option = {
-		name = ie_sway_ongoing.0003.b
+		name = ie_sway_ongoing.0003.a
 		custom_tooltip = ie_sway_ongoing.0003.a.tt
 		custom_tooltip = ie_sway_ongoing.0003.b.tt
 
@@ -531,6 +548,7 @@ ie_sway_ongoing.0009 = {
 			DRAMA = no
 		}
 	}
+}
 
 # Shy event - dummy event to determine who should receive which event
 # Code by Siudhne, writing by Inerrant Erotica
