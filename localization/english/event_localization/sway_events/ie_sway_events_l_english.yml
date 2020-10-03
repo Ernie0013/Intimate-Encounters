@@ -1,8 +1,8 @@
 ﻿l_english:
 
  # generics
- modifier_stimulated: "Stimulated"
- modifier_shy_in_bed: "Shy in bed"
+ stimulated_modifier: "Stimulated"
+ shy_in_bed_modifier: "Shy in bed"
  breasts: "breasts"
  chest: "chest"
 
