@@ -54,6 +54,8 @@
  ie_sway_ongoing.0011.desc: "I am alone with [other_character.Custom2('MyCharacterIntroduction', shy_character )] as the sun goes down and I see [other_character.GetHerHim] produce a beeswax candle.\n\n“[other_character.GetFirstNameNoTooltip]...” I murmur, “Must you light that?”\n\n“What’s wrong?” [other_character.GetSheHe] asks, hesitating.\n\nIt’s not exactly an easy subject to broach... but I just don’t feel comfortable being so... exposed in front of [other_character.GetHerHim]. It’s just far too embarrassing!"
  ie_sway_ongoing.0011.a: "I would just prefer we wait until it was dark..."
  ie_sway_ongoing.0011.a.tt: "Shy in court, shy in the bedroom."
+ ie_sway_ongoing.0011.b: "I... I can do this."
+ ie_sway_ongoing.0011.b.tt: "You endure the light for your lover."
  ie_sway_ongoing.0012.desc: "I am alone with [shy_character.Custom2('MyCharacterIntroduction', other_character )] as the sun goes down and I produce a beeswax candle.\n\n“[other_character.GetFirstNameNoTooltip]...” [shy_character.GetSheHe|U] murmurs, “Must you light that?”\n\n“What’s wrong?” I ask.\n\nNow that you think about it, you’ve never been together in intimacy unless the room was completely dark. Mayhaps [shy_character.GetSheHe] is too shy to expose [shy_character.GetHerselfHimself] in front of you?"
  ie_sway_ongoing.0012.a: "I understand"
  ie_sway_ongoing.0012.a2: "[other_character.GetFirstNameNoTooltip] is understanding."
