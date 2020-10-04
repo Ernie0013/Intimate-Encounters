@@ -9,6 +9,7 @@ namespace = ie_yearly
 # by Ernie Collins
 # 1000-1007
 #######################
+
 scripted_trigger yearly_1000_late_night_visitor_trigger = {
 	is_available_ai_adult = yes
 	OR = {
@@ -734,5 +735,279 @@ ie_yearly.1007 = {
 
 			ie_yearly_1004_duel_fail_effect = yes
 		}
+	}
+}
+
+#######################
+# You dream about something... big
+# by Inerrant Erotica
+# 1010
+#######################
+
+# Dream Starts
+ie_yearly.1010 = {
+	type = character_event
+	title = ie_yearly.1010.t
+	desc = ie_yearly.1010.desc
+
+	theme = mental_health
+	override_background = {
+		event_background = wilderness
+	}
+	left_portrait = {
+		character = root
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	trigger = {
+		is_ai = no
+		is_available_adult_or_is_commanding = yes
+		is_female = yes
+		NOT = { has_character_flag = had_event_ie_yearly_1010 }
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_ie_yearly_1010
+			days = 3650
+		}
+	}
+
+	option = {
+		name = ie_yearly.1010.a
+		flavor = ie_yearly.1010.a.f
+		custom_tooltip = ie_yearly.1010.a.tt
+		trigger_event = ie_yearly.1011
+	}
+
+	option = {
+		name = ie_yearly.1010.b
+		custom_tooltip = ie_yearly.1010.b.tt
+	}
+}
+
+# The Lair
+ie_yearly.1011 = {
+	type = character_event
+	title = ie_yearly.1011.t
+	desc = ie_yearly.1011.desc
+
+	theme = mental_health
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = fear
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	option = {
+		name = ie_yearly.1011.a
+		custom_tooltip = ie_yearly.1011.a.tt
+		trigger_event = ie_yearly.1012
+	}
+
+	option = {
+		name = ie_yearly.1011.b
+		flavor = ie_yearly.1011.b.tt
+		custom_tooltip = ie_yearly.1010.b.tt
+	}
+}
+
+# The Reveal
+ie_yearly.1012 = {
+	type = character_event
+	title = ie_yearly.1012.t
+	desc = ie_yearly.1012.desc
+
+	theme = seduction
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = disbelief
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+	right_portrait = scope:giant
+
+	immediate = {
+		# Generate our giant
+		create_character = {
+			location = root.location
+			template = ie_ugly_giant_template
+			dynasty = none
+			save_scope_as = giant
+		}
+		scope:giant = {
+			add_character_flag = {
+				flag = is_naked
+				days = 180 # So character won't stay naked forever if something goes wrong
+			}
+		}
+	}
+
+	option = {
+		name = ie_yearly.1012.a
+		flavor = ie_yearly.1012.a.f
+		custom_tooltip = ie_yearly.1012.a.tt
+		trigger_event = ie_yearly.1013
+	}
+
+	option = {
+		name = ie_yearly.1012.b
+		custom_tooltip = ie_yearly.1012.b.tt
+	}
+}
+
+# The Choice
+ie_yearly.1013 = {
+	type = character_event
+	title = ie_yearly.1013.t
+	desc = ie_yearly.1013.desc
+
+	theme = seduction
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = shame
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+	right_portrait = scope:giant
+
+	option = {
+		name = ie_yearly.1013.a
+		flavor = ie_yearly.1013.a.f
+		custom_tooltip = ie_yearly.1013.a.tt
+		trigger_event = ie_yearly.1014
+	}
+
+	option = {
+		name = ie_yearly.1013.b
+		flavor = ie_yearly.1013.b.f
+		custom_tooltip = ie_yearly.1013.b.tt
+		trigger_event = ie_yearly.1015
+	}
+
+	option = {
+		name = ie_yearly.1013.c
+		flavor = ie_yearly.1013.c.f
+		custom_tooltip = ie_yearly.1013.c.tt
+		trigger_event = ie_yearly.1016
+	}
+}
+
+# Fellatio
+ie_yearly.1014 = {
+	type = character_event
+	title = ie_yearly.1014.t
+	desc = ie_yearly.1014.desc
+
+	theme = seduction
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+	right_portrait = scope:giant
+
+	option = {
+		name = ie_yearly.1014.a
+		flavor = ie_yearly.1014.a.f
+		custom_tooltip = ie_yearly.1014.a.tt
+		trigger_event = ie_yearly.1017
+	}
+}
+
+# Dry Humping
+ie_yearly.1015 = {
+	type = character_event
+	title = ie_yearly.1015.t
+	desc = ie_yearly.1015.desc
+
+	theme = seduction
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+	right_portrait = scope:giant
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+	}
+
+	option = {
+		name = ie_yearly.1015.a
+		flavor = ie_yearly.1015.a.f
+		custom_tooltip = ie_yearly.1015.a.tt
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1017
+	}
+}
+
+# Vaginal
+ie_yearly.1016 = {
+	type = character_event
+	title = ie_yearly.1016.t
+	desc = ie_yearly.1016.desc
+
+	theme = seduction
+	override_background = {
+		event_background = dungeon
+	}
+	left_portrait = {
+		character = root
+		animation = pain
+	}
+	right_portrait = scope:giant
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+	}
+
+	option = {
+		name = ie_yearly.1016.a
+		flavor = ie_yearly.1016.a.f
+		custom_tooltip = ie_yearly.1016.a.tt
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1017
+	}
+}
+
+# Maintenance event
+ie_yearly.1017 = {
+	hidden = yes
+
+	immediate = {
+		scope:giant = {
+			remove_character_flag = is_naked
+		}
+		add_visiting_courtier = scope:giant
 	}
 }

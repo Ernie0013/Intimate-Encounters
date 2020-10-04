@@ -1,0 +1,63 @@
+﻿CulturalGiant = {
+	type = character
+
+	text = { # Jewish
+		trigger = {
+			OR = {
+				faith = { religion_tag = judaism_religion }
+				has_culture_group = culture_group:israelite_group
+			}
+		}
+		localization_key = ie_cultural_giant_nephilim
+	}
+
+	text = { # Arabic
+		trigger = { has_culture_group = culture_group:arabic_group }
+		localization_key = ie_cultural_giant_jabbar
+	}
+
+	text = { # Brythonic
+		trigger = { has_culture_group = culture_group:brythonic_group }
+		localization_key = ie_cultural_giant_cawr
+	}
+
+	text = { # Goidelic
+		trigger = { has_culture_group = culture_group:goidelic_group }
+		localization_key = ie_cultural_giant_fomorian
+	}
+	
+	text = { # Iberian
+		trigger = { has_culture_group = culture_group:iberian_group }
+		localization_key = ie_cultural_giant_jentil
+	}
+
+	text = { # South Slavic
+		trigger = { has_culture_group = culture_group:south_slavic_group }
+		localization_key = ie_cultural_giant_ispolin
+	}
+
+	text = { # Byzantine
+		trigger = { has_culture_group = culture_group:byzantine_group }
+		localization_key = ie_cultural_giant_gigant
+	}
+
+	text = { # Indo-Aryan
+		trigger = { has_culture_group = culture_group:indo_aryan_group }
+		localization_key = ie_cultural_giant_daitya
+	}
+
+	text = { # North Germanic / Scandinavian
+		trigger = { has_culture_group = culture_group:north_germanic_group }
+		localization_key = ie_cultural_giant_jotunn
+	}
+
+	text = { # Dutch
+		trigger = { has_culture = culture:dutch }
+		localization_key = ie_cultural_giant_reus
+	}
+
+	text = { # Generic
+		localization_key = ie_cultural_giant_giant
+		fallback = yes
+	}
+}

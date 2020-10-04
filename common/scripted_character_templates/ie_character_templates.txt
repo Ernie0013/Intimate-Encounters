@@ -239,3 +239,71 @@
 		remove_trait = tits_small_3
 	}
 }
+
+ie_ugly_giant_template = {
+	age = { 25 50 }
+	faith = root.faith
+	culture = root.culture
+	gender_female_chance = 0
+	dynasty = none
+
+	trait = giant
+
+	random_traits = yes
+
+	random_traits_list = {
+		count = 1
+		beauty_bad_1 = {}
+		beauty_bad_2 = {}
+		beauty_bad_3 = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		dick_big_2 = {}
+		dick_big_3 = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		fecund = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		lunatic_1 = {}
+		possessed_1 = {}
+		intellect_bad_1 = {}
+	}
+
+	random_traits_list = {
+		count = 1
+		education_martial_1  = {}
+		education_stewardship_1  = {}
+		education_diplomacy_1  = {}
+		education_intrigue_1  = {}
+		education_learning_1  = {}
+	}
+
+	martial = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	stewardship = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	diplomacy = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	intrigue = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	learning = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+}
