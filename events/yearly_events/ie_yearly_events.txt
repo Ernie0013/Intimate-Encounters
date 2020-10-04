@@ -1,8 +1,14 @@
-﻿namespace = ie_yearly
+﻿#######################
+# 1000 - Late Night Visitor
+# 1010 - Dreaming Big
 
-# 1000	- Late Night Visitor
+namespace = ie_yearly
 
-# You get visited by a seducer during the night
+#######################
+# A seducer visits you during the night
+# by Ernie Collins
+# 1000-1007
+#######################
 scripted_trigger yearly_1000_late_night_visitor_trigger = {
 	is_available_ai_adult = yes
 	OR = {
@@ -64,7 +70,7 @@ scripted_effect ie_yearly_1000_determine_late_night_visitor_effect = {
 	}
 }
 
-ie_yearly.1000 = { # by Ernie Collins
+ie_yearly.1000 = {
 	type = character_event
 	title = ie_yearly.1000.t
 	desc = ie_yearly.1000.desc
@@ -159,7 +165,7 @@ ie_yearly.1000 = { # by Ernie Collins
 
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1010
+				id = ie_yearly.1001
 				days = { 1 3 }
 			}
 		}
@@ -182,7 +188,7 @@ ie_yearly.1000 = { # by Ernie Collins
 		
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1020
+				id = ie_yearly.1003
 				days = { 1 3 }
 			}
 		}
@@ -270,7 +276,7 @@ ie_yearly.1000 = { # by Ernie Collins
 
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1030
+				id = ie_yearly.1004
 				days = { 1 3 }
 			}
 		}
@@ -291,10 +297,10 @@ ie_yearly.1000 = { # by Ernie Collins
 	}
 }
 
-ie_yearly.1010 = { # by Ernie Collins
+ie_yearly.1001 = {
 	type = character_event
 	title = ie_yearly.1000.t
-	desc = ie_yearly.1010.desc
+	desc = ie_yearly.1001.desc
 
 	theme = seduction
 	override_background = {
@@ -310,11 +316,11 @@ ie_yearly.1010 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1010.a
+		name = ie_yearly.1001.a
 
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1011
+				id = ie_yearly.1002
 				days = { 1 3 }
 			}
 		}
@@ -325,8 +331,8 @@ ie_yearly.1010 = { # by Ernie Collins
 	}
 }
 
-ie_yearly.1011 = {
-	# This is a maintenance necessary to fix characters being dressed during the sex scene
+# This is a maintenance necessary to fix characters being dressed during the sex scene
+ie_yearly.1002 = {
 	hidden = yes
 
 	immediate = {
@@ -344,10 +350,10 @@ ie_yearly.1011 = {
 	}
 }
 
-ie_yearly.1020 = { # by Ernie Collins
+ie_yearly.1003 = {
 	type = character_event
 	title = ie_yearly.1000.t
-	desc = ie_yearly.1020.desc
+	desc = ie_yearly.1003.desc
 
 	theme = seduction
 	override_background = {
@@ -359,18 +365,18 @@ ie_yearly.1020 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1020.a
+		name = ie_yearly.1003.a
 
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1011
+				id = ie_yearly.1002
 				days = { 1 3 }
 			}
 		}
 	}
 }
 
-scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
+scripted_effect ie_yearly_1004_reveal_incest_or_deviant_secret_to_neighbor = {
 	if = {
 		limit = {
 			is_close_or_extended_family_of = scope:late_night_visitor
@@ -423,7 +429,7 @@ scripted_effect ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = {
 	}
 }
 
-scripted_effect ie_yearly_1030_determine_neighbor_effect = {
+scripted_effect ie_yearly_1004_determine_neighbor_effect = {
 	every_courtier_or_guest = {
 		add_to_temporary_list = possible_neighbors
 	}
@@ -461,7 +467,7 @@ scripted_effect ie_yearly_1030_determine_neighbor_effect = {
 	}
 }
 
-scripted_effect ie_yearly_1030_duel_fail_effect = {
+scripted_effect ie_yearly_1004_duel_fail_effect = {
 	add_prestige = medium_prestige_loss
 	
 	increase_wounds_no_death_effect = { REASON = fight }
@@ -489,10 +495,10 @@ scripted_effect ie_yearly_1030_duel_fail_effect = {
 	}
 }
 
-ie_yearly.1030 = { # by Ernie Collins
+ie_yearly.1004 = {
 	type = character_event
 	title = ie_yearly.1000.t
-	desc = ie_yearly.1030.desc
+	desc = ie_yearly.1004.desc
 
 	theme = seduction
 	override_background = {
@@ -506,16 +512,16 @@ ie_yearly.1030 = { # by Ernie Collins
 	immediate = {
 		scope:late_night_visitor = { add_character_flag = is_naked }
 
-		ie_yearly_1030_determine_neighbor_effect = yes
+		ie_yearly_1004_determine_neighbor_effect = yes
 	}
 
 	option = {
-		name = ie_yearly.1030.a
-		custom_tooltip = ie_yearly.1030.a.tt
+		name = ie_yearly.1004.a
+		custom_tooltip = ie_yearly.1004.a.tt
 
 		hidden_effect = {
 			trigger_event = {
-				id = ie_yearly.1031
+				id = ie_yearly.1005
 				days = { 1 3 }
 			}
 		}
@@ -534,11 +540,11 @@ ie_yearly.1030 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1030.b
-		custom_tooltip = ie_yearly.1030.b.tt
+		name = ie_yearly.1004.b
+		custom_tooltip = ie_yearly.1004.b.tt
 
 		send_interface_toast = {
-			title = ie_yearly.1030.b.message
+			title = ie_yearly.1004.b.message
 			left_icon = scope:late_night_visitor
 			right_icon = scope:neighbor
 			
@@ -555,7 +561,7 @@ ie_yearly.1030 = { # by Ernie Collins
 				craven = minor_stress_impact_gain
 			}
 
-			ie_yearly_1030_reveal_incest_or_deviant_secret_to_neighbor = yes
+			ie_yearly_1004_reveal_incest_or_deviant_secret_to_neighbor = yes
 		}
 
 		ai_chance = {
@@ -573,7 +579,7 @@ ie_yearly.1030 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1030.c
+		name = ie_yearly.1004.c
 
 		duel = {
 			skill = prowess
@@ -595,7 +601,7 @@ ie_yearly.1030 = { # by Ernie Collins
 
 				trigger_event = {
 					days = { 2 7 } # Keep player in suspense for a bit
-					id = ie_yearly.1032
+					id = ie_yearly.1006
 				}
 			}
 			20 = {
@@ -606,12 +612,12 @@ ie_yearly.1030 = { # by Ernie Collins
 				}
 
 				show_as_tooltip = {
-					ie_yearly_1030_duel_fail_effect = yes
+					ie_yearly_1004_duel_fail_effect = yes
 				}
 
 				trigger_event = {
 					days = { 2 7 } # Keep player in suspense for a bit
-					id = ie_yearly.1033
+					id = ie_yearly.1007
 				}
 			}
 		}
@@ -636,10 +642,10 @@ ie_yearly.1030 = { # by Ernie Collins
 	}
 }
 
-ie_yearly.1031 = { # by Ernie Collins
+ie_yearly.1005 = {
 	type = character_event
 	title = ie_yearly.1000.t
-	desc = ie_yearly.1031.desc
+	desc = ie_yearly.1005.desc
 
 	theme = seduction
 	override_background = {
@@ -660,7 +666,7 @@ ie_yearly.1031 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1031.a
+		name = ie_yearly.1005.a
 	}
 
 	after = {
@@ -669,10 +675,10 @@ ie_yearly.1031 = { # by Ernie Collins
 	}
 }
 
-ie_yearly.1032 = { # by Ernie Collins
+ie_yearly.1006 = {
 	type = character_event
 	title = ie_yearly.1000.t
-	desc = ie_yearly.1032.desc
+	desc = ie_yearly.1006.desc
 
 	theme = seduction
 	override_background = {
@@ -709,7 +715,7 @@ ie_yearly.1032 = { # by Ernie Collins
 	}
 
 	option = {
-		name = ie_yearly.1032.a
+		name = ie_yearly.1006.a
 	}
 
 	after = {
@@ -717,16 +723,16 @@ ie_yearly.1032 = { # by Ernie Collins
 	}
 }
 
-ie_yearly.1033 = { # by Ernie Collins
+ie_yearly.1007 = {
 	hidden = yes
 
 	immediate = {
 		send_interface_toast = {
-			title = ie_yearly.1030.c.message
+			title = ie_yearly.1004.c.message
 			left_icon = scope:late_night_visitor
 			right_icon = scope:neighbor
 
-			ie_yearly_1030_duel_fail_effect = yes
+			ie_yearly_1004_duel_fail_effect = yes
 		}
 	}
 }
