@@ -861,6 +861,9 @@ ie_yearly.1012 = {
 	option = {
 		name = ie_yearly.1012.b
 		custom_tooltip = ie_yearly.1012.b.tt
+		scope:giant = {
+			remove_character_flag = is_naked
+		}
 	}
 }
 

@@ -52,7 +52,12 @@
 	}
 
 	text = { # Dutch
-		trigger = { has_culture = culture:dutch }
+		trigger = {
+			OR = {
+				culture = culture:frisian
+				culture = culture:dutch
+			}
+		}
 		localization_key = ie_cultural_giant_reus
 	}
 
