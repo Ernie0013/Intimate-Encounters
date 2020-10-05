@@ -47,7 +47,7 @@
  ie_yearly.1011.a:0 "Perhaps he's... friendly?"
  ie_yearly.1011.a.tt:0 "You find yourself... enthralled."
  ie_yearly.1011.b:0 "This is the part where I wake up!"
- ie_yearly.1011.b.tt:0 "Not in a million years!"
+ ie_yearly.1011.b.f:0 "Not in a million years!"
 
  ie_yearly.1012.t:0 "Dreaming Big: The Reveal"
  ie_yearly.1012.desc:0 "He stands, revealing the full extent of his mighty stature to me. My eyes follow him up, staring in awe as he seems to raise up to the very ceiling of the lair. I stand no taller than his waist, completely within his shadow.\n\nThen I look down... taking full stock of his manhood. It must be as thick as my arm, if not thicker — and the sheer length of it!\n\nI find myself... drawn to the [ROOT.Char.Custom('CulturalGiant')|U], even though I know I should be terrified of his beastly visage. He is so hairy and fearsome, more monster than man!"
@@ -100,4 +100,4 @@
  ie_yearly.1020.desc:0 "As ephemeral as all dreams are, it does not take long to vanish from my thoughts — as if it never occurred at all!\n\nBut then, days later it all comes rushing back. While at court I behold a man of great stature towering over all the others. It cannot be! Our guest so looks like the giant from my dreams!"
  ie_yearly.1020.a:0 "I must have such a man... for... our army! Yes, that's it!"
  ie_yearly.1020.b:0 "After a dream like that, I cannot bear to be in the presence of such a beastly man."
- ie_yearly.1020.b.tt:0 "You hope he leaves soon."
+ ie_yearly.1020.b.tt:0 "You hope [giant.GetShortUIName] leaves soon."

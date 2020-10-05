@@ -749,8 +749,23 @@ ie_yearly.1007 = {
 #######################
 # You dream about something... big
 # by Inerrant Erotica
-# 1010
+# 1010-1020
 #######################
+
+scripted_effect ie_yearly_1000_refuse_dream_effect = {
+	stress_impact = {
+		lustful = medium_stress_impact_gain
+		rakish = medium_stress_impact_gain
+	}
+
+	stress_impact = {
+		chaste = medium_stress_impact_loss
+		celibate = medium_stress_impact_loss
+		zealous = minor_stress_impact_loss
+	}
+
+	add_piety = medium_piety_gain
+}
 
 # Dream Starts
 ie_yearly.1010 = {
@@ -853,8 +868,9 @@ ie_yearly.1011 = {
 
 	option = {
 		name = ie_yearly.1011.b
-		flavor = ie_yearly.1011.b.tt
+		flavor = ie_yearly.1011.b.f
 		custom_tooltip = ie_yearly.1010.b.tt
+		ie_yearly_1000_refuse_dream_effect = yes
 	}
 }
 
@@ -915,6 +931,7 @@ ie_yearly.1012 = {
 	option = {
 		name = ie_yearly.1012.b
 		custom_tooltip = ie_yearly.1012.b.tt
+		ie_yearly_1000_refuse_dream_effect = yes
 	}
 }
 
@@ -1075,6 +1092,7 @@ ie_yearly.1017 = {
 
 	option = {
 		name = ie_yearly.1017.a
+		add_stress = major_stress_gain
 	}
 
 	after = {
@@ -1121,6 +1139,7 @@ ie_yearly.1018 = {
 		name = ie_yearly.1018.a
 		flavor = ie_yearly.1018.a.f
 		custom_tooltip = ie_yearly.1018.a.tt
+		add_stress = monumental_stress_loss
 	}
 
 	after = {
@@ -1146,6 +1165,7 @@ ie_yearly.1019 = {
 
 	option = {
 		name = ie_yearly.1019.a
+		add_stress = minor_stress_loss
 		trigger_event = ie_yearly.1020
 	}
 }
@@ -1178,10 +1198,34 @@ ie_yearly.1020 = {
 	option = {
 		name = ie_yearly.1020.a
 		add_courtier = scope:giant
+		stress_impact = {
+			deviant = minor_stress_impact_loss
+			lustful = minor_stress_impact_loss
+			rakish = minor_stress_impact_loss
+			seducer = minor_stress_impact_loss
+		}
+		stress_impact = {
+			chaste = minor_stress_impact_gain
+			celibate = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+			zealous = minor_stress_impact_gain
+		}
 	}
 
 	option = {
 		name = ie_yearly.1020.b
 		custom_tooltip = ie_yearly.1020.b.tt
+		stress_impact = {
+			deviant = minor_stress_impact_gain
+			lustful = minor_stress_impact_gain
+			rakish = minor_stress_impact_gain
+			seducer = minor_stress_impact_gain
+		}
+		stress_impact = {
+			chaste = minor_stress_impact_loss
+			celibate = minor_stress_impact_loss
+			craven = minor_stress_impact_loss
+			zealous = minor_stress_impact_loss
+		}
 	}
 }
