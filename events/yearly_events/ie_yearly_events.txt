@@ -764,6 +764,7 @@ ie_yearly.1010 = {
 		is_ai = no # Otherwise we'd get too many giants
 		is_available_adult_or_is_commanding = yes
 		is_female = yes
+		is_attracted_to_men = yes
 
 		OR = {
 			has_trait = deviant
