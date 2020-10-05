@@ -795,7 +795,7 @@ ie_yearly.1011 = {
 
 	theme = mental_health
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
@@ -825,7 +825,7 @@ ie_yearly.1012 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
@@ -833,7 +833,6 @@ ie_yearly.1012 = {
 		remove_default_outfit = yes
 		outfit_tags = { beggar_rags }
 	}
-	right_portrait = scope:giant
 
 	immediate = {
 		# Generate our giant
@@ -842,12 +841,6 @@ ie_yearly.1012 = {
 			template = ie_ugly_giant_template
 			dynasty = none
 			save_scope_as = giant
-		}
-		scope:giant = {
-			add_character_flag = {
-				flag = is_naked
-				days = 180 # So character won't stay naked forever if something goes wrong
-			}
 		}
 	}
 
@@ -861,9 +854,6 @@ ie_yearly.1012 = {
 	option = {
 		name = ie_yearly.1012.b
 		custom_tooltip = ie_yearly.1012.b.tt
-		scope:giant = {
-			remove_character_flag = is_naked
-		}
 	}
 }
 
@@ -875,7 +865,7 @@ ie_yearly.1013 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
@@ -883,7 +873,6 @@ ie_yearly.1013 = {
 		remove_default_outfit = yes
 		outfit_tags = { beggar_rags }
 	}
-	right_portrait = scope:giant
 
 	option = {
 		name = ie_yearly.1013.a
@@ -915,15 +904,14 @@ ie_yearly.1014 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
-		animation = personality_cynical
+		animation = beg
 		remove_default_outfit = yes
 		outfit_tags = { beggar_rags }
 	}
-	right_portrait = scope:giant
 
 	option = {
 		name = ie_yearly.1014.a
@@ -941,13 +929,13 @@ ie_yearly.1015 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
 		animation = personality_cynical
+		remove_default_outfit = yes
 	}
-	right_portrait = scope:giant
 
 	immediate = {
 		add_character_flag = {
@@ -974,13 +962,13 @@ ie_yearly.1016 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
-		animation = personality_cynical
+		animation = disgust
+		remove_default_outfit = yes
 	}
-	right_portrait = scope:giant
 
 	immediate = {
 		add_character_flag = {
@@ -1009,13 +997,13 @@ ie_yearly.1017 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
-		animation = severelywounded
+		animation = personality_zealous
+		remove_default_outfit = yes
 	}
-	right_portrait = scope:giant
 
 	immediate = {
 		add_character_flag = {
@@ -1042,13 +1030,13 @@ ie_yearly.1018 = {
 
 	theme = seduction
 	override_background = {
-		event_background = dungeon
+		event_background = ie_cave
 	}
 	left_portrait = {
 		character = root
-		animation = severelywounded
+		animation = shock
+		remove_default_outfit = yes
 	}
-	right_portrait = scope:giant
 
 	immediate = {
 		add_character_flag = {
