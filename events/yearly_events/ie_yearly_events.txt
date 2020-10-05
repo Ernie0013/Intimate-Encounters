@@ -761,9 +761,31 @@ ie_yearly.1010 = {
 	}
 
 	trigger = {
-		is_ai = no
+		is_ai = no # Otherwise we'd get too many giants
 		is_available_adult_or_is_commanding = yes
 		is_female = yes
+
+		OR = {
+			has_trait = deviant
+			has_trait = dwarf
+			has_trait = flagellant
+			has_trait = fornicator
+			has_trait = hashishiyah
+			has_trait = lifestyle_herbalist
+			has_trait = lunatic
+			has_trait = lustful
+			has_trait = mystic_1
+			has_trait = mystic_2
+			has_trait = mystic_3
+			has_trait = possessed
+			has_trait = rakish
+			has_trait = reckless
+			has_trait = scholar
+			has_trait = seducer
+			has_trait = witch
+			has_trait = zealous
+		}
+
 		NOT = { has_character_flag = had_event_ie_yearly_1010 }
 	}
 
@@ -1083,15 +1105,6 @@ ie_yearly.1019 = {
 		animation = ecstasy
 	}
 
-	immediate = {
-		hidden_effect = {
-			scope:giant = {
-				remove_character_flag = is_naked
-			}
-			add_visiting_courtier = scope:giant
-		}
-	}
-
 	option = {
 		name = ie_yearly.1019.a
 		trigger_event = ie_yearly.1020
@@ -1116,10 +1129,15 @@ ie_yearly.1020 = {
 		character = scope:giant
 		animation = happiness
 	}
+	
+	immediate = {
+		hidden_effect = {
+			add_visiting_courtier = scope:giant
+		}
+	}
 
 	option = {
 		name = ie_yearly.1020.a
-		
 		add_courtier = scope:giant
 	}
 
