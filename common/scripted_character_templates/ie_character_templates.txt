@@ -248,12 +248,16 @@ ie_ugly_giant_template = {
 	dynasty = none
 
 	trait = giant
-
+	
 	random_traits = yes
+	
+	random_traits_list = {
+		physique_good_2 = {}
+		physique_good_3 = {}
+	}
 
 	random_traits_list = {
 		count = 1
-		beauty_bad_1 = {}
 		beauty_bad_2 = {}
 		beauty_bad_3 = {}
 	}
@@ -268,13 +272,6 @@ ie_ugly_giant_template = {
 		count = 1
 		lustful = {}
 		fecund = {}
-	}
-
-	random_traits_list = {
-		count = 1
-		lunatic_1 = {}
-		possessed_1 = {}
-		intellect_bad_1 = {}
 	}
 
 	random_traits_list = {
