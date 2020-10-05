@@ -244,7 +244,7 @@ ie_ugly_giant_template = {
 	age = { 25 50 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 0
+	gender_female_chance = root_attraction_based_female_chance
 	dynasty = none
 
 	trait = giant

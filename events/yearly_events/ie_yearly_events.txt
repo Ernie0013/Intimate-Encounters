@@ -140,6 +140,14 @@ ie_yearly.1000 = {
 			attraction <= high_negative_attraction
 			factor = 0.4
 		}
+
+		compare_modifier = { #Less likely to happen the older you are
+			trigger = {
+				age >= 35
+			}
+			value = age
+			multiplier = -0.75
+		}
 	}
 
 	immediate = {
@@ -790,6 +798,16 @@ ie_yearly.1010 = {
 		NOT = { has_character_flag = had_event_ie_yearly_1010 }
 	}
 
+	weight_multiplier = {
+		compare_modifier = { #Less likely to happen the older you are
+			trigger = {
+				age >= 35
+			}
+			value = age
+			multiplier = -0.75
+		}
+	}
+
 	immediate = {
 		add_character_flag = {
 			flag = had_event_ie_yearly_1010
@@ -858,12 +876,32 @@ ie_yearly.1012 = {
 	}
 
 	immediate = {
-		# Generate our giant
-		create_character = {
-			location = root.location
-			template = ie_ugly_giant_template
-			dynasty = none
-			save_scope_as = giant
+		hidden_effect = {
+			# Generate our giant
+			create_character = {
+				location = root.location
+				template = ie_ugly_giant_template
+				gender_female_chance = 0 # Always male
+				dynasty = none
+				save_scope_as = giant
+			}
+			random_list = {
+				50 = {
+					trigger = {
+						is_female = yes
+					}
+					scope:giant = { set_sexuality = heterosexual }
+				}
+				50 = {
+					trigger = {
+						is_male = yes # Future-proofing for when event supports mlm
+					}
+					scope:giant = { set_sexuality = homosexual }
+				}
+				50 = {
+					scope:giant = { set_sexuality = bisexual }
+				}
+			}
 		}
 	}
 
