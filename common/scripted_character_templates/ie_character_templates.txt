@@ -10,13 +10,6 @@
 		beauty_good_2 = {}
 		beauty_good_3 = {}
 	}
-	random_traits_list = {
-		count = { 0 1 }
-		tits_big_1 = {}
-		tits_big_2 = {}
-		tits_big_3 = {}
-		fecund = {}
-	}
 	trait = lustful
 	random_traits_list = {
 		count = { 0 2 }
@@ -237,6 +230,35 @@
 		remove_trait = tits_small_1
 		remove_trait = tits_small_2
 		remove_trait = tits_small_3
+
+		random_list = {
+			20 = {}
+			20 = { add_trait = fecund }
+			20 = {
+				trigger = { is_female = yes }
+				carn_add_tits_big_2_effect = yes
+			}
+			20 = {
+				trigger = { is_female = yes }
+				carn_add_tits_big_2_effect = yes
+			}
+			20 = {
+				trigger = { is_female = yes }
+				carn_add_tits_big_3_effect = yes
+			}
+			20 = {
+				trigger = { is_male = yes }
+				carn_add_dick_big_1_effect = yes
+			}
+			20 = {
+				trigger = { is_male = yes }
+				carn_add_dick_big_2_effect = yes
+			}
+			20 = {
+				trigger = { is_male = yes }
+				carn_add_dick_big_3_effect = yes
+			}
+		}
 	}
 }
 
@@ -260,12 +282,6 @@ ie_ugly_giant_template = {
 		count = 1
 		beauty_bad_2 = {}
 		beauty_bad_3 = {}
-	}
-
-	random_traits_list = {
-		count = 1
-		dick_big_2 = {}
-		dick_big_3 = {}
 	}
 
 	random_traits_list = {
@@ -306,5 +322,26 @@ ie_ugly_giant_template = {
 	prowess = {
 		min_template_decent_skill
 		max_template_decent_skill
+	}
+
+	after_creation = {
+		random_list = {
+			50 = {
+				trigger = { is_female = yes }
+				carn_add_tits_big_2_effect = yes
+			}
+			50 = {
+				trigger = { is_female = yes }
+				carn_add_tits_big_3_effect = yes
+			}
+			50 = {
+				trigger = { is_male = yes }
+				carn_add_dick_big_2_effect = yes
+			}
+			50 = {
+				trigger = { is_male = yes }
+				carn_add_dick_big_3_effect = yes
+			}
+		}
 	}
 }
