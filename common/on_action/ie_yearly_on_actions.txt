@@ -2,5 +2,6 @@
 	random_events = {
 		chance_to_happen = 25
 		100 = ie_yearly.1000 # Late Night Visitor
+		100 = ie_yearly.1010 # Dreaming Big
 	}
 }

@@ -9,6 +9,7 @@ namespace = ie_yearly
 # by Ernie Collins
 # 1000-1007
 #######################
+
 scripted_trigger yearly_1000_late_night_visitor_trigger = {
 	is_available_ai_adult = yes
 	OR = {
@@ -138,6 +139,14 @@ ie_yearly.1000 = {
 		modifier = {
 			attraction <= high_negative_attraction
 			factor = 0.4
+		}
+
+		compare_modifier = { #Less likely to happen the older you are
+			trigger = {
+				age >= 35
+			}
+			value = age
+			multiplier = -0.75
 		}
 	}
 
@@ -733,6 +742,490 @@ ie_yearly.1007 = {
 			right_icon = scope:neighbor
 
 			ie_yearly_1004_duel_fail_effect = yes
+		}
+	}
+}
+
+#######################
+# You dream about something... big
+# by Inerrant Erotica
+# 1010-1020
+#######################
+
+scripted_effect ie_yearly_1000_refuse_dream_effect = {
+	stress_impact = {
+		lustful = medium_stress_impact_gain
+		rakish = medium_stress_impact_gain
+	}
+
+	stress_impact = {
+		chaste = medium_stress_impact_loss
+		celibate = medium_stress_impact_loss
+		zealous = minor_stress_impact_loss
+	}
+
+	add_piety = medium_piety_gain
+}
+
+# Dream Starts
+ie_yearly.1010 = {
+	type = character_event
+	title = ie_yearly.1010.t
+	desc = ie_yearly.1010.desc
+
+	theme = mental_health
+	override_background = {
+		event_background = wilderness
+	}
+	left_portrait = {
+		character = root
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	trigger = {
+		is_ai = no # Otherwise we'd get too many giants
+		is_available_adult_or_is_commanding = yes
+		is_female = yes
+		is_attracted_to_men = yes
+
+		OR = {
+			has_trait = deviant
+			has_trait = dwarf
+			has_trait = flagellant
+			has_trait = fornicator
+			has_trait = hashishiyah
+			has_trait = lifestyle_herbalist
+			has_trait = lunatic
+			has_trait = lustful
+			has_trait = mystic_1
+			has_trait = mystic_2
+			has_trait = mystic_3
+			has_trait = possessed
+			has_trait = rakish
+			has_trait = reckless
+			has_trait = scholar
+			has_trait = seducer
+			has_trait = witch
+			has_trait = zealous
+		}
+
+		NOT = { has_character_flag = had_event_ie_yearly_1010 }
+	}
+
+	weight_multiplier = {
+		compare_modifier = { #Less likely to happen the older you are
+			trigger = {
+				age >= 35
+			}
+			value = age
+			multiplier = -0.75
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_ie_yearly_1010
+			days = 3650
+		}
+	}
+
+	option = {
+		name = ie_yearly.1010.a
+		flavor = ie_yearly.1010.a.f
+		custom_tooltip = ie_yearly.1010.a.tt
+		trigger_event = ie_yearly.1011
+	}
+
+	option = {
+		name = ie_yearly.1010.b
+		custom_tooltip = ie_yearly.1010.b.tt
+	}
+}
+
+# The Lair
+ie_yearly.1011 = {
+	type = character_event
+	title = ie_yearly.1011.t
+	desc = ie_yearly.1011.desc
+
+	theme = mental_health
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = fear
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	option = {
+		name = ie_yearly.1011.a
+		custom_tooltip = ie_yearly.1011.a.tt
+		trigger_event = ie_yearly.1012
+	}
+
+	option = {
+		name = ie_yearly.1011.b
+		flavor = ie_yearly.1011.b.f
+		custom_tooltip = ie_yearly.1010.b.tt
+		ie_yearly_1000_refuse_dream_effect = yes
+	}
+}
+
+# The Reveal
+ie_yearly.1012 = {
+	type = character_event
+	title = ie_yearly.1012.t
+	desc = ie_yearly.1012.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = disbelief
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	immediate = {
+		hidden_effect = {
+			# Generate our giant
+			create_character = {
+				location = root.location
+				template = ie_ugly_giant_template
+				gender_female_chance = 0 # Always male
+				dynasty = none
+				save_scope_as = giant
+			}
+			random_list = {
+				50 = {
+					trigger = {
+						is_female = yes
+					}
+					scope:giant = { set_sexuality = heterosexual }
+				}
+				50 = {
+					trigger = {
+						is_male = yes # Future-proofing for when event supports mlm
+					}
+					scope:giant = { set_sexuality = homosexual }
+				}
+				50 = {
+					scope:giant = { set_sexuality = bisexual }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ie_yearly.1012.a
+		flavor = ie_yearly.1012.a.f
+		custom_tooltip = ie_yearly.1012.a.tt
+		trigger_event = ie_yearly.1013
+	}
+
+	option = {
+		name = ie_yearly.1012.b
+		custom_tooltip = ie_yearly.1012.b.tt
+		ie_yearly_1000_refuse_dream_effect = yes
+	}
+}
+
+# The Choice
+ie_yearly.1013 = {
+	type = character_event
+	title = ie_yearly.1013.t
+	desc = ie_yearly.1013.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = shame
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	option = {
+		name = ie_yearly.1013.a
+		flavor = ie_yearly.1013.a.f
+		custom_tooltip = ie_yearly.1013.a.tt
+		trigger_event = ie_yearly.1014
+	}
+
+	option = {
+		name = ie_yearly.1013.b
+		flavor = ie_yearly.1013.b.f
+		custom_tooltip = ie_yearly.1013.b.tt
+		trigger_event = ie_yearly.1015
+	}
+
+	option = {
+		name = ie_yearly.1013.c
+		flavor = ie_yearly.1013.c.f
+		custom_tooltip = ie_yearly.1013.c.tt
+		trigger_event = ie_yearly.1017
+	}
+}
+
+# Fellatio
+ie_yearly.1014 = {
+	type = character_event
+	title = ie_yearly.1014.t
+	desc = ie_yearly.1014.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = beg
+		remove_default_outfit = yes
+		outfit_tags = { beggar_rags }
+	}
+
+	option = {
+		name = ie_yearly.1014.a
+		flavor = ie_yearly.1014.a.f
+		custom_tooltip = ie_yearly.1014.a.tt
+		trigger_event = ie_yearly.1019
+	}
+}
+
+# Dry Humping
+ie_yearly.1015 = {
+	type = character_event
+	title = ie_yearly.1015.t
+	desc = ie_yearly.1015.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+		remove_default_outfit = yes
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+	}
+
+	option = {
+		name = ie_yearly.1015.a
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1016
+	}
+}
+
+# Dry Humping Continued
+ie_yearly.1016 = {
+	type = character_event
+	title = ie_yearly.1015.t
+	desc = ie_yearly.1016.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = disgust
+		remove_default_outfit = yes
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+	}
+
+	option = {
+		name = ie_yearly.1016.a
+		flavor = ie_yearly.1016.a.f
+		custom_tooltip = ie_yearly.1016.a.tt
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1019
+	}
+}
+
+# Vaginal
+ie_yearly.1017 = {
+	type = character_event
+	title = ie_yearly.1017.t
+	desc = ie_yearly.1017.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+		remove_default_outfit = yes
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+	}
+
+	option = {
+		name = ie_yearly.1017.a
+		add_stress = major_stress_gain
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1018
+	}
+}
+
+# Vaginal Continued
+ie_yearly.1018 = {
+	type = character_event
+	title = ie_yearly.1017.t
+	desc = ie_yearly.1018.desc
+
+	theme = seduction
+	override_background = {
+		event_background = ie_cave
+	}
+	left_portrait = {
+		character = root
+		animation = shock
+		remove_default_outfit = yes
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = is_naked
+			days = 180 # So character won't stay naked forever if something goes wrong
+		}
+
+		hidden_effect = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:giant
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+		}
+	}
+
+	option = {
+		name = ie_yearly.1018.a
+		flavor = ie_yearly.1018.a.f
+		custom_tooltip = ie_yearly.1018.a.tt
+		add_stress = monumental_stress_loss
+	}
+
+	after = {
+		remove_character_flag = is_naked
+		trigger_event = ie_yearly.1019
+	}
+}
+
+# Awakening
+ie_yearly.1019 = {
+	type = character_event
+	title = ie_yearly.1019.t
+	desc = ie_yearly.1019.desc
+
+	theme = seduction
+	override_background = {
+		event_background = bedchamber
+	}
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+
+	option = {
+		name = ie_yearly.1019.a
+		add_stress = minor_stress_loss
+		trigger_event = ie_yearly.1020
+	}
+}
+
+# Awakening continued
+ie_yearly.1020 = {
+	type = character_event
+	title = ie_yearly.1019.t
+	desc = ie_yearly.1020.desc
+
+	theme = seduction
+	override_background = {
+		event_background = throne_room
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:giant
+		animation = happiness
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_visiting_courtier = scope:giant
+		}
+	}
+
+	option = {
+		name = ie_yearly.1020.a
+		add_courtier = scope:giant
+		stress_impact = {
+			deviant = minor_stress_impact_loss
+			lustful = minor_stress_impact_loss
+			rakish = minor_stress_impact_loss
+			seducer = minor_stress_impact_loss
+		}
+		stress_impact = {
+			chaste = minor_stress_impact_gain
+			celibate = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+			zealous = minor_stress_impact_gain
+		}
+	}
+
+	option = {
+		name = ie_yearly.1020.b
+		custom_tooltip = ie_yearly.1020.b.tt
+		stress_impact = {
+			deviant = minor_stress_impact_gain
+			lustful = minor_stress_impact_gain
+			rakish = minor_stress_impact_gain
+			seducer = minor_stress_impact_gain
+		}
+		stress_impact = {
+			chaste = minor_stress_impact_loss
+			celibate = minor_stress_impact_loss
+			craven = minor_stress_impact_loss
+			zealous = minor_stress_impact_loss
 		}
 	}
 }
