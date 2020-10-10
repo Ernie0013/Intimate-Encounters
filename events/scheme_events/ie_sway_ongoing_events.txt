@@ -551,6 +551,7 @@ ie_sway_ongoing.0009 = {
 }
 
 # Shy event - dummy event to determine who should receive which event
+# This event can trigger if either the target or the owner is shy, and must determine which character to show what accordingly.
 # Code by Siudhne, writing by Inerrant Erotica
 # 0010 - 0012
 ie_sway_ongoing.0010 = {
@@ -595,9 +596,7 @@ ie_sway_ongoing.0010 = {
 		}
 		else = {
 			save_scope_as = shy_character
-
-			scope:target = { save_scope_as = other_character }
-			
+			scope:target = { save_scope_as = other_character }			
 			trigger_event = ie_sway_ongoing.0011
 		}
 	}
@@ -624,7 +623,13 @@ ie_sway_ongoing.0011 = {
 		add_character_flag = {
 			flag = had_event_ie_sway_ongoing_0010
 			days = 3650
-		}		
+		}
+		scope:other_character = {
+			add_character_flag = {
+				flag = had_event_ie_sway_ongoing_0010
+				days = 3650
+			}
+		}
 		# Find the player character for a potential sex scene
 		if = {
 			limit = { is_ai = no }
@@ -637,6 +642,7 @@ ie_sway_ongoing.0011 = {
 		}
 	}
 
+	# Prefer light's off
 	option = {
 		name = ie_sway_ongoing.0011.a		
 		custom_tooltip = ie_sway_ongoing.0011.a.tt
@@ -649,18 +655,17 @@ ie_sway_ongoing.0011 = {
 		scope:other_character = { trigger_event = ie_sway_ongoing.0012 }
 	}
 
+	# Endure the light
 	option = {
 		name = ie_sway_ongoing.0011.b
 		custom_tooltip = ie_sway_ongoing.0011.b.tt
 
-		stress_impact = minor_stress_gain
+		stress_impact = { base = minor_stress_impact_gain }
 
 		# We cheat a bit here - only if the *player* chooses this option does it result in a sex scene. The ai never picks this.
 		# Otherwise the player would get a sex scene out of nowhere.
 		if = {
-			limit = {
-				is_ai = yes
-			}
+			limit = { is_ai = no }
 			carn_sex_scene_request_consensual = yes
 			carn_sex_scene_effect = {
 				PLAYER = scope:possibly_player
@@ -668,7 +673,11 @@ ie_sway_ongoing.0011 = {
 				STRESS_EFFECTS = yes
 				DRAMA = no
 			}
-		}		
+		}
+		if = {
+			limit = { this = scope:owner }
+			scope:scheme = { add_scheme_progress = scheme_progress_gain }
+		}
 		ai_chance = { base = 0 }
 	}
 }
@@ -698,7 +707,7 @@ ie_sway_ongoing.0012 = {
 					CHARACTER = scope:other_character
 					OPINION = no
 				}
-				
+
 				carn_sex_scene_request_consensual = yes
 				carn_sex_scene_effect = {
 					PLAYER = scope:possibly_player
@@ -707,6 +716,11 @@ ie_sway_ongoing.0012 = {
 					DRAMA = no
 				}
 			}
+		}
+		
+		if = {
+			limit = { this = scope:owner }
+			scope:scheme = { add_scheme_progress = scheme_progress_gain }
 		}
 
 		ai_chance = {
@@ -725,9 +739,7 @@ ie_sway_ongoing.0012 = {
 			send_interface_toast = {
 				title = ie_sway_ongoing.0012.b2
 				
-				stress_impact = {
-					base = minor_stress_impact_gain
-				}
+				stress_impact = { base = minor_stress_impact_gain }
 
 				scope:other_character = { 
 					stress_impact = {
