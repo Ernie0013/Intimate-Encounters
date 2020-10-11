@@ -1,0 +1,15 @@
+﻿ie_orgy_event_selection = {
+	trigger = {
+		exists = scope:activity
+	}
+	random_events = {
+		100 = ie_orgy.2000
+	}
+	fallback = ie_orgy_fallback
+}
+
+ie_orgy_fallback = {
+	events = {
+		ie_orgy.9999
+	}
+}

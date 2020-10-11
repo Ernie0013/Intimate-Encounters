@@ -1,0 +1,38 @@
+﻿l_english:
+
+ ie_host_orgy_decision:0 "Host Orgy"
+ ie_host_orgy_decision_desc:0 "#F We shall discretely and anonymously invite anyone in the realm who would enjoy to share in the pleasures of the flesh with many.#!"
+ ie_host_orgy_decision_tooltip:0 "Host Orgy"
+ ie_host_orgy_decision_confirm:0 "Let loose our unfettered lust!"
+ ie_activity_orgy:0 "Orgy"
+ ie_activity_orgy_name:0 "[ACTIVITY.GetOwner.GetNamePossessiveOrMy|U] Orgy"
+ ie_activity_orgy_owner:0 "Host"
+ ie_activity_orgy_desc:0 "Using absolute discretion, all interested parties in the realm have been invited to the orgy."
+
+ ie_host_orgy_decision_cooldown:0 "I will be unable to host another $ie_activity_orgy$ for #N 5 years#!"
+
+ #Invitation
+ ie_orgy.1001.t:0 "Dear sir or madam,"
+ ie_orgy.1001.desc:0 "If this letter has reached you then you are cordially invited to join us for a feast of sorts — a feast of lust. Together with other like-minded people we shall enjoy the pleasures of the flesh!"
+ ie_orgy.1001.a:0 "I can't wait!"
+ ie_orgy.1001.b:0 "I will not indulge in such behavior."
+
+ #No one attended
+ ie_orgy.1002.t:0 "$ie_activity_orgy$: Lonely Night"
+ ie_orgy.1002.desc:0 "No one showed up after sending my invitations. Maybe I overestimated the willingness of the people in my realm to give in to their lusts."
+ ie_orgy.1002.a:0 "Nothing to do but pleasure myself tonight."
+
+ #End events
+ ie_orgy.1003.t:0 "$ie_activity_orgy$: Until Next Time"
+ ie_orgy.1003.start.desc:0 "My guests and I"
+ ie_orgy.1003.end.desc:0 "fucked without restraint for hours on end. Unfortunately, all good things must come to an end. My body is spent and I am in desperate need of rest."
+ ie_orgy.1003.a:0 "Until the next $ie_activity_orgy$!"
+ ie_orgy.1004.start.desc:0 "Together, we"
+ ie_orgy.1004.tt:0 "You venture home as the $ie_activity_orgy$ ends"
+
+ ie_orgy.2000.t:0 "$ie_activity_orgy$: A Good Time"
+ ie_orgy.2000.desc:0 "[orgy_character.GetTitledFirstNameNoTooltip] and I are fucking like animals. [ROOT.Char.Custom2('GenitalsInteraction', SCOPE.sC('orgy_character'))|U]."
+ ie_orgy.2000.desc.host:0 "[orgy_character.GetSheHe] is a generous host — #EMP very#! generous."
+ ie_orgy.2000.desc.threesome:0 "\n\nConsumed by lust, we ask [orgy_character2.GetTitledFirstNameNoTooltip] to join us, which [orgy_character2.GetSheHe] immediately does. Now there is three of us, fucking in ways nature never intended. [ROOT.Char.Custom2('GenitalsInteractionWithName', SCOPE.sC('orgy_character2'))|U], while [orgy_character.GetFirstNameNoTooltip] embraces me from behind."
+ ie_orgy.2000.a:0 "I will fuck everyone here!"
+ ie_orgy.2000.tt:0 "You eagerly continue to fuck"

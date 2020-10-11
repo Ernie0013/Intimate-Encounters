@@ -1,0 +1,129 @@
+﻿ie_activity_orgy = {
+	expiration_days = 50
+	days_until_auto_start = 60
+	frame = 3
+	color = { 0.853906 0.867188 0.105469 1 }
+	activity_show_accepted = yes
+
+	valid = {
+		OR = {
+			activity_owner = { #If the host dies or is imprisoned before the ritual, invalidate
+				is_alive = yes
+				is_imprisoned = no
+			}
+			activity_has_been_activated = yes #If the ritual has started, it will not be interrupted
+		}
+	}
+
+	on_spawn = {
+		invite_character_to_activity = activity_owner
+		accept_invitation_for_character = activity_owner
+		
+		activity_owner = {
+			save_scope_as = host
+			###Invite orgy guests###
+
+			house = {
+				every_house_member = {
+					limit = { ie_can_join_orgy = yes }
+					add_to_temporary_list = potential_guests
+				}
+			}
+			every_vassal = {
+				limit = { ie_can_join_orgy = yes }
+				add_to_temporary_list = potential_guests
+			}
+			every_close_or_extended_family_member = {
+				limit = { ie_can_join_orgy = yes }
+				add_to_temporary_list = potential_guests
+			}
+			every_spouse = {
+				limit = { ie_can_join_orgy = yes }
+				add_to_temporary_list = potential_guests
+			}
+			if = {
+				limit = {
+					exists = liege
+					liege = { ie_can_join_orgy = yes }
+				}
+				liege = { add_to_temporary_list = potential_guests }
+			}
+			every_relation = {
+				type = lover
+				limit = { ie_can_join_orgy = yes }
+				add_to_temporary_list = potential_guests
+			}	
+			every_relation = {
+				type = friend
+				limit = { ie_can_join_orgy = yes }
+				add_to_temporary_list = potential_guests
+			}
+			
+			every_in_list = {
+				list = potential_guests
+				scope:activity = {
+					invite_character_to_activity = prev
+				}
+				trigger_event = {
+					id = ie_orgy.1001
+					days = 1
+				}
+			}
+		}
+	}
+
+	on_activate = {
+		# Check that there are guests apart from the feast host.
+		if = {
+			limit = {
+				NOT = {
+					any_participant = {
+						NOT = {	this = scope:activity.activity_owner }
+					}
+				}
+			}
+			# If there are no other guests, throw this event.
+			activity_owner = {
+				trigger_event = ie_orgy.1002
+			}
+		}
+		# If there are guests present
+		else = {
+			every_participant = {
+				play_music_cue = "mx_cue_sacredrite"
+
+				add_character_flag = {
+					flag = is_naked
+					days = 180 # So character won't stay naked forever if something goes wrong
+				}
+
+				trigger_event = {
+					on_action = ie_orgy_event_selection
+					days = 7
+				}
+			}
+			activity_owner = {
+				#End event
+				trigger_event = {
+					id = ie_orgy.1003
+					days = 21
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		every_participant = {
+			remove_character_flag = is_naked
+		}
+	}
+
+	on_expire = {
+		
+	}
+
+	on_invalidated = {
+		
+	}
+
+}
