@@ -1,0 +1,6 @@
+﻿friendship_ongoing = {
+	# For reference: vanilla friendship events have weights 10-300, total 1200
+	random_events = {
+		10 = ie_friendship.0001 # Sharing everything. "Might become lover" event has weight 10, and this a bit more extreme. However, it also has harsher requirements.
+	}
+}

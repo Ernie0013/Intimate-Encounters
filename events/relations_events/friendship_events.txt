@@ -1,0 +1,152 @@
+﻿namespace = ie_friendship
+
+# Sharing everything
+# Code by Siudhne, writing by Ernie Collens
+scripted_trigger ie_friendship_0001_sharing_everything_trigger_wife = {
+	is_available_healthy_ai_adult = yes
+	NOT = { is_spouse_of = root } # For polyamorous societies
+	sexually_liberal_trigger = yes
+	is_attracted_to_gender_of = root
+	is_female = yes
+}
+
+scripted_trigger ie_friendship_0001_sharing_everything_trigger = {
+	is_available_healthy_ai_adult = yes
+	NOT = { is_spouse_of = root } # For polyamorous societies
+	is_male = yes
+	any_spouse = { ie_friendship_0001_sharing_everything_trigger_wife = yes }
+}
+
+ie_friendship.0001 = {
+	type = character_event
+	title = ie_friendship.0001.t
+	desc = ie_friendship.0001.desc
+	theme = friend_relation
+	left_portrait = {
+		character = scope:friend_with_wife
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:wife_of_friend
+		animation = love
+	}
+
+	trigger = {
+		is_available_healthy_adult = yes
+		any_relation = {
+			type = friend
+			ie_friendship_0001_sharing_everything_trigger = yes
+		}
+		NOT = { has_character_flag = ie_had_sharing_everything_event }
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = ie_had_sharing_everything_event
+			years = 10
+		}
+		random_relation = {
+			type = friend
+			limit = { 
+				ie_friendship_0001_sharing_everything_trigger = yes 
+			}
+			save_scope_as = friend_with_wife
+		}
+		scope:friend_with_wife = {
+			random_spouse = {
+				limit = { ie_friendship_0001_sharing_everything_trigger_wife = yes }
+				save_scope_as = wife_of_friend
+			}
+		}
+		scope:wife_of_friend = { add_character_flag = is_naked }
+	}
+
+	# Agree
+	option = {
+		name = ie_friendship.0001.a
+		custom_tooltip = ie_friendship.0001.a.tt
+
+		# Carnalitas framework sex scene
+		carn_sex_scene_request_consensual = yes
+		carn_sex_scene_effect = {
+			PLAYER = root
+			TARGET = scope:wife_of_friend
+			STRESS_EFFECTS = yes
+			DRAMA = yes
+		}
+
+		reverse_add_opinion = {
+			target = scope:wife_of_friend
+			opinion = 40
+			modifier = romance_opinion
+		}
+	}
+
+	# Threesome
+	option = {
+		name = ie_friendship.0001.b
+		custom_tooltip = ie_friendship.0001.b.tt
+
+		trigger_event = { 
+			id = ie_friendship.0002
+			days = { 1 3 }
+		}
+	}
+
+	# Rebuke
+	option = {
+		name = ie_friendship.0001.c
+		custom_tooltip = ie_friendship.0001.c.tt
+
+		add_piety = minor_piety_gain
+		stress_impact = {
+			deviant = minor_stress_impact_gain
+			seducer = minor_stress_impact_gain
+			lustful = medium_stress_impact_gain
+			chaste = miniscule_stress_impact_loss
+			celibate = miniscule_stress_impact_loss
+		}
+	}
+
+	after = {
+		scope:friend_with_wife = { remove_character_flag = is_naked }
+	}
+}
+
+ie_friendship.0002 = {
+	type = character_event
+	title = ie_friendship.0001.t
+	desc = ie_friendship.0002.desc
+	theme = friend_relation
+	left_portrait = {
+		character = scope:friend_with_wife
+		animation = love
+	}
+	right_portrait = {
+		character = scope:wife_of_friend
+		animation = ecstasy
+	}
+
+	immediate = {
+		scope:wife_of_friend = { add_character_flag = is_naked }
+		scope:friend_with_wife = { add_character_flag = is_naked }
+	}
+
+	# Become lovers
+	option = {
+		name = ie_friendship.0002.a
+		set_relation_lover = scope:wife_of_friend
+	}
+	
+	# Become friends
+	option = {
+		name = ie_friendship.0002.b
+		set_relation_friend = scope:wife_of_friend
+		remove_character_flag = ie_had_sharing_everything_event
+	}
+
+	after = {
+		scope:friend_with_wife = { remove_character_flag = is_naked	}
+		scope:wife_of_friend = { remove_character_flag = is_naked }
+	}
+}
