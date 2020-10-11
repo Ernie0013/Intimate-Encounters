@@ -1,10 +1,106 @@
 ﻿#######################
+# 0001 - Ending event
 # 1001-1005 - Functionality events
 # 2000+ - Regular events triggered by on_actions
 # 9999 - Fallback event for when no other events trigger
 
 namespace = ie_orgy
 
+
+scripted_trigger ie_orgy_end_events_participant_trigger = {
+	NOT = { this = scope:host }
+	is_alive = yes
+	is_imprisoned = no
+}
+
+# Ending event
+ie_orgy.0001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		exists = scope:activity
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					# Everyone has wrapped up their events
+					scope:activity = {
+						# debug_log_details = checking_participants
+						any_participant = {
+							count = all
+							trigger_if = {
+								limit = {
+									is_alive = yes
+									is_imprisoned = no
+								}
+								save_temporary_scope_as = participant_check
+								scope:activity = {
+									is_target_in_variable_list = {
+										name = finished_participants
+										target = scope:participant_check
+									}
+								}
+							}
+							trigger_else = { always = yes }
+						}
+					}
+					# There exists a special exception
+					exists = scope:activity.var:end__now
+					# Has attempted to wrap up the feast already
+					AND = {
+						trigger_if = {
+							limit = {
+								exists = scope:activity.var:attempted_to_end_orgy
+							}
+							scope:activity.var:attempted_to_end_orgy > 2
+						}
+						trigger_else = {
+							always = no
+						}
+					}
+				}
+			}
+			scope:activity = {
+				activity_owner = {
+					save_scope_as = host
+				}
+				every_participant = {
+					limit = { ie_orgy_end_events_participant_trigger = yes }
+					trigger_event = ie_orgy.1004
+				}
+				activity_owner = {
+					trigger_event = ie_orgy.1003
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:activity.var:attempted_to_end_orgy } }
+			scope:activity = {
+				set_variable = {
+					name = attempted_to_end_orgy
+					value = 1
+				}
+			}
+		}
+		else = {
+			scope:activity = {
+				change_variable = {
+					name = attempted_to_end_orgy
+					add = 1
+				}
+			}
+		}
+		trigger_event = {
+			id = ie_orgy.0001
+			days = 20
+		}
+	}
+}
+
+# Invitation letter
 ie_orgy.1001 = {
 	type = letter_event
 	opening = ie_orgy.1001.t
@@ -33,9 +129,6 @@ ie_orgy.1001 = {
 				add = 25
 				has_trait = rakish
 			}
-			opinion_modifier = {
-				opinion_target = scope:host
-			}
 		}
 	}
 
@@ -49,19 +142,21 @@ ie_orgy.1001 = {
 		ai_chance = {
 			base = 10
 			modifier = {
-				add = 15
-				target_is_liege_or_above = scope:host
+				add = 25
+				has_trait = chaste
+			}
+			modifier = {
+				add = 50
+				has_trait = celibate
 			}
 			ai_value_modifier = {
-				ai_honor = 1.5
 				ai_zeal = 1.5
-				ai_boldness = 0.3
 			}
 		}
 	}
 }
 
-#No guests came
+# No guests came :(
 ie_orgy.1002 = {
 	type = character_event
 	title = ie_orgy.1002.t
@@ -101,10 +196,6 @@ ie_orgy.1003 = {
 		name = ie_orgy.1003.a
 
 		scope:activity = {
-			every_participant = {
-				limit = { NOT = { this = root } }
-				trigger_event = ie_orgy.1004
-			}
 			complete_activity = yes
 		}
 	}
@@ -130,7 +221,7 @@ ie_orgy.1004 = {
 	}
 }
 
-
+# Random orgy event
 ie_orgy.2000 = {
 	type = character_event
 	title = ie_orgy.2000.t
@@ -160,6 +251,9 @@ ie_orgy.2000 = {
 	}
 
 	trigger = {
+		NOT = {
+			exists = local_var:had_2000
+		}
 		scope:activity = {
 			any_participant = {
 				NOT = { this = root }
@@ -173,6 +267,11 @@ ie_orgy.2000 = {
 	}
 
 	immediate = {
+		set_local_variable = {
+			name = had_2000
+			value = yes
+		}
+
 		scope:activity = {
 			random_participant = {
 				limit = {
@@ -199,31 +298,33 @@ ie_orgy.2000 = {
 			}
 		}
 
-		carn_had_sex_with_effect = {
-			CHARACTER_1 = root
-			CHARACTER_2 = scope:orgy_character
-			C1_PREGNANCY_CHANCE = pregnancy_chance
-			C2_PREGNANCY_CHANCE = pregnancy_chance
-			STRESS_EFFECTS = yes
-			DRAMA = yes
-		}
-		if = {
-			limit = { exists = scope:orgy_character2 }
+		hidden_effect = {
 			carn_had_sex_with_effect = {
 				CHARACTER_1 = root
-				CHARACTER_2 = scope:orgy_character2
+				CHARACTER_2 = scope:orgy_character
 				C1_PREGNANCY_CHANCE = pregnancy_chance
 				C2_PREGNANCY_CHANCE = pregnancy_chance
 				STRESS_EFFECTS = yes
 				DRAMA = yes
 			}
-			carn_had_sex_with_effect = {
-				CHARACTER_1 = scope:orgy_character
-				CHARACTER_2 = scope:orgy_character2
-				C1_PREGNANCY_CHANCE = pregnancy_chance
-				C2_PREGNANCY_CHANCE = pregnancy_chance
-				STRESS_EFFECTS = yes
-				DRAMA = yes
+			if = {
+				limit = { exists = scope:orgy_character2 }
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = root
+					CHARACTER_2 = scope:orgy_character2
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
+					DRAMA = yes
+				}
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = scope:orgy_character
+					CHARACTER_2 = scope:orgy_character2
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
+					DRAMA = yes
+				}
 			}
 		}
 	}
@@ -232,18 +333,10 @@ ie_orgy.2000 = {
 		name = ie_orgy.2000.a
 		custom_tooltip = ie_orgy.2000.tt
 	}
-}
 
-# Fallback event ending orgy
-ie_orgy.9999 = {
-	hidden = yes
-
-	trigger = {
-		exists = scope:activity
-		root = scope:activity.activity_owner
-	}
-
-	immediate = {
-		trigger_event = ie_orgy.1003	
+	after = {
+		hidden_effect = {
+			ie_orgy_wrap_up_or_fire_random_event_effect = yes
+		}
 	}
 }

@@ -21,6 +21,8 @@
 		
 		activity_owner = {
 			save_scope_as = host
+			ie_orgy_attire = yes
+
 			###Invite orgy guests###
 
 			house = {
@@ -49,12 +51,10 @@
 				liege = { add_to_temporary_list = potential_guests }
 			}
 			every_relation = {
-				type = lover
 				limit = { ie_can_join_orgy = yes }
 				add_to_temporary_list = potential_guests
-			}	
-			every_relation = {
-				type = friend
+			}
+			every_courtier_or_guest = {
 				limit = { ie_can_join_orgy = yes }
 				add_to_temporary_list = potential_guests
 			}
@@ -66,7 +66,7 @@
 				}
 				trigger_event = {
 					id = ie_orgy.1001
-					days = 1
+					days = 1 # For testing purposes so I can switch characters in time
 				}
 			}
 		}
@@ -92,21 +92,19 @@
 			every_participant = {
 				play_music_cue = "mx_cue_sacredrite"
 
-				add_character_flag = {
-					flag = is_naked
-					days = 180 # So character won't stay naked forever if something goes wrong
-				}
+				ie_orgy_attire_effect = yes
 
 				trigger_event = {
 					on_action = ie_orgy_event_selection
-					days = 7
+					days = orgy_initial_event_delay
 				}
 			}
+
 			activity_owner = {
-				#End event
+				# Ending event to be triggered in a number of days
 				trigger_event = {
-					id = ie_orgy.1003
-					days = 21
+					id = ie_orgy.0001
+					days = max_orgy_duration
 				}
 			}
 		}
@@ -114,12 +112,19 @@
 
 	on_complete = {
 		every_participant = {
-			remove_character_flag = is_naked
+			ie_orgy_attire_remove_effect = yes
+			target_weight_modifier_effect = {
+				VALUE = hunt_weight_modifier_value
+			}
 		}
 	}
 
 	on_expire = {
 		
+	}
+
+	on_participant_death = {
+	
 	}
 
 	on_invalidated = {

@@ -1,0 +1,4 @@
+﻿l_english:
+ trait_ie_masked:0 "Masked"
+ trait_ie_masked_desc:0 "This character is using a mask to hide their identity."
+ trait_ie_masked_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is using a mask to hide [ROOT.GetCharacter.GetHerHis] identity."

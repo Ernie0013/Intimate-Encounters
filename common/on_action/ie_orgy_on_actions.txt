@@ -10,6 +10,6 @@
 
 ie_orgy_fallback = {
 	events = {
-		ie_orgy.9999
+		ie_orgy.0001 # Try to end orgy if no relevant event was found
 	}
 }

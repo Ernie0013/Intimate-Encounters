@@ -1,0 +1,22 @@
+﻿######################
+# ORGY STUFF
+######################
+standard_orgy_cooldown_time = 1825
+orgy_cost = 150
+min_default_orgy_events = 2
+max_default_orgy_events = 3
+chance_of_extra_orgy_events = 25
+
+orgy_initial_event_delay = 3
+min_orgy_event_spacing = 7
+max_orgy_event_spacing = 14
+
+max_orgy_duration = {
+	value = max_orgy_event_spacing
+	multiply = {
+		value = max_default_orgy_events
+		subtract = 1 # The first one starts quickly, as specified by orgy_initial_event_delay
+	}
+	add = orgy_initial_event_delay
+	add = 1 # To be sure no values get set on the last tick
+}

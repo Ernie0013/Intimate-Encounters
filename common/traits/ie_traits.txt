@@ -1,0 +1,15 @@
+﻿ie_masked = {
+	index = 111
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ie_masked_desc
+			}
+			desc = trait_ie_masked_character_desc
+		}
+	}
+}
