@@ -19,9 +19,9 @@ ie_sway_ongoing.0001 = {
 	}
 	
 	trigger = {
+		is_available_healthy_adult = yes
 		has_trait = brave
-		is_adult = yes # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
-		scope:target = { is_adult = yes } # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
+		scope:target = { is_available_healthy_adult = yes } # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
 		is_attracted_to_gender_of = scope:target
 		NOR = {
 			has_character_flag = had_event_ie_sway_ongoing_0001
@@ -585,8 +585,8 @@ ie_sway_ongoing.0010 = {
 			has_trait = shy
 			scope:target = { has_trait = shy }
 		}
-		is_adult = yes # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
-		scope:target = { is_adult = yes }  # Actually not needed since children can currently neither sway nor get swayed, but could reasonably be changed by PDX later
+		is_available_healthy_adult = yes
+		scope:target = { is_available_healthy_adult = yes }
 		NOR = {
 			has_character_flag = had_event_ie_sway_ongoing_0010
 			scope:target = { has_character_flag = had_event_ie_sway_ongoing_0010 }
