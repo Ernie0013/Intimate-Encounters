@@ -21,7 +21,7 @@
 		
 		activity_owner = {
 			save_scope_as = host
-			ie_orgy_attire = yes
+			ie_orgy_attire_effect = yes
 
 			###Invite orgy guests###
 

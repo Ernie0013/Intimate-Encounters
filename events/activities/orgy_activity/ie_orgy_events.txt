@@ -105,7 +105,10 @@ ie_orgy.1001 = {
 	type = letter_event
 	opening = ie_orgy.1001.t
 	desc = ie_orgy.1001.desc
-	sender = scope:host
+	sender = {
+		character = scope:host
+		hide_info = yes
+	}
 
 	immediate = {
 		scope:activity.activity_owner = { save_scope_as = host }
@@ -244,10 +247,12 @@ ie_orgy.2000 = {
 	left_portrait = {
 		character = scope:orgy_character
 		animation = flirtation_left
+		hide_info = yes
 	}
 	right_portrait = {
 		character = scope:orgy_character2
 		animation = ecstasy
+		hide_info = yes
 	}
 
 	trigger = {
