@@ -95,7 +95,7 @@
 			}
 
 			every_participant = {
-				play_music_cue = "mx_cue_sacredrite"
+				play_music_cue = "mx_cue_seduction"
 
 				ie_orgy_attire_effect = yes
 
