@@ -77,3 +77,75 @@ ie_orgy_wrap_up_or_fire_random_event_effect = {
 		}
 	}
 }
+
+#############
+# We need to deal with this separately from Carnalitas, because we want to 
+# separate the homosexual secret from the incest secret due to the nature of 
+# having masked sex. Masked or not, you know when you're a guy fucking a guy
+#############
+ie_orgy_homosexual_secret_effect = {
+	$CHARACTER_1$ = {
+		give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = $CHARACTER_2$ }
+	}
+	hidden_effect = {
+		$CHARACTER_2$ = { give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = $CHARACTER_1$ } }
+	}
+}
+
+#############
+# Sometimes there just isn't any guest our character is interested in, then we
+# need to hire a professional.
+#############
+ie_orgy_generate_prostitute_effect = {
+	debug_log_scopes = yes
+	create_character = {
+		location = scope:activity.activity_province
+		faith = scope:activity.activity_province.county.faith
+		culture = scope:activity.activity_province.county.culture
+		template = ie_seductive_character_template
+		dynasty = none
+		save_temporary_scope_as = prostitute
+	}
+
+	scope:prostitute = {
+		if = {
+			limit = {
+				OR = {
+					has_game_rule = carn_prostitution_content_any_gender
+					AND = {
+						is_male = yes
+						has_game_rule = carn_prostitution_content_male_only
+					}
+					AND = {
+						is_female = yes
+						has_game_rule = carn_prostitution_content_female_only
+					}
+				}
+			}
+			carn_start_working_as_prostitute_effect = yes
+		}
+		if = {
+			limit = {
+				root = { is_attracted_to_gender_of = scope:prostitute }
+				NOT = { is_attracted_to_gender_of = root }
+			}
+			random_list = {
+				75 = {
+					set_sexuality = bisexual
+				}
+				25 = {
+					if = {
+						limit = {
+							sex_same_as = root
+						}
+						set_sexuality = homosexual
+					}
+					else = {
+						set_sexuality = heterosexual
+					}
+				}
+			}
+		}
+		ie_orgy_attire_effect = yes
+	}
+}

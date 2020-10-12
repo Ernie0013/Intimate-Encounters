@@ -1,9 +1,9 @@
 ﻿ie_activity_orgy = {
-	expiration_days = 50
-	days_until_auto_start = 60
+	expiration_days = 300
+	has_activity_window = yes
+	days_until_auto_start = 20
 	frame = 3
 	color = { 0.853906 0.867188 0.105469 1 }
-	activity_show_accepted = yes
 
 	valid = {
 		OR = {
@@ -89,6 +89,11 @@
 		}
 		# If there are guests present
 		else = {
+			activity_owner = {
+				# Potentially invite prostitute
+				trigger_event = ie_orgy.0002
+			}
+
 			every_participant = {
 				play_music_cue = "mx_cue_sacredrite"
 

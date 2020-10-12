@@ -100,6 +100,35 @@ ie_orgy.0001 = {
 	}
 }
 
+# Invite prostitute
+ie_orgy.0002 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		exists = scope:activity
+
+		scope:activity = {
+			NOT = {
+				any_participant = {
+					NOT = { this = root }
+					root = {
+						is_attracted_to_gender_of = prev
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		ie_orgy_generate_prostitute_effect = yes
+		scope:activity = {
+			hidden_effect = { invite_character_to_activity = scope:prostitute }
+			accept_invitation_for_character = scope:prostitute
+		}
+	}
+}
+
 # Invitation letter
 ie_orgy.1001 = {
 	type = letter_event
@@ -263,9 +292,7 @@ ie_orgy.2000 = {
 			any_participant = {
 				NOT = { this = root }
 				root = {
-					possibly_interested_in_character_trigger = {
-						CHARACTER = prev
-					}
+					is_attracted_to_gender_of = prev
 				}
 			}
 		}
@@ -282,9 +309,7 @@ ie_orgy.2000 = {
 				limit = {
 					NOT = { this = root }
 					root = {
-						possibly_interested_in_character_trigger = {
-							CHARACTER = prev
-						}
+						is_attracted_to_gender_of = prev
 					}
 				}
 				save_scope_as = orgy_character
@@ -310,7 +335,11 @@ ie_orgy.2000 = {
 				C1_PREGNANCY_CHANCE = pregnancy_chance
 				C2_PREGNANCY_CHANCE = pregnancy_chance
 				STRESS_EFFECTS = yes
-				DRAMA = yes
+				DRAMA = no # We'll handle secrets ourselves
+			}
+			ie_orgy_homosexual_secret_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:orgy_character
 			}
 			if = {
 				limit = { exists = scope:orgy_character2 }
@@ -320,7 +349,11 @@ ie_orgy.2000 = {
 					C1_PREGNANCY_CHANCE = pregnancy_chance
 					C2_PREGNANCY_CHANCE = pregnancy_chance
 					STRESS_EFFECTS = yes
-					DRAMA = yes
+					DRAMA = no # We'll handle secrets ourselves
+				}
+				ie_orgy_homosexual_secret_effect = {
+					CHARACTER_1 = root
+					CHARACTER_2 = scope:orgy_character2
 				}
 				carn_had_sex_with_effect = {
 					CHARACTER_1 = scope:orgy_character
@@ -328,7 +361,11 @@ ie_orgy.2000 = {
 					C1_PREGNANCY_CHANCE = pregnancy_chance
 					C2_PREGNANCY_CHANCE = pregnancy_chance
 					STRESS_EFFECTS = yes
-					DRAMA = yes
+					DRAMA = no # We'll handle secrets ourselves
+				}
+				ie_orgy_homosexual_secret_effect = {
+					CHARACTER_1 = scope:orgy_character
+					CHARACTER_2 = scope:orgy_character2
 				}
 			}
 		}

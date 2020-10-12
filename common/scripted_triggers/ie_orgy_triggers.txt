@@ -10,7 +10,7 @@
 		has_trait = adulterer
 		has_trait = fornicator
 	}
-	NOR = {
+	NOT = {
 		any_in_list = {
 			list = potential_guests
 			this = prev
