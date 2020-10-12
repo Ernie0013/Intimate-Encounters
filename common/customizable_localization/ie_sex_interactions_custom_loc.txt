@@ -1,4 +1,38 @@
-﻿# Example:
+﻿GenitalsInteraction = {
+	type = character
+
+	text = {
+		trigger = {
+			is_giving_partner_trigger = {
+				PARTNER = scope:second
+			}
+		}
+		localization_key = genitals_interaction_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_receiving
+	}
+}
+
+GenitalsInteractionWithName = {
+	type = character
+
+	text = {
+		trigger = {
+			is_giving_partner_trigger = {
+				PARTNER = scope:second
+			}
+		}
+		localization_key = genitals_interaction_giving
+	}
+
+	text = {
+		localization_key = genitals_interaction_receiving_with_name
+	}
+}
+
+# Example:
 # "I [ROOT.Char.Custom2('GenitalsInteractionGiving', SCOPE.sC('second'))]."
 GenitalsInteractionGiving = {
 	type = character

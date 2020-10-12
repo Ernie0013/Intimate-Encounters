@@ -1,0 +1,57 @@
+﻿l_english:
+
+ ie_host_orgy_decision:0 "Host $ie_activity_orgy$"
+ ie_host_orgy_decision_desc:0 "#F We shall discretely and anonymously invite anyone in the realm who would enjoy to share in the pleasures of the flesh with many.#!"
+ ie_host_orgy_decision_tooltip:0 "Host a $ie_activity_orgy$ for all the people in your realm"
+ ie_host_orgy_decision_confirm:0 "Let loose our unfettered lust!"
+ ie_activity_orgy:0 "Masked Orgy"
+ ie_activity_orgy_name:0 "[ACTIVITY.GetOwner.GetNamePossessiveOrMy|U] $ie_activity_orgy$"
+ ie_activity_orgy_owner:0 "Host"
+ ie_activity_orgy_desc:0 "Using absolute discretion, all interested parties in the realm have been invited to the orgy."
+
+ ie_host_orgy_decision_cooldown:0 "I will be unable to host another $ie_activity_orgy$ for #N 5 years#!"
+
+ #Invitation
+ ie_orgy.1001.t:0 "Dear sir or madam,"
+ ie_orgy.1001.desc:0 "If this letter has reached you then you are cordially invited to join us for a feast of sorts — a feast of lust. Together with other like-minded people we shall enjoy the pleasures of the flesh! Included are directions to the location and a mask to conceal your identity."
+ ie_orgy.1001.a:0 "How exciting! I can't wait!"
+ ie_orgy.1001.b:0 "I will not indulge in such scandalous behavior."
+
+ #No one attended
+ ie_orgy.1002.t:0 "$ie_activity_orgy$: Lonely Night"
+ ie_orgy.1002.desc:0 "No one showed up after sending my invitations. Maybe I overestimated the willingness of the people in my realm to give in to their lusts."
+ ie_orgy.1002.a:0 "Nothing to do but pleasure myself tonight."
+
+ #End events
+ ie_orgy.1003.t:0 "$ie_activity_orgy$: Until Next Time"
+ ie_orgy.1003.start.desc:0 "My guests and I"
+ ie_orgy.1003.end.desc:0 "fucked without restraint for hours on end, experiencing more pleasure than we had ever done before.\n\nUnfortunately, all good things must come to an end. My body is spent and I am in desperate need of rest."
+ ie_orgy.1003.a:0 "We must have another $ie_activity_orgy$ soon!"
+ ie_orgy.1004.start.desc:0 "Together, we"
+ ie_orgy.1004.tt:0 "You venture home as the $ie_activity_orgy$ ends"
+
+ ie_orgy.2000.t:0 "$ie_activity_orgy$: A Good Time"
+ ie_orgy.2000.desc:0 "I do not know who this [orgy_character.GetWomanMan] is, nevertheless, I want [orgy_character.GetHerHim]. [ROOT.Char.Custom2('GenitalsInteraction', SCOPE.sC('orgy_character'))|U]. We fuck like animals, spurred on by the excitement of not knowing each other's identity."
+ ie_orgy.2000.desc.host:0 "I wonder if [orgy_character.GetSheHe] is our generous host — our #EMP very#! generous host."
+ ie_orgy.2000.desc.threesome:0 "\n\nConsumed by lust, we ask the first person who walks by to join us, which [orgy_character2.GetSheHe] immediately does. [ROOT.Char.Custom2('GenitalsInteraction', SCOPE.sC('orgy_character2'))|U], while the [Select_CString( ObjectsEqual( orgy_character.IsFemale, orgy_character2.IsFemale ), 'other ', '' )][orgy_character.GetWomanMan] embraces me from behind.\n\nNow there is three of us, having intercourse in ways nature never intended — fuck nature! All that matters is pleasure!"
+ ie_orgy.2000.a:0 "I will take everyone here!"
+ ie_orgy.2000.tt:0 "You eagerly continue to fuck"
+
+ ie_orgy.2001.t:0 "$ie_activity_orgy$: Revelation"
+ ie_orgy.2001.desc:0 "One of the [orgy_character.GetWomenMen] at the orgy offers [orgy_character.GetHerselfHimself] to me. I make [orgy_character.GetHerHim] turn with [orgy_character.GetHerHis] back towards me. Gently, I push the [orgy_character.GetWomanMan] down onto [orgy_character.GetHerHis] hands and knees. I sit down behind [orgy_character.GetHerHis] pleasantly plump buttocks.\n\nLike a stallion mounting a mare[Select_CString(orgy_character.IsFemale, ',', ' — or another stallion in this case —')] I plunge my $genitals_vulgar_penis$ deep inside [orgy_character.GetHerHis] [orgy_character.Custom('GetVulgarVaginaAnus')]. Holding [orgy_character.GetHerHis] hips tightly, I start thrusting myself into [orgy_character.GetHerHim]. [orgy_character.GetSheHe|U] moans out loud in pure ecstasy."
+ ie_orgy.2001.a:0 "Music to my ears."
+
+ ie_orgy.2002.desc:0 "With one hand I grab [orgy_character.GetHerHis] hair and jerk [orgy_character.GetHerHis] head back. An excited cry leaves [orgy_character.GetHerHis] lips. I quicken my pace as I keep holding [orgy_character.GetHerHis] hair. [orgy_character.GetHerHis|U] [orgy_character.Custom('GetVaginaAnus')] feels so good! If only I knew who this incredible pussy belonged to.\n\nThen I notice that I am not just holding the [orgy_character.GetWomanMan]'s hair, but also the piece of string that is tied behind [orgy_character.GetHerHis] head to keep [orgy_character.GetHerHis] mask in place. It would be easy to pull it loose. I could say it was an accident."
+ ie_orgy.2002.a:0 "Respect [orgy_character.GetHerHis] anonymity."
+ ie_orgy.2002.b:0 "I cannot contain my curiosity."
+ ie_orgy.2002.b.tt:0 "You discover the person's identity"
+
+ ie_orgy.2003.desc:0 "Without knowing the [orgy_character.GetWomanMan]'s identity, I continue to fuck [orgy_character.GetHerHim].\n\nMy scrotum contracts as I am about to... ungh! Still inside, I grunt as cum shoots out of my throbbing cock. I fill up the [orgy_character.GetWomanMan]'s [Select_CString(orgy_character.IsFemale, 'womb — consequences be damned', '$penetrated_orifice_anus_name$')]. I pull out — my member dripping wet with cum[Select_CString(orgy_character.IsFemale, ' and the woman's own juices', '')].\n\n[orgy_character.GetSheHe|U] immediately turns around, and eagerly licks and sucks my cock clean. I thank [orgy_character.GetHerHim] for the good time. Without knowing who I just came inside, we part ways."
+ ie_orgy.2003.a:0 "Maybe it is better not knowing."
+ ie_orgy.2003.a.tt:0 "You continue enjoying yourself at the orgy"
+
+ ie_orgy.2004.desc:0 "While continuing to fuck [orgy_character.GetHerHim] from behind, I pull the mask loose and it falls to the floor. The [orgy_character.GetWomanMan] is so consumed by pleasure and excitement that [orgy_character.GetSheHe] does not even notice.\n\nI pull out, toss [orgy_character.GetHerHim] onto [orgy_character.GetHerHis] back, and immediately — before even looking at [orgy_character.GetHerHis] face — plunge myself deep inside of [orgy_character.GetHerHim] again. Only then do I look to see who [orgy_character.GetSheHe] is.\n\nI freeze when I see the face of [orgy_character.Custom2('MyCharacterIntroduction', ROOT.Char )]. I never expected [orgy_character.GetHerHim] to attend a gathering like this, or for me to end up fucking [orgy_character.GetHerHim]. [orgy_character.GetSheHe|U] looks at me — wondering why I stopped — before realizing that [orgy_character.GetHerHis] mask had come off. For a moment I see panic in [orgy_character.GetHerHis] eyes, but at the same time [orgy_character.GetSheHe] is still incredibly aroused.\n\n"Keep going!" [orgy_character.GetSheHe] says, while putting [orgy_character.GetHerHis] mask back on."
+ ie_orgy.2004.a:0 "Of course."
+ ie_orgy.2004.a.tt:0 "You continue fucking [orgy_character.GetShortUIName], as if nothing happened"
+ ie_orgy.2004.b:0 "No, I cannot."
+ ie_orgy.2004.b.tt:0 "You cannot continue, knowing who [orgy_character.GetSheHe] is"

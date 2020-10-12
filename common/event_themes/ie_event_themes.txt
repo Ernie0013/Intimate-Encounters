@@ -1,0 +1,12 @@
+﻿### Fix for original ###
+seduction = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/type_seduction.dds"
+	}
+	sound = {
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_seduction"
+	}
+	background = {
+		event_background = bedchamber
+	}
+}

@@ -442,6 +442,21 @@ GetVaginaAnus = {
 	}
 }
 
+GetVulgarVaginaAnus = {
+	type = character
+
+	text = {
+		trigger = {
+			is_female = yes
+		}
+		localization_key = genitals_vulgar_vagina
+	}
+
+	text = {
+		localization_key = penetrated_orifice_anus_name
+	}
+}
+
 GetArmHips = {
 	type = character
 

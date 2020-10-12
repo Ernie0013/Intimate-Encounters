@@ -1,0 +1,16 @@
+﻿ie_orgy_event_selection = {
+	trigger = {
+		exists = scope:activity
+	}
+	random_events = {
+		100 = ie_orgy.2000 # Random orgy event
+		100 = ie_orgy.2001 # Revelation
+	}
+	fallback = ie_orgy_fallback
+}
+
+ie_orgy_fallback = {
+	events = {
+		ie_orgy.0001 # Try to end orgy if no relevant event was found
+	}
+}

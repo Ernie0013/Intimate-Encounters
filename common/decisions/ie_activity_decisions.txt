@@ -1,0 +1,43 @@
+﻿ie_host_orgy_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	ai_check_interval = 60
+
+	cost = { gold = orgy_cost }
+
+	cooldown = { days = standard_orgy_cooldown_time }
+
+	desc = ie_host_orgy_decision_desc
+	selection_tooltip = ie_host_orgy_decision_tooltip
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		capital_province = {
+			spawn_activity = {
+				type = ie_activity_orgy
+				owner = root
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 50
+			short_term_gold > 450
+			has_trait = lustful
+		}
+	}
+}

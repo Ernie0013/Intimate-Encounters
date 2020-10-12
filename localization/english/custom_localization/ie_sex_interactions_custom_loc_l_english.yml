@@ -1,7 +1,11 @@
 ﻿l_english:
 
+ genitals_interaction_giving:0 "I [ROOT.Char.Custom2('GenitalsInteractionGiving', SCOPE.sC('second'))]"
+ genitals_interaction_receiving:0 "[second.GetSheHe] [ROOT.Char.Custom2('GenitalsInteractionReceiving', SCOPE.sC('second'))]"
+ genitals_interaction_receiving_with_name:0 "[second.GetFirstNameNoTooltip] [ROOT.Char.Custom2('GenitalsInteractionReceiving', SCOPE.sC('second'))]"
+
  genitals_interaction_penetrate_giving:0 "penetrate [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
- genitals_interaction_penetrate_receiving:0 "penetrates my [ROOT.Char.Custom2('GetPenetratedOrifice', second)] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')"
+ genitals_interaction_penetrate_receiving:0 "penetrates my [ROOT.Char.Custom2('GetPenetratedOrifice', second)] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')]"
 
  genitals_interaction_enter_giving:0 "enter [second.GetHerHis] [second.Custom2('GetPenetratedOrifice', ROOT.Char)] with my [ROOT.Char.Custom('GetPenetratingAppendage')]"
  genitals_interaction_enter_receiving:0 "enters my [ROOT.Char.Custom2('GetPenetratedOrifice', ROOT.Char)] with [second.GetHerHis] [second.Custom('GetPenetratingAppendage')]"

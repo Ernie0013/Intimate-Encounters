@@ -1,0 +1,137 @@
+﻿ie_orgy_attire_effect = {
+	add_character_flag = {
+		flag = is_naked
+		days = 180 # So character won't stay naked forever if something goes wrong
+	}
+	add_trait = ie_masked
+}
+
+ie_orgy_attire_remove_effect = {
+	remove_character_flag = is_naked
+	remove_trait = ie_masked
+}
+
+ie_orgy_concluded_my_events_effect = {
+	save_temporary_scope_as = finished_participant
+	scope:activity = {
+		add_to_variable_list = {
+			name = finished_participants
+			target = scope:finished_participant
+		}
+	}
+}
+
+ie_orgy_fire_random_event_effect = {
+	trigger_event = {
+		on_action = ie_orgy_event_selection
+		days = { min_orgy_event_spacing max_orgy_event_spacing }
+	}
+}
+
+ie_orgy_wrap_up_or_fire_random_event_effect = {
+	if = {
+		limit = {
+			NOT = { exists = local_var:num_of_orgy_events }
+		}
+		set_local_variable = {
+			name = num_of_orgy_events
+			value = 1
+		}
+		ie_orgy_fire_random_event_effect = yes
+	}
+	else = {
+		change_local_variable = {
+			name = num_of_orgy_events
+			add = 1
+		}
+		if = {
+			limit = { # Check the number of events fired
+				local_var:num_of_orgy_events < max_default_orgy_events
+			}
+			# If below the max number check whether to fire more
+			if = {
+				limit = {
+					local_var:num_of_orgy_events >= min_default_orgy_events
+				}
+				random_list = {
+					0 = {
+						modifier = { add = chance_of_extra_orgy_events }
+						ie_orgy_fire_random_event_effect = yes
+					}
+					100 = {
+						modifier = {
+							add = {
+								subtract = chance_of_extra_orgy_events
+							}
+						}
+						ie_orgy_concluded_my_events_effect = yes
+					}
+				}
+			}
+			else = {
+				ie_orgy_fire_random_event_effect = yes
+			}
+		}
+		else = {
+			ie_orgy_concluded_my_events_effect = yes
+		}
+	}
+}
+
+#############
+# Sometimes there just isn't any guest our character is interested in, then we
+# need to hire a professional.
+#############
+ie_orgy_generate_prostitute_effect = {
+	debug_log_scopes = yes
+	create_character = {
+		location = scope:activity.activity_province
+		faith = scope:activity.activity_province.county.faith
+		culture = scope:activity.activity_province.county.culture
+		template = ie_seductive_character_template
+		dynasty = none
+		save_temporary_scope_as = prostitute
+	}
+
+	scope:prostitute = {
+		if = {
+			limit = {
+				OR = {
+					has_game_rule = carn_prostitution_content_any_gender
+					AND = {
+						is_male = yes
+						has_game_rule = carn_prostitution_content_male_only
+					}
+					AND = {
+						is_female = yes
+						has_game_rule = carn_prostitution_content_female_only
+					}
+				}
+			}
+			carn_start_working_as_prostitute_effect = yes
+		}
+		if = {
+			limit = {
+				root = { is_attracted_to_gender_of = scope:prostitute }
+				NOT = { is_attracted_to_gender_of = root }
+			}
+			random_list = {
+				75 = {
+					set_sexuality = bisexual
+				}
+				25 = {
+					if = {
+						limit = {
+							sex_same_as = root
+						}
+						set_sexuality = homosexual
+					}
+					else = {
+						set_sexuality = heterosexual
+					}
+				}
+			}
+		}
+		ie_orgy_attire_effect = yes
+	}
+}

@@ -1,0 +1,615 @@
+﻿#######################
+# 0001 - Ending event
+# 1001-1005 - Functionality events
+# 2000+ - Regular events triggered by on_actions
+# 9999 - Fallback event for when no other events trigger
+
+namespace = ie_orgy
+
+
+scripted_trigger ie_orgy_end_events_participant_trigger = {
+	NOT = { this = scope:host }
+	is_alive = yes
+	is_imprisoned = no
+}
+
+# Ending event
+ie_orgy.0001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		exists = scope:activity
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					# Everyone has wrapped up their events
+					scope:activity = {
+						# debug_log_details = checking_participants
+						any_participant = {
+							count = all
+							trigger_if = {
+								limit = {
+									is_alive = yes
+									is_imprisoned = no
+								}
+								save_temporary_scope_as = participant_check
+								scope:activity = {
+									is_target_in_variable_list = {
+										name = finished_participants
+										target = scope:participant_check
+									}
+								}
+							}
+							trigger_else = { always = yes }
+						}
+					}
+					# There exists a special exception
+					exists = scope:activity.var:end__now
+					# Has attempted to wrap up the feast already
+					AND = {
+						trigger_if = {
+							limit = {
+								exists = scope:activity.var:attempted_to_end_orgy
+							}
+							scope:activity.var:attempted_to_end_orgy > 2
+						}
+						trigger_else = {
+							always = no
+						}
+					}
+				}
+			}
+			scope:activity = {
+				activity_owner = {
+					save_scope_as = host
+				}
+				every_participant = {
+					limit = { ie_orgy_end_events_participant_trigger = yes }
+					trigger_event = ie_orgy.1004
+				}
+				activity_owner = {
+					trigger_event = ie_orgy.1003
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:activity.var:attempted_to_end_orgy } }
+			scope:activity = {
+				set_variable = {
+					name = attempted_to_end_orgy
+					value = 1
+				}
+			}
+		}
+		else = {
+			scope:activity = {
+				change_variable = {
+					name = attempted_to_end_orgy
+					add = 1
+				}
+			}
+		}
+		trigger_event = {
+			id = ie_orgy.0001
+			days = 20
+		}
+	}
+}
+
+# Invite prostitute
+ie_orgy.0002 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		exists = scope:activity
+
+		scope:activity = {
+			NOT = {
+				any_participant = {
+					NOT = { this = root }
+					root = {
+						is_attracted_to_gender_of = prev
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		ie_orgy_generate_prostitute_effect = yes
+		scope:activity = {
+			hidden_effect = { invite_character_to_activity = scope:prostitute }
+			accept_invitation_for_character = scope:prostitute
+		}
+	}
+}
+
+# Invitation letter
+ie_orgy.1001 = {
+	type = letter_event
+	opening = ie_orgy.1001.t
+	desc = ie_orgy.1001.desc
+	sender = {
+		character = scope:host
+		hide_info = yes
+	}
+
+	immediate = {
+		scope:activity.activity_owner = { save_scope_as = host }
+	}
+
+  	#Yes!
+	option = {
+		name = ie_orgy.1001.a
+
+		play_music_cue = "mx_cue_seduction"
+		scope:activity = {
+			accept_invitation_for_character = prev
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 25
+				has_trait = lustful
+			}
+			modifier = {
+				add = 25
+				has_trait = rakish
+			}
+		}
+	}
+
+	#No...
+	option = {
+		name = ie_orgy.1001.b
+
+		scope:activity = {
+			decline_invitation_for_character = prev
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 25
+				has_trait = chaste
+			}
+			modifier = {
+				add = 50
+				has_trait = celibate
+			}
+			ai_value_modifier = {
+				ai_zeal = 1.5
+			}
+		}
+	}
+}
+
+# No guests came :(
+ie_orgy.1002 = {
+	type = character_event
+	title = ie_orgy.1002.t
+	desc = ie_orgy.1002.desc
+	theme = seduction
+	left_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	option = {
+		name = ie_orgy.1002.a
+		
+		scope:activity = {
+			complete_activity = yes
+		}
+	}
+}
+
+# End for host
+ie_orgy.1003 = {
+	type = character_event
+	title = ie_orgy.1003.t
+	desc = {
+		desc = ie_orgy.1003.start.desc
+		desc = ie_orgy.1003.end.desc
+	}
+	theme = seduction
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+
+	trigger = { exists = scope:activity }
+	
+	option = {
+		name = ie_orgy.1003.a
+
+		scope:activity = {
+			complete_activity = yes
+		}
+	}
+}
+
+# End for guest
+ie_orgy.1004 = {
+	type = character_event
+	title = ie_orgy.1003.t
+	desc = {
+		desc = ie_orgy.1004.start.desc
+		desc = ie_orgy.1003.end.desc
+	}
+	theme = seduction
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	
+	option = {
+		name = ie_orgy.1003.a
+		custom_tooltip = ie_orgy.1004.tt
+	}
+}
+
+#######################
+# Random orgy event
+# by Ernie Collins
+# 2000
+#######################
+ie_orgy.2000 = {
+	type = character_event
+	title = ie_orgy.2000.t
+	desc = {
+		desc = ie_orgy.2000.desc
+		triggered_desc = {
+			trigger = {
+				scope:orgy_character = scope:activity.activity_owner
+			}
+			desc = ie_orgy.2000.desc.host
+		}
+		triggered_desc = {
+			trigger = {
+				exists = scope:orgy_character2
+			}
+			desc = ie_orgy.2000.desc.threesome
+		}
+	}
+	theme = seduction
+	left_portrait = {
+		character = scope:orgy_character
+		animation = flirtation_left
+		hide_info = yes
+	}
+	right_portrait = {
+		character = scope:orgy_character2
+		animation = ecstasy
+		hide_info = yes
+	}
+
+	trigger = {
+		NOT = {
+			exists = local_var:had_2000
+		}
+		scope:activity = {
+			any_participant = {
+				NOT = { this = root }
+				root = {
+					is_attracted_to_gender_of = prev
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_local_variable = {
+			name = had_2000
+			value = yes
+		}
+
+		scope:activity = {
+			random_participant = {
+				limit = {
+					NOT = { this = root }
+					root = {
+						is_attracted_to_gender_of = prev
+					}
+				}
+				save_scope_as = orgy_character
+			}
+			if = {
+				limit = { any_participant = { count > 1 } }
+				random_participant = {
+					limit = {
+						NOR = {
+							this = root
+							this = scope:orgy_character
+						}
+					}
+					save_scope_as = orgy_character2
+				}
+			}
+		}
+
+		hidden_effect = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:orgy_character
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = no # We'll handle secrets ourselves
+			}
+			# Only give the secret to Root, because AI will fire these events as well and have the same/other characters present
+			give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = scope:orgy_character }
+
+			if = {
+				limit = { exists = scope:orgy_character2 }
+
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = root
+					CHARACTER_2 = scope:orgy_character2
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
+					DRAMA = no # We'll handle secrets ourselves
+				}
+				give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = scope:orgy_character2 }
+
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = scope:orgy_character
+					CHARACTER_2 = scope:orgy_character2
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
+					DRAMA = no # We'll handle secrets ourselves
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ie_orgy.2000.a
+		custom_tooltip = ie_orgy.2000.tt
+	}
+
+	after = {
+		hidden_effect = {
+			ie_orgy_wrap_up_or_fire_random_event_effect = yes
+		}
+	}
+}
+
+#######################
+# Revelation during the orgy
+# by Ernie Collins
+# 2001-2004
+#######################
+ie_orgy.2001 = {
+	type = character_event
+	title = ie_orgy.2001.t
+	desc =  ie_orgy.2001.desc
+
+	theme = seduction
+	left_portrait = {
+		character = scope:orgy_character
+		animation = flirtation_left
+		hide_info = yes
+	}
+
+	trigger = {
+		NOT = {
+			exists = local_var:had_2001
+		}
+		scope:activity = {
+			any_participant = {
+				NOT = { this = root }
+				root = {
+					is_attracted_to_gender_of = prev
+				}
+			}
+		}
+		carn_gender_can_impregnate_trigger = yes
+	}
+
+	immediate = {
+		set_local_variable = {
+			name = had_2001
+			value = yes
+		}
+
+		scope:activity = {
+			random_participant = {
+				limit = {
+					NOT = { this = root }
+					root = {
+						is_attracted_to_gender_of = prev
+					}
+				}
+				save_scope_as = orgy_character
+			}
+		}
+	}
+
+	option = {
+		name = ie_orgy.2001.a
+		trigger_event = ie_orgy.2002
+	}
+}
+
+# The choice
+ie_orgy.2002 = {
+	type = character_event
+	title = ie_orgy.2001.t
+	desc =  ie_orgy.2002.desc
+
+	theme = seduction
+	left_portrait = {
+		character = scope:orgy_character
+		animation = flirtation_left
+		hide_info = yes
+	}
+
+	option = {
+		name = ie_orgy.2002.a
+		trigger_event = ie_orgy.2003
+
+		stress_impact = {
+			curious = medium_stress_impact_gain
+			deceitful = minor_stress_impact_gain
+			paranoid = major_stress_impact_gain
+			stubborn = medium_stress_impact_gain
+		}
+		stress_impact = {
+			compassionate = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+			craven = minor_stress_impact_loss
+			shy = medium_stress_impact_loss
+			trusting = medium_stress_impact_loss
+		}
+	}
+
+	option = {
+		name = ie_orgy.2002.b
+		custom_tooltip = ie_orgy.2002.b.tt
+		trigger_event = ie_orgy.2004
+
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			content = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+			honest = minor_stress_impact_gain
+			humble = minor_stress_impact_gain
+			shy = major_stress_impact_gain
+			trusting = major_stress_impact_gain
+		}
+		stress_impact = {
+			arrogant = minor_stress_impact_loss
+			callous = minor_stress_impact_loss
+			curious = medium_stress_impact_loss
+			deceitful = medium_stress_impact_loss
+			greedy = minor_stress_impact_loss
+			paranoid = major_stress_impact_loss
+			stubborn = medium_stress_impact_loss
+		}
+	}
+}
+
+# Privacy respected
+ie_orgy.2003 = {
+	type = character_event
+	title = ie_orgy.2001.t
+	desc =  ie_orgy.2003.desc
+
+	theme = seduction
+	left_portrait = {
+		character = scope:orgy_character
+		animation = ecstasy
+		hide_info = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:orgy_character
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = no # We'll handle secrets ourselves
+			}
+			give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = scope:orgy_character }
+		}
+	}
+
+	option = {
+		name = ie_orgy.2003.a
+		custom_tooltip = ie_orgy.2003.a.tt
+	}
+
+	after = {
+		hidden_effect = {
+			ie_orgy_wrap_up_or_fire_random_event_effect = yes
+		}
+	}
+}
+
+# Revelation
+ie_orgy.2004 = {
+	type = character_event
+	title = ie_orgy.2001.t
+	desc =  ie_orgy.2004.desc
+
+	theme = seduction
+	left_portrait = {
+		character = scope:orgy_character
+		animation = ecstasy
+		hide_info = no # Just to make it explicit
+	}
+
+	immediate = {
+		hidden_effect = {
+			scope:orgy_character = {
+				remove_trait = ie_masked
+			}
+		}
+	}
+
+	option = {
+		name = ie_orgy.2004.a
+		custom_tooltip = ie_orgy.2004.a.tt
+
+		hidden_effect = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:orgy_character
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = no # We'll handle secrets ourselves
+			}
+		}
+
+		give_incest_secret_or_nothing_with_target_effect = { CHARACTER = scope:orgy_character }
+		give_homosexual_secret_or_nothing_with_target_effect = { CHARACTER = scope:orgy_character }
+
+		stress_impact = {
+			chaste = medium_stress_impact_gain
+		}
+		stress_impact = {
+			arrogant = minor_stress_impact_loss
+			deviant = major_stress_impact_loss
+			lustful = medium_stress_impact_loss
+			rakish = medium_stress_impact_loss
+			seducer = minor_stress_impact_loss
+		}
+		
+	}
+
+	option = {
+		name = ie_orgy.2004.b
+		custom_tooltip = ie_orgy.2004.b.tt
+
+		stress_impact = {
+			deviant = medium_stress_impact_gain
+			lustful = medium_stress_impact_gain
+			rakish = medium_stress_impact_gain
+			seducer = medium_stress_impact_gain
+		}
+		stress_impact = {
+			chaste = medium_stress_impact_loss
+			craven = medium_stress_impact_loss
+			zealous = medium_stress_impact_loss
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:orgy_character = {
+				add_trait = ie_masked
+			}
+			ie_orgy_wrap_up_or_fire_random_event_effect = yes
+		}
+	}
+}
