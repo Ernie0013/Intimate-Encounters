@@ -112,6 +112,7 @@ ie_orgy.0002 = {
 			NOT = {
 				any_participant = {
 					NOT = { this = root }
+					is_attracted_to_gender_of = root
 					root = {
 						is_attracted_to_gender_of = prev
 					}
@@ -405,6 +406,7 @@ ie_orgy.2001 = {
 		scope:activity = {
 			any_participant = {
 				NOT = { this = root }
+				is_attracted_to_gender_of = root
 				root = {
 					is_attracted_to_gender_of = prev
 				}
