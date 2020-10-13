@@ -1,8 +1,7 @@
 ﻿ie_activity_orgy = {
 	expiration_days = 300
-	has_activity_window = yes
 	days_until_auto_start = 20
-	frame = 3
+	frame = 2
 	color = { 0.853906 0.867188 0.105469 1 }
 
 	valid = {
