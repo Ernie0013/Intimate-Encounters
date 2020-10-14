@@ -554,6 +554,17 @@ ie_orgy.2004 = {
 		hidden_effect = {
 			scope:orgy_character = {
 				remove_trait = ie_masked
+				give_deviant_secret_or_trait_effect = yes
+			}
+		}
+
+		scope:orgy_character = {
+			random_secret = {
+				limit = {
+					secret_type = secret_deviant
+					NOT = { is_known_by = root }
+				}
+				reveal_to = root
 			}
 		}
 	}
