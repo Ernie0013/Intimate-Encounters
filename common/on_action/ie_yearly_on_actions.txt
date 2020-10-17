@@ -5,3 +5,10 @@
 		100 = ie_yearly.1010 # Dreaming Big
 	}
 }
+
+on_16th_birthday = {
+	events = {
+		delay = { days = { 7 21 } }
+		ie_coming_of_age.0001
+	}
+}

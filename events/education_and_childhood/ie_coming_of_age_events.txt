@@ -1,0 +1,326 @@
+﻿namespace = ie_coming_of_age
+
+ie_coming_of_age.0001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		is_ai = yes
+		is_female = yes
+		exists = root.father
+		exists = root.mother
+		is_attracted_to_gender_of = root.father
+		OR = {
+			sexually_liberal_trigger = yes
+			has_trait = incestuous
+			has_trait = witch
+			AND = {
+				root.father = {
+					has_trait = beauty_good
+				}
+				NOT = { has_trait = chaste }
+			}
+		}
+		NOR = {
+			secret_disputed_heritage_is_valid_trigger = {
+				TARGET = root
+			}
+			has_trait = incapable
+		}
+		root.father = {
+			relation_with_character_is_incestuous_in_my_faith_trigger = {
+				CHARACTER = prev.mother
+			}
+		}
+	}
+
+	immediate = {
+		save_scope_as = child_who_has_come_of_age
+
+		scope:child_who_has_come_of_age.father = {
+			trigger_event = ie_coming_of_age.1001
+		}
+	}
+}
+
+# Parent tells child of child's incestuous conception
+ie_coming_of_age.1001 = {
+	type = character_event
+	title = ie_coming_of_age.1001.t
+	desc = ie_coming_of_age.1001.desc
+
+	theme = education
+	left_portrait = {
+		character = scope:child_who_has_come_of_age
+		animation = worry
+	}
+
+	trigger = {
+		is_ai = no # The AI has enough incest as is
+	}
+
+	option = {
+		name = ie_coming_of_age.1001.a
+	}
+
+	option = {
+		name = ie_coming_of_age.1001.b
+		trigger_event = ie_coming_of_age.1002
+
+		show_as_tooltip = {
+			carn_had_sex_with_effect = {
+				CHARACTER_1 = root
+				CHARACTER_2 = scope:child_who_has_come_of_age
+				C1_PREGNANCY_CHANCE = pregnancy_chance
+				C2_PREGNANCY_CHANCE = pregnancy_chance
+				STRESS_EFFECTS = yes
+				DRAMA = yes
+			}
+		}
+
+		stress_impact = {
+			zealous = major_stress_impact_gain
+		}
+		stress_impact = {
+			lustful = major_stress_impact_loss
+		}
+	}
+
+}
+
+ie_coming_of_age.1002 = {
+	type = character_event
+	title = ie_coming_of_age.1001.t
+	desc = ie_coming_of_age.1002.desc
+
+	theme = education
+	left_portrait = {
+		character = scope:child_who_has_come_of_age
+		animation = flirtation_left
+	}
+
+	immediate = {
+		scope:child_who_has_come_of_age = {
+			add_character_flag = {
+				flag = is_naked
+				days = 180 # So character won't stay naked forever if something goes wrong
+			}
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1002.a
+		set_variable = {
+			name = sex_location
+			value = flag:chair
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1002.b
+		set_variable = {
+			name = sex_location
+			value = flag:floor
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1002.c
+		set_variable = {
+			name = sex_location
+			value = flag:desk
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1002.d
+		set_variable = {
+			name = sex_location
+			value = flag:wall
+		}
+	}
+
+	after = {
+		trigger_event = ie_coming_of_age.1003
+	}
+}
+
+ie_coming_of_age.1003 = {
+	type = character_event
+	title = ie_coming_of_age.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:sex_location = flag:chair }
+				desc = ie_coming_of_age.1003.desc.1.chair
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:floor }
+				desc = ie_coming_of_age.1003.desc.1.floor
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:desk }
+				desc = ie_coming_of_age.1003.desc.1.desk
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:wall }
+				desc = ie_coming_of_age.1003.desc.1.wall
+			}
+		}
+		desc = ie_coming_of_age.1003.desc.1
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:sex_location = flag:chair }
+				desc = ie_coming_of_age.1003.desc.2.chair
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:floor }
+				desc = ie_coming_of_age.1003.desc.2.floor
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:desk }
+				desc = ie_coming_of_age.1003.desc.2.desk
+			}
+			triggered_desc = {
+				trigger = { var:sex_location = flag:wall }
+				desc = ie_coming_of_age.1003.desc.2.wall
+			}
+		}
+		desc = ie_coming_of_age.1003.desc.2
+	}
+
+	theme = education
+	left_portrait = {
+		character = scope:child_who_has_come_of_age
+		animation = ecstasy
+	}
+
+	immediate = {
+		scope:child_who_has_come_of_age = {
+			add_character_flag = {
+				flag = is_naked
+				days = 180 # So character won't stay naked forever if something goes wrong
+			}
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1003.a
+		set_variable = {
+			name = cum_inside
+			value = yes
+		}
+	}
+
+	option = {
+		name = ie_coming_of_age.1003.b
+	}
+
+	after = {
+		trigger_event = ie_coming_of_age.1004 
+	}
+}
+
+ie_coming_of_age.1004 = {
+	type = character_event
+	title = ie_coming_of_age.1001.t
+	desc = {
+		desc = ie_coming_of_age.1004.desc.1
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = var:cum_inside }
+				desc = ie_coming_of_age.1004.desc.1.inside
+			}
+			desc = ie_coming_of_age.1004.desc.1.outside
+		}
+		desc = ie_coming_of_age.1004.desc.2
+	}
+
+	theme = education
+	left_portrait = {
+		character = scope:child_who_has_come_of_age
+		animation = ecstasy
+	}
+
+	immediate = {
+		scope:child_who_has_come_of_age = {
+			add_character_flag = {
+				flag = is_naked
+				days = 180 # So character won't stay naked forever if something goes wrong
+			}
+		}
+
+		hidden_effect = {
+			if = {
+				limit = { exists = var:cum_inside }
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = root
+					CHARACTER_2 = scope:child_who_has_come_of_age
+					C1_PREGNANCY_CHANCE = pregnancy_chance
+					C2_PREGNANCY_CHANCE = pregnancy_chance
+					STRESS_EFFECTS = yes
+					DRAMA = yes
+				}
+			}
+			else = {
+				carn_had_sex_with_effect = {
+					CHARACTER_1 = root
+					CHARACTER_2 = scope:child_who_has_come_of_age
+					C1_PREGNANCY_CHANCE = 0
+					C2_PREGNANCY_CHANCE = 0
+					STRESS_EFFECTS = yes
+					DRAMA = yes
+				}
+			}
+		}
+		
+	}
+
+	option = {
+		name = ie_coming_of_age.1004.a
+		set_relation_lover = scope:child_who_has_come_of_age
+	}
+
+	option = {
+		name = ie_coming_of_age.1004.b
+
+		random_list = {
+			10 = {
+				modifier = {
+					add = 80
+					sexually_liberal_trigger = yes
+				}
+				show_chance = no
+				reverse_add_opinion = {
+					target = scope:child_who_has_come_of_age
+					modifier = pleased_opinion
+					opinion = 20
+				}
+				desc = ie_coming_of_age.1004.b.positive_outcome
+			}
+			10 = {
+				modifier = {
+					add = 80
+					sexually_liberal_trigger = no
+				}
+				show_chance = no
+				reverse_add_opinion = {
+					target = scope:child_who_has_come_of_age
+					modifier = disappointed_opinion
+					opinion = -20
+				}
+				desc = ie_coming_of_age.1004.b.negative_outcome
+			}
+		}
+	}
+
+	after = {
+		scope:child_who_has_come_of_age = {
+			remove_character_flag = is_naked
+		}
+		if = {
+			limit = { exists = var:cum_inside }
+			remove_variable = cum_inside
+		}
+	}
+}
