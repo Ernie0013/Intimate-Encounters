@@ -967,6 +967,9 @@ ie_yearly.1013 = {
 	}
 
 	option = {
+		trigger = {
+			has_game_rule = carn_content_painful_on
+		}
 		name = ie_yearly.1013.c
 		flavor = ie_yearly.1013.c.f
 		custom_tooltip = ie_yearly.1013.c.tt
